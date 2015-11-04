@@ -1,0 +1,50 @@
+name = Cadáveres inmobiliarios
+description = Cadáveres inmobiliarios install profile for drupal.
+version = 7.x-1.0
+core = 7.x
+files[] = c_inmobiliarios.profile
+
+; Core
+dependencies[] = dblog
+dependencies[] = image
+dependencies[] = path
+dependencies[] = locale
+dependencies[] = search
+dependencies[] = rdf
+
+; Core - Field
+dependencies[] = field_ui
+
+; Core - Field types
+dependencies[] = file
+dependencies[] = list
+dependencies[] = options
+dependencies[] = text
+
+; Core - Content
+dependencies[] = block
+dependencies[] = menu
+dependencies[] = taxonomy
+dependencies[] = translation
+dependencies[] = filter
+
+; Core - UI
+dependencies[] = help
+dependencies[] = toolbar
+dependencies[] = contextual
+dependencies[] = shortcut
+
+; Contrib - Tools
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = libraries
+dependencies[] = strongarm
+dependencies[] = module_filter
+dependencies[] = views
+dependencies[] = wysiwyg
+
+; Features
+;dependencies[] = ft_c_inmobiliarios_core
+
+; Custom
+;dependencies[] = features_helper

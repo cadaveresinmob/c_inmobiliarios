@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for WYSIWYG feature.
+ */
+
+include_once 'ft_wysiwyg.features.inc';
