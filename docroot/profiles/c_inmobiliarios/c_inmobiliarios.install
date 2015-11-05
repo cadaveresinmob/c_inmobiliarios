@@ -119,13 +119,14 @@ function c_inmobiliarios_install() {
 function c_inmobiliarios_enable_default_modules() {
   $modules = array(
     // Modules.
-    'backup_migrate',
+    'field_group',
     'link',
     'linkit',
     'views',
     'wysiwyg',
     // Features.
     'ft_c_inmobiliarios_core',
+    'ft_c_inmobiliarios_corpses',
     'ft_wysiwyg',
   );
 
