@@ -101,13 +101,13 @@ function c_inmobiliarios_install() {
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
 
-  // Set c_inmobiliarios_zen as default theme.
+  // Set default theme.
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'c_inmobiliarios_zen')
+    ->condition('name', 'garland')
     ->execute();
-  variable_set('theme_default','c_inmobiliarios_zen');
+  variable_set('theme_default','garland');
 
   // Enable the default modules and features.
   c_inmobiliarios_enable_default_modules();
