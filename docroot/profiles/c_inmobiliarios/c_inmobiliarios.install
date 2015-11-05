@@ -105,9 +105,9 @@ function c_inmobiliarios_install() {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'garland')
+    ->condition('name', 'bartik')
     ->execute();
-  variable_set('theme_default','garland');
+  variable_set('theme_default','bartik');
 
   // Enable the default modules and features.
   c_inmobiliarios_enable_default_modules();
