@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Code for the Cadáveres inmobiliarios' corpses feature.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ft_c_inmobiliarios_corpses_install() {
+  // Generates 'Typology' vocabulary if does not exist.
+  $vocabulary = taxonomy_vocabulary_load(variable_get('corpse_type', 0));
+  if (!$vocabulary) {
+    $edit = array (
+      'name' => t('Corpse\'s Type'),
+      'machine_name'=> 'corpse_type',
+      'description' => t('Urban corpse\'s type'),
+      'module' => 'ft_c_inmobiliarios_corpses',
+    );
+    $vocabulary = (object) $edit;
+    taxonomy_vocabulary_save($vocabulary);
+  }
+  // Populates 'Typology' vocabulary with taxonomy terms.
+  $vocabulary = taxonomy_vocabulary_machine_name_load('corpse_type');
+  $terms = array();
+
+  $terms[] = t('DEO - Desarrollo ligado a instalaciones de ocio');
+  $terms[] = t('DEN - Desarrollo ligado a espacios naturales');
+  $terms[] = t('NEU - Nueva entidad urbana');
+  $terms[] = t('NOE - Nuevo desarrollo urbano');
+  $terms[] = t('TEA - Terciario aislado');
+  $terms[] = t('TEP - Terciario vinculado a población');
+  $terms[] = t('TIA - Infraestructuras de impacto territorial ');
+  $terms[] = t('ZIA - Zona industrial aislada');
+  $terms[] = t('ZIP - Zona industrial vinculada a población');
+
+  foreach($terms as $name) {
+    $term = new stdClass();
+    $term->vid = $vocabulary->vid;
+    $term->name = $name;
+    taxonomy_term_save($term);
+  }
+}
