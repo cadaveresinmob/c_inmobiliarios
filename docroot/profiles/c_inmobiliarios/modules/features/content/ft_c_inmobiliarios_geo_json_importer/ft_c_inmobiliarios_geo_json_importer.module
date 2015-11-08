@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Geo JSON importer feature.
+ */
+
+include_once 'ft_c_inmobiliarios_geo_json_importer.features.inc';

@@ -1,0 +1,12 @@
+name = Geo JSON importer
+description = GeoJSON's parser configuration + dependencies
+core = 7.x
+package = Cadáveres Inmobiliarios
+version = 7.x-1.0-alpha1
+dependencies[] = ctools
+dependencies[] = feeds
+dependencies[] = feeds_jsonpath_parser
+features[ctools][] = feeds:feeds_importer_default:1
+features[features_api][] = api:2
+features[feeds_importer][] = corpses_json
+project path = profiles/c_inmobiliarios/modules/features/content
