@@ -4,4 +4,4 @@
  * Code for the Cadáveres inmobiliarios' CSV Importer feature.
  */
 
-include_once 'ft_c_inmobilarios_feeds_csv.features.inc';
+include_once 'ft_c_inmobiliarios_feeds_csv.features.inc';

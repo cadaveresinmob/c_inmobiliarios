@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * ft_c_inmobilarios_feeds_csv.feeds_importer_default.inc
+ * ft_c_inmobiliarios_feeds_csv.feeds_importer_default.inc
  */
 
 /**
  * Implements hook_feeds_importer_default().
  */
-function ft_c_inmobilarios_feeds_csv_feeds_importer_default() {
+function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
   $export = array();
 
   $feeds_importer = new stdClass();
