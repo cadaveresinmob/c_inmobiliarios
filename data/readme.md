@@ -1,0 +1,1 @@
+Archivos utilizados para hacer test con las migraciones de datos. El archivo ha sido generado a partir del Google Drive y ha sido modificado posteriormente con [este script](https://github.com/ccamara/c_inmobiliarios_data) (en fase alpha). 
