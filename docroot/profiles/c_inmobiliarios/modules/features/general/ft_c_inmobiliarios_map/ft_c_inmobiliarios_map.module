@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cadáveres inmobiliarios' map feature.
+ */
+
+include_once 'ft_c_inmobiliarios_map.features.inc';
