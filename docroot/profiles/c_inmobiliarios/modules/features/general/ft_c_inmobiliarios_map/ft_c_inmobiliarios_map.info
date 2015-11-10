@@ -1,8 +1,10 @@
 name = Cadáveres inmobiliarios' map
+description = Urban corpses' map configuration.
 core = 7.x
 package = Cadáveres Inmobiliarios
 version = 7.x-1.0
 dependencies[] = ft_c_inmobiliarios_core
+dependencies[] = ft_c_inmobiliarios_corpses
 dependencies[] = ip_geoloc
 dependencies[] = leaflet
 dependencies[] = leaflet_markercluster
