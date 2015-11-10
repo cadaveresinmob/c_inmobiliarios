@@ -1,0 +1,8 @@
+name = Cadáveres inmobiliarios' services
+description = Configurations to serve content to 3rd parties as a service.
+core = 7.x
+package = Cadáveres Inmobiliarios
+version = 7.x-1.0-alpha1
+dependencies[] = services
+features[features_api][] = api:2
+project path = profiles/c_inmobiliarios/modules/features/general
