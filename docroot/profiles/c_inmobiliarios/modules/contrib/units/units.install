@@ -1,0 +1,225 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall hooks of the Units module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function units_schema() {
+  $schema = array();
+
+  $schema['units_unit'] = array(
+    'description' => 'Store information on unit types.',
+    'fields' => array(
+      'umid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique unit measure ID.',
+      ),
+      'measure' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => '{units_measure}.measure that this unit measure is capable of measuring.',
+      ),
+      'machine_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Machine readable name of unit measure.',
+      ),
+      'label' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Human readable name of unit measure.',
+      ),
+      'symbol' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Symbol that corresponds to this unit measure.',
+        'default' => '',
+      ),
+      'description' => array(
+        'description' => 'Description of measure.',
+        'type' => 'text',
+        'size' => 'medium',
+      ),
+      'factor' => array(
+        'type' => 'float',
+        'description' => 'Factor multiplying value by which, you will get the same value in SI unit measure or any other standardized unit measure.',
+        'not null' => TRUE,
+        'default' => 0.0,
+      ),
+      'status' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        // Set the default to ENTITY_CUSTOM without using the constant as it is
+        // not safe to use it at this point.
+        'default' => 0x01,
+        'size' => 'tiny',
+        'description' => 'The exportable status of the entity.',
+      ),
+      'module' => array(
+        'description' => 'The name of the providing module if the entity has been defined in code.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ),
+    ),
+    'primary key' => array('umid'),
+    'foreign keys' => array(
+      'units_measure' => array(
+        'table' => 'units_measure',
+        'columns' => array('measure' => 'measure'),
+      ),
+    ),
+    'unique keys' => array(
+      'machine_name' => array('machine_name'),
+    ),
+  );
+
+  $schema['units_measure'] = array(
+    'description' => 'Store information on measures.',
+    'fields' => array(
+      'mid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique measure ID.',
+      ),
+      'measure' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Machine readable name of measure.',
+      ),
+      'label' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'description' => 'Human readable name of measure.',
+      ),
+      'description' => array(
+        'description' => 'Description of measure.',
+        'type' => 'text',
+        'size' => 'medium',
+      ),
+      'converter' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'Name of cTools units converter plugin responsible for converting units in this measure.',
+      ),
+      'status' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        // Set the default to ENTITY_CUSTOM without using the constant as it is
+        // not safe to use it at this point.
+        'default' => 0x01,
+        'size' => 'tiny',
+        'description' => 'The exportable status of the entity.',
+      ),
+      'module' => array(
+        'description' => 'The name of the providing module if the entity has been defined in code.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ),
+    ),
+    'primary key' => array('mid'),
+    'unique keys' => array(
+      'measure' => array('measure'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Update to version of Units module, that supports 'symbol' for 'units_unit'
+ * entity type.
+ */
+function units_update_7101() {
+  // Adding 'symbol' column to the 'units_unit' table.
+  $table = 'units_unit';
+  $column = 'symbol';
+  if (!db_field_exists($table, $column)) {
+    $schema = drupal_get_schema($table, TRUE);
+    db_add_field($table, $column, $schema['fields'][$column]);
+  }
+
+  return t('Updated settings of Units module. Now it supports <em>symbol</em> property for units.');
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Update to version of Units module, that supports 'exportable' feature for
+ * 'units_unit' and 'units_measure' entity types.
+ */
+function units_update_7102() {
+  // Adding 'status' and 'module' columns to the 'units_unit' and
+  // 'units_measure' tables.
+  $tables = array('units_unit', 'units_measure');
+  $columns = array('status', 'module');
+  foreach($tables as $table) {
+    $schema = drupal_get_schema($table, TRUE);
+    foreach($columns as $column) {
+      if (!db_field_exists($table, $column)) {
+        db_add_field($table, $column, $schema['fields'][$column]);
+      }
+    }
+  }
+
+  return t('Updated settings of Units module. Now it supports Features exportables.');
+}
+
+/**
+ * Adapt existing measures to CTools units converters plugin scheme.
+ */
+function units_update_7103() {
+  $new_field = 'converter';
+  $old_field = 'convert_callback';
+  db_add_field('units_measure', $new_field, array(
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => TRUE,
+    'default' => '',
+    'description' => 'Name of cTools units converter plugin responsible for converting units in this measure.',
+  ));
+
+  $outstanding_measures = db_select('units_measure', 'm')
+    ->fields('m', array('label'))
+    ->condition($old_field, 'units_convert', '<>')
+    ->execute()
+    ->fetchCol();
+
+  db_update('units_measure')
+    ->fields(array(
+      $new_field => 'linear',
+    ))
+    ->condition($old_field, 'units_convert')
+    ->execute();
+  db_drop_field('units_measure', $old_field);
+
+  // For some reason without this clear cache the schema wouldn't get updated
+  // to the latest columns.
+  drupal_static_reset();
+  _cache_get_object('cache')->clear('schema', TRUE);
+
+  if (empty($outstanding_measures)) {
+    return t('Successfully migrated measures onto the new conversion logic.');
+  }
+  else {
+    return t('Successfully migrated measures onto the new conversion logic. The following measures likely to need a new conversion logic: %measures.', array(
+      '%measures' => implode(', ', $outstanding_measures),
+    ));
+  }
+}

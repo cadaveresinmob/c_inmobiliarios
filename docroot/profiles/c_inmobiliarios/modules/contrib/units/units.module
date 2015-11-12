@@ -1,0 +1,384 @@
+<?php
+
+/**
+ * @file
+ * Provide API for managing and converting units of measurement.
+ */
+
+/**
+ * Implements hook_entity_info().
+ */
+function units_entity_info() {
+  $entity_info = array();
+
+  $entity_info['units_unit'] = array(
+    'label' => t('Unit measurement'),
+    'entity class' => 'Entity',
+    'controller class' => 'EntityAPIControllerExportable',
+    'base table' => 'units_unit',
+    'fieldable' => TRUE,
+    'exportable' => TRUE,
+    'entity keys' => array(
+      'id' => 'umid',
+      'bundle' => 'measure',
+      'label' => 'label',
+      'name' => 'machine_name',
+    ),
+    'bundles' => array(),
+    'bundle keys' => array(
+      'bundle' => 'measure',
+    ),
+    'module' => 'units',
+    'access callback' => 'units_entity_access',
+  );
+
+  // We can't use here entity_load functions, nor EntityFieldQuery because
+  // entity info is not exposed to core yet.
+  $measures = db_select('units_measure', 'u_m')
+      ->fields('u_m', array('measure', 'label'))
+      ->execute()
+      ->fetchAllAssoc('measure');
+  foreach ($measures as $measure) {
+    $entity_info['units_unit']['bundles'][$measure->measure] = array(
+      'label' => $measure->label,
+    );
+  }
+
+  $entity_info['units_measure'] = array(
+    'label' => t('Measure'),
+    'entity class' => 'Entity',
+    'controller class' => 'EntityAPIControllerExportable',
+    'base table' => 'units_measure',
+    'fieldable' => FALSE,
+    'exportable' => TRUE,
+    'bundle of' => 'units_unit',
+    'entity keys' => array(
+      'id' => 'mid',
+      'label' => 'label',
+      'name' => 'measure',
+    ),
+    'module' => 'units',
+    'access callback' => 'units_entity_access',
+  );
+
+  return $entity_info;
+}
+
+/**
+ * Implements hook_ctools_plugin_type().
+ */
+function units_ctools_plugin_type() {
+  $plugins = array();
+
+  $plugins['converters'] = array(
+    'defaults' => array(
+      'title' => NULL,
+      'description' => NULL,
+      'convert callback' => NULL,
+    ),
+  );
+
+  return $plugins;
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function units_ctools_plugin_directory($owner, $plugin_type) {
+  switch ($owner) {
+    case 'units':
+      switch ($plugin_type) {
+        case 'converters':
+          return 'plugins/' . $plugin_type;
+      }
+      break;
+  }
+}
+
+/**
+ * Convert value measured in one unit into value measured in another unit.
+ *
+ * @param float $value
+ *   Value to be converted
+ * @param string $from
+ *   Units in which $value is measured. Supply machine-readable name of the unit
+ * @param string $to
+ *   Units in which $value needs to be converted. Supply machine-readable name
+ *   of the unit
+ * @param string $measure
+ *   Optional. Measure of value to be converted, normally the measure is looked
+ *   up using the provided $form and $to, but in case the same unit measure is
+ *   used in different measures, this parameter may narrow down unit measures
+ *   to necessary scope of the supplied measure.
+ *
+ * @return float
+ *   Value $value, converted from $from units into $to units
+ */
+function units_convert($value, $from, $to, $measure = NULL) {
+  if ($from == $to) {
+    // That's an easy one. Value converting from a unit into the same unit
+    // always will be the same value.
+    return $value;
+  }
+
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'units_unit')
+    ->propertyCondition('machine_name', array($from, $to));
+  if (!is_null($measure)) {
+    $query->entityCondition('bundle', $measure);
+  }
+  $result = $query->execute();
+  if (!isset($result['units_unit']) || count($result['units_unit']) != 2) {
+    // Probably wrong $from and/or $to were supplied, otherwise we would have
+    // got exactly 2 results.
+    return FALSE;
+  }
+
+  // Loading entities.
+  $entities = units_unit_load_multiple(array_keys($result['units_unit']));
+  foreach ($entities as $entity) {
+    switch ($entity->machine_name) {
+      case $from:
+        $from = $entity;
+        break;
+
+      case $to:
+        $to = $entity;
+        break;
+    }
+  }
+
+  if ($from->measure != $to->measure) {
+    // The found units are from different measures. That's not okay.
+    return FALSE;
+  }
+
+  // Loading measure.
+  $measure = units_measure_machine_name_load(field_extract_bundle('units_unit', $from));
+
+  $plugin = units_get_converter($measure->converter);
+  if (!$plugin) {
+    return FALSE;
+  }
+
+  $function = ctools_plugin_get_function($plugin, 'convert callback');
+  if (!$function) {
+    return FALSE;
+  }
+  return $function($value, $from, $to);
+}
+
+/**
+ * Access callback for entity types 'units_measure' and 'units_unit'.
+ *
+ * @param string $op
+ *   The operation being performed. One of 'view', 'update', 'create' or
+ *   'delete'
+ * @param object $entity
+ *   Entity object on which the operation is requested to be performed
+ * @param object $account
+ *   Fully loaded user object of the account who requests to perform the
+ *   operation
+ * @param string $entity_type
+ *   Entity type on which the operation is requested to be performed
+ *
+ * @return bool
+ *   Whether access has been granted
+ */
+function units_entity_access($op, $entity, $account, $entity_type) {
+  // There is no reason why we would limit access to 'units_measure' or
+  // 'units_unit' entities.
+  return TRUE;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete().
+ */
+function units_units_measure_delete($entity) {
+  // Additionally delete units defined in the measure that is being deleted.
+  $ids = array();
+  foreach (units_unit_by_measure_load_multiple($entity) as $unit) {
+    $tmp = entity_extract_ids('units_unit', $unit);
+    $ids[] = $tmp[0];
+  }
+  units_unit_delete_multiple($ids);
+}
+
+/**
+ * Load an entity of entity type 'units_unit' by its ID.
+ */
+function units_unit_load($umid, $reset = FALSE) {
+  $units = units_unit_load_multiple(array($umid), array(), $reset);
+  return reset($units);
+}
+
+/**
+ * Load multiple entities of entity type 'units_unit'.
+ */
+function units_unit_load_multiple($umids = FALSE, $conditions = array(), $reset = FALSE) {
+  return entity_load('units_unit', $umids, $conditions, $reset);
+}
+
+/**
+ * Load a single entity of type 'units_unit' loading by its machine name.
+ *
+ * @param string $machine_name
+ *   Machine name of entity to load
+ *
+ * @return object|bool
+ *   Return fully loaded entity object if it was found, otherwise FALSE
+ */
+function units_unit_machine_name_load($machine_name) {
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'units_unit')
+    ->propertyCondition('machine_name', $machine_name)
+    ->execute();
+  if (isset($result['units_unit'])) {
+    $keys = array_keys($result['units_unit']);
+    $entity_id = array_pop($keys);
+    return units_unit_load($entity_id);
+  }
+
+  // No entity was found.
+  return FALSE;
+}
+
+/**
+ * Load all units of the supplied measure.
+ *
+ * @param mixed $measure
+ *   Either ID of the measure,
+ *   or machine-readable name of the measure
+ *   or fully loaded 'units_measure' entity object
+ *
+ * @return array
+ *   Array of fully loaded 'units_unit' entity objects that belong to the
+ *   supplied $measure
+ */
+function units_unit_by_measure_load_multiple($measure) {
+  // Trying to load entity object of $measure, if we were not supplied with one.
+  if (is_numeric($measure)) {
+    $measure = units_measure_load($measure);
+  }
+  elseif (!is_object($measure)) {
+    $measure = units_measure_machine_name_load($measure);
+  }
+
+  if (!is_object($measure)) {
+    // Probably we were supplied with bad parameter $measure, because at this
+    // point we are already supposed to have fully loaded 'units_measure' entity
+    // object.
+    return array();
+  }
+  $bundle = field_extract_bundle('units_unit', $measure);
+  $efq = new EntityFieldQuery();
+  $result = $efq->entityCondition('entity_type', 'units_unit')
+    ->entityCondition('bundle', $bundle)
+    ->execute();
+
+  return isset($result['units_unit']) ? units_unit_load_multiple(array_keys($result['units_unit'])) : array();
+}
+
+/**
+ * Save an entity of type 'units_unit'.
+ */
+function units_unit_save($entity) {
+  entity_save('units_unit', $entity);
+}
+
+/**
+ * Delete a single entity of type 'units_unit'.
+ */
+function units_unit_delete($entity) {
+  entity_delete('units_unit', entity_id('units_unit', $entity));
+}
+
+/**
+ * Delete multiple entities of type 'units_unit'.
+ *
+ * @param array $umids
+ *   Array of entity ids to be deleted
+ */
+function units_unit_delete_multiple($umids) {
+  entity_delete_multiple('units_unit', $umids);
+}
+
+/**
+ * Load an entity of entity type 'units_measure' by its ID.
+ */
+function units_measure_load($mid, $reset = FALSE) {
+  $measures = units_measure_load_multiple(array($mid), array(), $reset);
+  return reset($measures);
+}
+
+/**
+ * Load multiple entities of entity type 'units_unit'.
+ */
+function units_measure_load_multiple($mids = FALSE, $conditions = array(), $reset = FALSE) {
+  return entity_load('units_measure', $mids, $conditions, $reset);
+}
+
+/**
+ * Load a single entity of type 'units_measure' loading by its machine name.
+ *
+ * @param string $machine_name
+ *   Machine name of entity to load
+ *
+ * @return object|bool
+ *   Return fully loaded entity object if it was found, otherwise FALSE
+ */
+function units_measure_machine_name_load($machine_name) {
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'units_measure')
+    ->propertyCondition('measure', $machine_name)
+    ->execute();
+  if (isset($result['units_measure'])) {
+    $keys = array_keys($result['units_measure']);
+    $entity_id = array_pop($keys);
+    return units_measure_load($entity_id);
+  }
+
+  // No entity was found.
+  return FALSE;
+}
+
+/**
+ * Save an entity of type 'units_measure'.
+ */
+function units_measure_save($entity) {
+  entity_save('units_measure', $entity);
+}
+
+/**
+ * Delete a single entity of type 'units_measure'.
+ */
+function units_measure_delete($entity) {
+  entity_delete('units_measure', entity_id('units_measure', $entity));
+}
+
+/**
+ * Delete multiple entities of type 'units_measure'.
+ *
+ * @param array $mids
+ *   Array of entity ids to be deleted
+ */
+function units_measure_delete_multiple($mids) {
+  entity_delete_multiple('units_measure', $mids);
+}
+
+/**
+ * Retrieve information about a ctools plugin - units converter.
+ *
+ * @param string $converter
+ *   Name of a particular units converter plugin to return. If skipped, an array
+ *   of all available units converters plugins will be returned
+ *
+ * @return array
+ *   Depending on whether $converter is provided it will be either a single
+ *   array of information about provided $converter units converter plugin or
+ *   array of information on all available units converter plugins
+ */
+function units_get_converter($converter = NULL) {
+  ctools_include('plugins');
+  return ctools_get_plugins('units', 'converters', $converter);
+}

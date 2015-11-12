@@ -1,0 +1,25 @@
+name = Measured Value Field
+description = Define a field with an amount and a unit of measurement.
+package = Fields
+core = 7.x
+
+dependencies[] = units
+dependencies[] = number
+dependencies[] = entityreference
+
+files[] = includes/EntityReference_SelectionHandler_Generic_units_unit.class.inc
+files[] = views/mvf_handler_filter_mvf.inc
+files[] = views/mvf_handler_sort_mvf.inc
+files[] = views/mvf_handler_field_mvf.inc
+files[] = includes/NumericFieldFilterConverterMVF.inc
+files[] = includes/MVFUnitSuggestable.interface.inc
+files[] = includes/MVFUnitSuggesterHardCoded.class.inc
+files[] = includes/MVFUnitSuggesterOriginal.class.inc
+files[] = includes/MVFUnitSuggesterLocale.class.inc
+
+; Information added by Drupal.org packaging script on 2014-02-23
+version = "7.x-1.0-beta1"
+core = "7.x"
+project = "mvf"
+datestamp = "1393180707"
+

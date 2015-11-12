@@ -1,0 +1,17 @@
+Implementing a custom conversion logic is as easy as defining a <a href="&topic:ctools/plugins-implementing&">CTools plugin</a> in the code of your module.
+
+The owner of plugin is <strong>units</strong> module, the plugin name is <strong>converters</strong>. You can find an example of such plugin implementation in the <em>plugins</em> folder of units module.
+
+The parameters of <em>converters</em> plugin should be:
+<dt>title</dt>
+<dd><strong>Required</strong>. The human readable name of your conversion logic.</dd>
+<dt>description</dt>
+<dd>A brief description of your conversion logic. Try to explain how the conversion happens or, maybe, to what measures it logically applies.</dd>
+<dt>convert callback</dt>
+<dd><strong>Required</strong>. This is the name of the function that will be responsible for executing actual conversion between units. This function will receive the following input arguments:
+<ol>
+  <li><strong>$value</strong>: (float) Value in $from units that should be converted into $to units</li>
+  <li><strong>$from</strong>: (object) Units entity in which $value is represented</li>
+  <li><strong>$to</strong>: (object) Units entity into which $value should be converted</li>
+</ol>
+Your function should execute units conversion based on these input arguments, and it should output float - $value converted into $to units</dd>

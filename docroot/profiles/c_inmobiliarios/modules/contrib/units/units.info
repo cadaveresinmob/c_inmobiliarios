@@ -1,0 +1,14 @@
+name = Units
+description = Provide API for managing and converting units of measurement.
+package = Units
+core = 7.x
+
+dependencies[] = entity
+dependencies[] = ctools
+
+; Information added by Drupal.org packaging script on 2015-01-19
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "units"
+datestamp = "1421638385"
+
