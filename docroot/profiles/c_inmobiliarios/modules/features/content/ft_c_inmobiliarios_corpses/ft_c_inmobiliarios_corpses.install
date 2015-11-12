@@ -41,4 +41,36 @@ function ft_c_inmobiliarios_corpses_install() {
     $term->name = $name;
     taxonomy_term_save($term);
   }
+
+  // Generates 'Status' vocabulary if does not exist.
+  $vocabulary = taxonomy_vocabulary_load(variable_get('corpse_status', 0));
+  if (!$vocabulary) {
+    $edit = array (
+      'name' => t('Corpse\'s Status'),
+      'machine_name'=> 'corpse_status',
+      'description' => t('Urban corpse\'s status'),
+      'module' => 'ft_c_inmobiliarios_corpses',
+    );
+    $vocabulary = (object) $edit;
+    taxonomy_vocabulary_save($vocabulary);
+  }
+  // Populates 'Status' vocabulary with taxonomy terms.
+  $vocabulary = taxonomy_vocabulary_machine_name_load('corpse_status');
+  $terms = array();
+
+  $terms[] = t('Edificación no terminada');
+  $terms[] = t('Edificación terminada con uso parcial');
+  $terms[] = t('Edificación terminada sin uso');
+  $terms[] = t('Inicio de los trabajos');
+  $terms[] = t('Inicio de los trabajos (movimiento de tierras)');
+  $terms[] = t('Proyecto tramitado (no iniciado)');
+  $terms[] = t('Urbanización no terminada');
+  $terms[] = t('Urbanización terminada');
+
+  foreach($terms as $name) {
+    $term = new stdClass();
+    $term->vid = $vocabulary->vid;
+    $term->name = $name;
+    taxonomy_term_save($term);
+  }
 }

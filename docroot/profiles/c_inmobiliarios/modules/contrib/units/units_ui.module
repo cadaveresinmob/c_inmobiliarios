@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * @file
+ * Provide UI for managing available units and conversions between them.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function units_ui_permission() {
+  return array(
+    'administer measures' => array(
+      'title' => t('Administer measurements'),
+      'description' => t('Add/edit/delete available physical measures.'),
+    ),
+    'administer units' => array(
+      'title' => t('Administer measurement units'),
+      'description' => t('Add/edit/delete available units of measurement.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * Add UI controller info to entity types 'units_measure' and 'units_unit' and
+ * alter access callback to one provided by units_ui module, which respects
+ * permissions defined in units_ui module.
+ */
+function units_ui_entity_info_alter(&$entity_info) {
+  $entity_info['units_unit']['admin ui'] = array(
+    'path' => 'admin/structure/units-measure/%units_measure_machine_name/units-unit',
+    // This number denotes what position in path the bundle argument is
+    // located at.
+    'path bundle argument position' => 3,
+    'file' => 'units_ui.pages.inc',
+    'controller class' => 'UnitsUnitUIController',
+  );
+  $entity_info['units_unit']['access callback'] = 'units_ui_entity_access';
+  // For each bundle we add ability to manage fields via Field API.
+  foreach ($entity_info['units_unit']['bundles'] as $bundle => $bundle_info) {
+    $entity_info['units_unit']['bundles'][$bundle]['admin'] = array(
+      'path' => 'admin/structure/units-measure/manage/%units_measure_machine_name',
+      'real path' => 'admin/structure/units-measure/manage/' . $bundle,
+      'bundle argument' => 4,
+    );
+  }
+
+  $entity_info['units_measure']['admin ui'] = array(
+    'path' => 'admin/structure/units-measure',
+    'file' => 'units_ui.pages.inc',
+    'controller class' => 'UnitsMeasureUIController',
+  );
+  $entity_info['units_measure']['access callback'] = 'units_ui_entity_access';
+}
+
+/**
+ * Access callback for entity types 'units_measure' and 'units_unit'.
+ *
+ * This access callback overrides one defined in units.module once units_ui
+ * module becomes enabled. This access callback respects permissions defined
+ * in units_ui module.
+ *
+ * @param string $op
+ *   The operation being performed. One of 'view', 'update', 'create' or
+ *   'delete'
+ * @param object $entity
+ *   Entity object on which the operation is requested to be performed
+ * @param object $account
+ *   Fully loaded user object of the account who requests to perform the
+ *   operation
+ * @param string $entity_type
+ *   Entity type on which the operation is requested to be performed
+ *
+ * @return bool
+ *   Whether access has been granted
+ */
+function units_ui_entity_access($op, $entity, $account, $entity_type) {
+  switch ($entity_type) {
+    case 'units_measure':
+      $perm = 'administer measures';
+      break;
+
+    case 'units_unit':
+      $perm = 'administer units';
+      break;
+  }
+
+  if (!isset($perm)) {
+    // Seems like this access callback is triggered on an unexpected entity
+    // type.
+    return FALSE;
+  }
+
+  switch ($op) {
+    case 'view':
+      return TRUE;
+      break;
+
+    case 'update':
+    case 'create':
+    case 'delete':
+      return user_access($perm, $account);
+      break;
+  }
+  // Just in case, fallback on negative response. Although normally this
+  // statement should never be reached.
+  return FALSE;
+}
+
+/**
+ * Menu title callback for UI of Units Unit entity.
+ *
+ * @param string $measure
+ *   Bundle string of units unit entity type
+ *
+ * @return string
+ *   Title of menu path
+ */
+function units_ui_unit_title($measure) {
+  $unit_info = entity_get_info('units_unit');
+  $entity_label = isset($unit_info['plural label']) ? $unit_info['plural label'] : $unit_info['label'] . 's';
+  return t('@entity_label of @entity_bundle_label', array(
+    '@entity_label' => $entity_label,
+    '@entity_bundle_label' => entity_label('units_measure', $measure),
+  ));
+}

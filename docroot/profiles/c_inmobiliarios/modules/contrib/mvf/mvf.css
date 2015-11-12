@@ -1,0 +1,9 @@
+/** MVF rendered field value */
+.mvf-subfield {display:inline-block; padding:0 .1em;}
+/***/
+
+/** MVF widget form element */
+.form-item.form-type-mvf-widget .form-item {padding:0; margin:0;}
+.form-type-mvf-widget .form-item.form-type-textfield {display:inline;}
+.form-type-mvf-widget .form-item.form-type-select {display:inline;}
+/***/

@@ -10,50 +10,6 @@
 function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-corpse-body'.
-  $field_instances['node-corpse-body'] = array(
-    'bundle' => 'corpse',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => FALSE,
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 5,
-    ),
-  );
-
   // Exported field_instance: 'node-corpse-field_corpose_source'.
   $field_instances['node-corpse-field_corpose_source'] = array(
     'bundle' => 'corpse',
@@ -94,24 +50,32 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpse_area'.
-  $field_instances['node-corpse-field_corpse_area'] = array(
+  // Exported field_instance: 'node-corpse-field_corpse_area_built'.
+  $field_instances['node-corpse-field_corpse_area_built'] = array(
     'bundle' => 'corpse',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '',
+        'target_id' => 1,
+        'default_value_widget' => TRUE,
+      ),
+    ),
     'deleted' => 0,
-    'description' => 'Corresponde a la superficie total del sector/cadáver adoptado. Fuentes de información: Memorias de los planeamientos de desarrollo del sector, o fichas del planeamiento urbanístico municipal en el caso de que el sector ya haya sido incorporado. Insertar valores sin puntos para los miles.',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
+        'module' => 'mvf',
         'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
+          'mvf' => array(
+            'formatter_unit' => array(),
+            'formatter_unit_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
         ),
-        'type' => 'number_decimal',
-        'weight' => 7,
+        'type' => 'mvf_formatter_default',
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -121,68 +85,122 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_corpse_area',
-    'label' => 'Area (en m2)',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance: 'node-corpse-field_corpse_built_area'.
-  $field_instances['node-corpse-field_corpse_built_area'] = array(
-    'bundle' => 'corpse',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Todas estas celdas corresponden a datos del estado actual del cadáver, es decir en su estado de abandono. las fuentes a utilizar pueden ser, verificaciones in situ, imágenes actuales o documentos donde se detalle el estado del cadáver (información de ayuntamientos, prensa)                                                ',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 8,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_corpse_built_area',
+    'field_name' => 'field_corpse_area_built',
     'label' => 'Built area',
     'required' => 0,
     'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+      ),
+      'unit' => array(),
       'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 9,
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'label',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_area_terrain'.
+  $field_instances['node-corpse-field_corpse_area_terrain'] = array(
+    'bundle' => 'corpse',
+    'default_value' => array(
+      0 => array(
+        'value' => '',
+        'target_id' => 1,
+        'default_value_widget' => TRUE,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Corresponde a la superficie total del sector/cadáver adoptado. Fuentes de información: Memorias de los planeamientos de desarrollo del sector, o fichas del planeamiento urbanístico municipal en el caso de que el sector ya haya sido incorporado. Insertar valores sin puntos para los miles. Separador de decimales con puntos.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'formatter_unit' => array(),
+            'formatter_unit_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_area_terrain',
+    'label' => 'Area (Terrain)',
+    'required' => 0,
+    'settings' => array(
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'label',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 17,
     ),
   );
 
@@ -223,6 +241,273 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
       'type' => 'taxonomy_autocomplete',
       'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_current_status'.
+  $field_instances['node-corpse-field_corpse_current_status'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 22,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_current_status',
+    'label' => 'Current Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 26,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_equipment_plots'.
+  $field_instances['node-corpse-field_corpse_equipment_plots'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 20,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_equipment_plots',
+    'label' => 'Equipment plots',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_hotel_beds'.
+  $field_instances['node-corpse-field_corpse_hotel_beds'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 19,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_hotel_beds',
+    'label' => 'Hotel beds',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 21,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_housing'.
+  $field_instances['node-corpse-field_corpse_housing'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_housing',
+    'label' => 'Housing',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 20,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_industrial_plots'.
+  $field_instances['node-corpse-field_corpse_industrial_plots'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 17,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_industrial_plots',
+    'label' => 'Industrial plots',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 22,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_leisure_plots'.
+  $field_instances['node-corpse-field_corpse_leisure_plots'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 18,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_leisure_plots',
+    'label' => 'Leisure plots',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 23,
     ),
   );
 
@@ -303,6 +588,51 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_corpse_status_description'.
+  $field_instances['node-corpse-field_corpse_status_description'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 21,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_status_description',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 27,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_corpse_technician'.
   $field_instances['node-corpse-field_corpse_technician'] = array(
     'bundle' => 'corpse',
@@ -377,6 +707,52 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'settings' => array(),
       'type' => 'options_select',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_used_land'.
+  $field_instances['node-corpse-field_corpse_used_land'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 15,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_used_land',
+    'label' => 'Used land (%)',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '%',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 19,
     ),
   );
 
@@ -1034,24 +1410,30 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
-  t('Area (en m2)');
+  t('Area (Terrain)');
   t('Arquitecto o técnico redactor. Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
-  t('Body');
   t('Built area');
   t('Contractor');
-  t('Corresponde a la superficie total del sector/cadáver adoptado. Fuentes de información: Memorias de los planeamientos de desarrollo del sector, o fichas del planeamiento urbanístico municipal en el caso de que el sector ya haya sido incorporado. Insertar valores sin puntos para los miles.');
+  t('Corresponde a la superficie total del sector/cadáver adoptado. Fuentes de información: Memorias de los planeamientos de desarrollo del sector, o fichas del planeamiento urbanístico municipal en el caso de que el sector ya haya sido incorporado. Insertar valores sin puntos para los miles. Separador de decimales con puntos.');
   t('Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Corresponde a los datos de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
+  t('Current Status');
+  t('Description');
+  t('Equipment plots');
   t('Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.');
+  t('Hotel beds');
+  t('Housing');
+  t('Industrial plots');
+  t('Leisure plots');
   t('Nombre del/de los colectivos o fuente de donde has escogido el cadáver para adoptar. Separar por comas. ');
   t('Promoter');
   t('Source');
   t('Status');
   t('Technician');
-  t('Todas estas celdas corresponden a datos del estado actual del cadáver, es decir en su estado de abandono. las fuentes a utilizar pueden ser, verificaciones in situ, imágenes actuales o documentos donde se detalle el estado del cadáver (información de ayuntamientos, prensa)                                                ');
   t('Type');
   t('URL');
   t('Urban name');
+  t('Used land (%)');
 
   return $field_instances;
 }
