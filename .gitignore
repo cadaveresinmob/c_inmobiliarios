@@ -3,6 +3,7 @@
 
 ### Lock files
 *.lock
+.~lock*
 
 # Sensitive information #
 #########################
