@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Cadáveres inmobiliarios' services feature.
  */
+
+include_once 'ft_c_inmobiliarios_services.features.inc';
