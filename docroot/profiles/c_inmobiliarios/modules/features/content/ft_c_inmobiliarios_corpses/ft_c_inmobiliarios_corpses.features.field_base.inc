@@ -10,6 +10,44 @@
 function ft_c_inmobiliarios_corpses_field_default_field_bases() {
   $field_bases = array();
 
+  // Exported field_base: 'field_approved_industrial_plots'.
+  $field_bases['field_approved_industrial_plots'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_approved_industrial_plots',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
+  );
+
+  // Exported field_base: 'field_approved_leisure_plots'.
+  $field_bases['field_approved_leisure_plots'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_approved_leisure_plots',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
+  );
+
   // Exported field_base: 'field_corpose_source'.
   $field_bases['field_corpose_source'] = array(
     'active' => 1,
@@ -34,6 +72,44 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_corpse_approved_hotel_beds'.
+  $field_bases['field_corpse_approved_hotel_beds'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_approved_hotel_beds',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
+  );
+
+  // Exported field_base: 'field_corpse_approved_housing'.
+  $field_bases['field_corpse_approved_housing'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_approved_housing',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_corpse_area_built'.
@@ -162,6 +238,32 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'mvf_number_decimal_entityreference',
   );
 
+  // Exported field_base: 'field_corpse_building_typology'.
+  $field_bases['field_corpse_building_typology'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_building_typology',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'corpse_building_type',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_corpse_contractor'.
   $field_bases['field_corpse_contractor'] = array(
     'active' => 1,
@@ -188,30 +290,23 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_corpse_current_status'.
-  $field_bases['field_corpse_current_status'] = array(
+  // Exported field_base: 'field_corpse_edificability'.
+  $field_bases['field_corpse_edificability'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_corpse_current_status',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
+    'field_name' => 'field_corpse_edificability',
+    'indexes' => array(),
     'locked' => 0,
-    'module' => 'taxonomy',
+    'module' => 'number',
     'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'corpse_status',
-          'parent' => 0,
-        ),
-      ),
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
     ),
     'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_corpse_equipment_plots'.
@@ -274,6 +369,48 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_corpse_ine_code_city'.
+  $field_bases['field_corpse_ine_code_city'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_ine_code_city',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_corpse_ine_code_province'.
+  $field_bases['field_corpse_ine_code_province'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_ine_code_province',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
   // Exported field_base: 'field_corpse_leisure_plots'.
   $field_bases['field_corpse_leisure_plots'] = array(
     'active' => 1,
@@ -313,6 +450,25 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_corpse_prop_description'.
+  $field_bases['field_corpse_prop_description'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_prop_description',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_corpse_status'.
@@ -404,6 +560,32 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
       'allowed_values' => array(
         0 => array(
           'vocabulary' => 'corpse_type',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_corpse_use'.
+  $field_bases['field_corpse_use'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_use',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'corpse_use',
           'parent' => 0,
         ),
       ),

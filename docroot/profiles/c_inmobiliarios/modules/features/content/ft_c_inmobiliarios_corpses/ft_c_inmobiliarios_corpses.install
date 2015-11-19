@@ -73,4 +73,38 @@ function ft_c_inmobiliarios_corpses_install() {
     $term->name = $name;
     taxonomy_term_save($term);
   }
+
+  // Generates 'Use' vocabulary if does not exist.
+  $vocabulary = taxonomy_vocabulary_load(variable_get('corpse_use', 0));
+  if (!$vocabulary) {
+    $edit = array (
+      'name' => t('Corpse\'s Use'),
+      'machine_name'=> 'corpse_use',
+      'description' => t('Urban corpse\'s uses'),
+      'module' => 'ft_c_inmobiliarios_corpses',
+    );
+    $vocabulary = (object) $edit;
+    taxonomy_vocabulary_save($vocabulary);
+  }
+
+  // Populates 'Uses' vocabulary with taxonomy terms.
+  $vocabulary = taxonomy_vocabulary_machine_name_load('corpse_use');
+  $terms = array();
+
+  $terms[] = t('Dotación Equipamental');
+  $terms[] = t('Dotación Infraestructural');
+  $terms[] = t('Industrial');
+  $terms[] = t('Residencial Colectivo');
+  $terms[] = t('Residencial Turístico');
+  $terms[] = t('Residencial Unifamiliar');
+  $terms[] = t('Terciario Hotelero');
+  $terms[] = t('Terciario Recreativo');
+  $terms[] = t('Uso industrial y terciario');
+
+  foreach($terms as $name) {
+    $term = new stdClass();
+    $term->vid = $vocabulary->vid;
+    $term->name = $name;
+    taxonomy_term_save($term);
+  }
 }

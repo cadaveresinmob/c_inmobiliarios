@@ -21,7 +21,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Address',
-    'weight' => '10',
+    'weight' => '23',
     'children' => array(
       0 => 'field_gl_address',
     ),
@@ -40,6 +40,65 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_approved_units|node|corpse|form';
+  $field_group->group_name = 'group_approved_units';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_urban_data';
+  $field_group->data = array(
+    'label' => 'Approved units',
+    'weight' => '35',
+    'children' => array(
+      0 => 'field_corpse_approved_housing',
+      1 => 'field_corpse_approved_hotel_beds',
+      2 => 'field_approved_industrial_plots',
+      3 => 'field_approved_leisure_plots',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-approved-units field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_approved_units|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_areas|node|corpse|form';
+  $field_group->group_name = 'group_areas';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_phisical_properties';
+  $field_group->data = array(
+    'label' => 'Areas',
+    'weight' => '24',
+    'children' => array(
+      0 => 'field_corpse_area_built',
+      1 => 'field_corpse_area_terrain',
+      2 => 'field_corpse_used_land',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-areas field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_areas|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_built_units|node|corpse|form';
   $field_group->group_name = 'group_built_units';
   $field_group->entity_type = 'node';
@@ -48,13 +107,13 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_phisical_properties';
   $field_group->data = array(
     'label' => 'Built units',
-    'weight' => '20',
+    'weight' => '25',
     'children' => array(
-      0 => 'field_corpse_housing',
-      1 => 'field_corpse_industrial_plots',
-      2 => 'field_corpse_leisure_plots',
-      3 => 'field_corpse_hotel_beds',
-      4 => 'field_corpse_equipment_plots',
+      0 => 'field_corpse_equipment_plots',
+      1 => 'field_corpse_hotel_beds',
+      2 => 'field_corpse_housing',
+      3 => 'field_corpse_industrial_plots',
+      4 => 'field_corpse_leisure_plots',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -79,11 +138,13 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Corpse\'s Vertical tabs',
-    'weight' => '8',
+    'weight' => '5',
     'children' => array(
-      0 => 'group_phisical_properties',
-      1 => 'group_property_data',
-      2 => 'group_address',
+      0 => 'group_address',
+      1 => 'group_phisical_properties',
+      2 => 'group_property_data',
+      3 => 'group_urban_data',
+      4 => 'group_general_info',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -106,10 +167,10 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_phisical_properties';
   $field_group->data = array(
     'label' => 'Current status',
-    'weight' => '21',
+    'weight' => '23',
     'children' => array(
-      0 => 'field_corpse_status_description',
-      1 => 'field_corpse_current_status',
+      0 => 'field_corpse_status',
+      1 => 'field_corpse_status_description',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -126,6 +187,36 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_general_info|node|corpse|form';
+  $field_group->group_name = 'group_general_info';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_corpse_vertical_tab';
+  $field_group->data = array(
+    'label' => 'General info',
+    'weight' => '22',
+    'children' => array(
+      0 => 'field_corpose_source',
+      1 => 'field_corpse_type',
+      2 => 'field_urban_name',
+      3 => 'field_url',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-general-info field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_general_info|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_phisical_properties|node|corpse|form';
   $field_group->group_name = 'group_phisical_properties';
   $field_group->entity_type = 'node';
@@ -134,13 +225,11 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Phisical properties',
-    'weight' => '11',
+    'weight' => '24',
     'children' => array(
-      0 => 'field_corpse_area_terrain',
-      1 => 'field_corpse_area_built',
-      2 => 'field_corpse_used_land',
-      3 => 'group_built_units',
-      4 => 'group_current_status',
+      0 => 'group_built_units',
+      1 => 'group_current_status',
+      2 => 'group_areas',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -165,11 +254,12 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Property data',
-    'weight' => '12',
+    'weight' => '25',
     'children' => array(
       0 => 'field_corpse_contractor',
       1 => 'field_corpse_promoter',
       2 => 'field_corpse_technician',
+      3 => 'field_corpse_prop_description',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -182,6 +272,38 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $export['group_property_data|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_urban_data|node|corpse|form';
+  $field_group->group_name = 'group_urban_data';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_corpse_vertical_tab';
+  $field_group->data = array(
+    'label' => 'Urban data',
+    'weight' => '26',
+    'children' => array(
+      0 => 'field_corpse_ine_code_city',
+      1 => 'field_corpse_ine_code_province',
+      2 => 'field_corpse_use',
+      3 => 'field_corpse_building_typology',
+      4 => 'field_corpse_edificability',
+      5 => 'group_approved_units',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-urban-data field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_urban_data|node|corpse|form'] = $field_group;
 
   return $export;
 }

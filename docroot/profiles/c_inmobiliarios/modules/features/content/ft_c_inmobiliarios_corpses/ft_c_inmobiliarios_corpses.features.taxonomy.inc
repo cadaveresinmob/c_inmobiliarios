@@ -9,6 +9,29 @@
  */
 function ft_c_inmobiliarios_corpses_taxonomy_default_vocabularies() {
   return array(
+    'corpse_building_type' => array(
+      'name' => 'Corpse\'s Building type',
+      'machine_name' => 'corpse_building_type',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'corpse_contractor' => array(
       'name' => 'Corpse\'s contractor',
       'machine_name' => 'corpse_contractor',
@@ -127,6 +150,29 @@ function ft_c_inmobiliarios_corpses_taxonomy_default_vocabularies() {
     'corpse_type' => array(
       'name' => 'Corpse\'s type',
       'machine_name' => 'corpse_type',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
+    'corpse_use' => array(
+      'name' => 'Corpse\'s use',
+      'machine_name' => 'corpse_use',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',
