@@ -1,0 +1,36 @@
+name = Twenty Fifteen
+description = Clean theme, blog-focused, and designed for clarity.
+core = 7.x
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[header] = 'Header'
+regions[sidebar] = 'Sidebar'
+regions[help] = 'Help'
+regions[content] = 'Content'
+regions[footer] = 'Footer'
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+stylesheets[all][] = css/fonts.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/twentyfifteen.css
+stylesheets[all][] = genericons/genericons.css
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = js/functions.js
+scripts[] = js/twentyfifteen.js
+
+; Information added by Drupal.org packaging script on 2015-07-16
+version = "7.x-1.0"
+core = "7.x"
+project = "twentyfifteen"
+datestamp = "1437051560"
+

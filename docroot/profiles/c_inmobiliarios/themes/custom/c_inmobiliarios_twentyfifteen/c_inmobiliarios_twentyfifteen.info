@@ -1,0 +1,33 @@
+name = Cadáveres Inmobiliarios' Twenty Fifteen
+description = Twenty Fifteen's subtheme.
+core = 7.x
+
+
+; This theme is compatible with Drupal 7 core. And it is a sub-theme of Zen.
+base theme  = twentyfifteen
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
+
+regions[header] = 'Header'
+regions[sidebar] = 'Sidebar'
+regions[help] = 'Help'
+regions[content] = 'Content'
+regions[footer] = 'Footer'
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
+
+;stylesheets[all][] = css/fonts.css
+stylesheets[all][] = css/styles.css
+;stylesheets[all][] = css/twentyfifteen.css
+;stylesheets[all][] = genericons/genericons.css
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+;scripts[] = js/functions.js
+;scripts[] = js/twentyfifteen.js

@@ -1,0 +1,8 @@
+/*
+ * General style sheet. Some styles may be defined on parent's theme.
+ */
+
+
+body {
+    background: url("../img/zombies_header-1300-954px.png") repeat 0 0 fixed;
+}

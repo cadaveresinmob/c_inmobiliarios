@@ -1,0 +1,53 @@
+.field-name-field-tags,
+.field-name-field-tags .field-item {
+  display: inline-block;
+}
+
+.field-name-field-tags .field-item:not(:last-child) {
+  padding-right: 10px;
+}
+
+.block-system.hentry > .content {
+  padding: 0 10% 10%;
+}
+
+.region-help,
+.action-links,
+.tabs {
+  margin: 0 8.3333%;
+  padding-top: 2.3333%;
+}
+
+div.messages {
+  margin: 0 8.3333%;
+}
+
+.region-help {
+  padding-top: 0;
+}
+
+div.messages,
+.action-links {
+  margin-bottom: 2.3333%;
+}
+
+.action-links li {
+  list-style: none;
+}
+
+.action-links a {
+  text-decoration: underline;
+}
+
+.item-list ul.pager {
+  margin: 0;
+  padding: 10px;
+}
+
+.item-list ul.pager li {
+  margin: 0;
+}
+
+.pager .pager-item a {
+  font-size: 13px;
+}

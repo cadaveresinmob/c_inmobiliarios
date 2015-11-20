@@ -105,7 +105,7 @@ function c_inmobiliarios_install() {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'bartik')
+    ->condition('name', 'c_inmobiliarios_twentyfifteen')
     ->execute();
   variable_set('theme_default','bartik');
 
