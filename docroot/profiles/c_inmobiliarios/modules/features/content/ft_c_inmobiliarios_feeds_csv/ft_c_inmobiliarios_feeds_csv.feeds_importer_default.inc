@@ -43,13 +43,13 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
         'authorize' => 1,
         'mappings' => array(
           0 => array(
-            'source' => 'Promocional.',
+            'source' => 'nombre_promocional',
             'target' => 'title',
-            'unique' => FALSE,
+            'unique' => 1,
           ),
           1 => array(
-            'source' => 'Dirección',
-            'target' => 'field_gl_address:street',
+            'source' => 'nombre_urbanistico',
+            'target' => 'field_urban_name',
             'unique' => FALSE,
           ),
           2 => array(
@@ -63,33 +63,39 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'unique' => FALSE,
           ),
           4 => array(
-            'source' => 'Municipio.',
-            'target' => 'field_gl_address:city',
+            'source' => 'direccion',
+            'target' => 'field_gl_address:street',
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'Provincia.',
-            'target' => 'field_gl_address:province',
+            'source' => 'municipio',
+            'target' => 'field_gl_address:city',
             'unique' => FALSE,
           ),
           6 => array(
-            'source' => 'Tipología.de.asentamiento.principal..ver.pestaña.ayuda..',
-            'target' => 'field_corpse_type',
+            'source' => 'comunidad_autonoma',
+            'target' => 'field_gl_address:province',
             'unique' => FALSE,
           ),
           7 => array(
-            'source' => 'Tipología.del.asentamiento.secundaria..ver.pestaña.ayuda.',
+            'source' => 'tipologia_asentamiento_principal',
             'target' => 'field_corpse_type',
             'unique' => FALSE,
           ),
           8 => array(
-            'source' => 'FUENTE..nación.rotonda..6000km..etc..',
-            'target' => 'field_corpose_source',
+            'source' => 'tipologia_asentamiento_secundario',
+            'target' => 'field_corpse_type',
             'unique' => FALSE,
           ),
           9 => array(
-            'source' => 'enlace.web',
-            'target' => 'field_url:url',
+            'source' => 'fuente',
+            'target' => 'field_corpose_source',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
+          10 => array(
+            'source' => 'enlace_web',
+            'target' => 'url',
             'unique' => FALSE,
           ),
         ),
