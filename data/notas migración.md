@@ -1,9 +1,12 @@
 # Notas migración
 
 Sobre el google docs:
-* Cabecera de más de una fila -> no se puede exportar a csv sin antes manipular
-* Cabecera con nombres de campos con * -> mejor si no estuviesen (aunque en el fondo es irrelevante)
+
+* Campos que contienen números mal formateados (en realidad son textos con puntos o comas mal puestos):
+** superficie_terreno
+** numero_habitantes_previsto_planeamiento -> en la hoja de cálculo de drive es un campo calculado, pero al importarlo se importa como texto, ya que añade comas al separador de miles y puntos como deparador de decimales.
+* Campos de fecha que no son fechas (tienen el nombre del mes)
 
 Sobre la migración de datos a drupal:
-* No existe ningún campo que sea "comunidad autónoma", si acaso comarca o provincia
+
 * Es necesario separar el campo latitud, longitud en dos campos distintos (columnas distintas)
