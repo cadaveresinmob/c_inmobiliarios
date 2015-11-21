@@ -30,4 +30,6 @@ features[variable][] = media_icon_base_directory
 features[variable][] = media_wysiwyg_view_mode_video_file_wysiwyg_view_mode
 features[variable][] = media_wysiwyg_view_mode_video_file_wysiwyg_view_mode_status
 features[variable][] = media_wysiwyg_wysiwyg_upload_directory
+features[wysiwyg][] = filtered_html
+features[wysiwyg][] = html
 project path = profiles/c_inmobiliarios/modules/features/general
