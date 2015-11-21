@@ -234,16 +234,10 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpse_area_built'.
-  $field_instances['node-corpse-field_corpse_area_built'] = array(
+  // Exported field_instance: 'node-corpse-field_corpse_area_terrain'.
+  $field_instances['node-corpse-field_corpse_area_terrain'] = array(
     'bundle' => 'corpse',
-    'default_value' => array(
-      0 => array(
-        'value' => '',
-        'target_id' => 1,
-        'default_value_widget' => TRUE,
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -259,84 +253,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
           'value' => array(),
         ),
         'type' => 'mvf_formatter_default',
-        'weight' => 14,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_corpse_area_built',
-    'label' => 'Built area',
-    'required' => 0,
-    'settings' => array(
-      'mvf' => array(
-        'max' => array(
-          'target_id' => '_none',
-          'value' => '',
-        ),
-        'min' => array(
-          'target_id' => '_none',
-          'value' => '',
-        ),
-      ),
-      'unit' => array(),
-      'user_register_form' => FALSE,
-      'value' => array(
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
-      ),
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'mvf',
-      'settings' => array(
-        'meta_info' => array(
-          'unit' => array(
-            'label_property' => 'label',
-            'weight' => 1,
-          ),
-          'value' => array(
-            'weight' => 0,
-          ),
-        ),
-      ),
-      'type' => 'mvf_widget_default',
-      'weight' => 24,
-    ),
-  );
-
-  // Exported field_instance: 'node-corpse-field_corpse_area_terrain'.
-  $field_instances['node-corpse-field_corpse_area_terrain'] = array(
-    'bundle' => 'corpse',
-    'default_value' => array(
-      0 => array(
-        'value' => '',
-        'target_id' => 1,
-        'default_value_widget' => TRUE,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'Corresponde a la superficie total del sector/cadáver adoptado. Fuentes de información: Memorias de los planeamientos de desarrollo del sector, o fichas del planeamiento urbanístico municipal en el caso de que el sector ya haya sido incorporado. Insertar valores sin puntos para los miles. Separador de decimales con puntos.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'mvf',
-        'settings' => array(
-          'mvf' => array(
-            'formatter_unit' => array(),
-            'formatter_unit_settings' => array(),
-          ),
-          'unit' => array(),
-          'value' => array(),
-        ),
-        'type' => 'mvf_formatter_default',
-        'weight' => 13,
+        'weight' => 32,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -352,11 +269,11 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'settings' => array(
       'mvf' => array(
         'max' => array(
-          'target_id' => '_none',
+          'target_id' => NULL,
           'value' => '',
         ),
         'min' => array(
-          'target_id' => '_none',
+          'target_id' => NULL,
           'value' => '',
         ),
       ),
@@ -421,7 +338,78 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 33,
+      'weight' => 50,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_built_area'.
+  $field_instances['node-corpse-field_corpse_built_area'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'formatter_unit' => array(),
+            'formatter_unit_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 33,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_built_area',
+    'label' => 'Built area',
+    'required' => 0,
+    'settings' => array(
+      'mvf' => array(
+        'max' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+        'min' => array(
+          'target_id' => '_none',
+          'value' => '',
+        ),
+      ),
+      'unit' => array(),
+      'user_register_form' => FALSE,
+      'value' => array(
+        'max' => '',
+        'min' => '',
+        'prefix' => '',
+        'suffix' => '',
+      ),
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'mvf',
+      'settings' => array(
+        'meta_info' => array(
+          'unit' => array(
+            'label_property' => 'label',
+            'weight' => 1,
+          ),
+          'value' => array(
+            'weight' => 0,
+          ),
+        ),
+      ),
+      'type' => 'mvf_widget_default',
+      'weight' => 22,
     ),
   );
 
@@ -507,7 +495,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 34,
+      'weight' => 51,
     ),
   );
 
@@ -691,7 +679,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 22,
+      'weight' => 23,
     ),
   );
 
@@ -736,7 +724,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 30,
+      'weight' => 47,
     ),
   );
 
@@ -781,7 +769,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 31,
+      'weight' => 48,
     ),
   );
 
@@ -827,7 +815,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 23,
+      'weight' => 24,
     ),
   );
 
@@ -1108,7 +1096,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 32,
+      'weight' => 49,
     ),
   );
 
@@ -1154,7 +1142,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 25,
+      'weight' => 24,
     ),
   );
 
@@ -1818,7 +1806,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Built area');
   t('City\'s INE Code');
   t('Contractor');
-  t('Corresponde a la superficie total del sector/cadáver adoptado. Fuentes de información: Memorias de los planeamientos de desarrollo del sector, o fichas del planeamiento urbanístico municipal en el caso de que el sector ya haya sido incorporado. Insertar valores sin puntos para los miles. Separador de decimales con puntos.');
   t('Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Corresponde a los datos de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Description');

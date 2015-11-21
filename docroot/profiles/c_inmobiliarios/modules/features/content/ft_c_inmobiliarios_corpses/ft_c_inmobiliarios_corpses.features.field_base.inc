@@ -112,69 +112,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_corpse_area_built'.
-  $field_bases['field_corpse_area_built'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_corpse_area_built',
-    'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'mvf',
-    'settings' => array(
-      'meta_info' => array(
-        'unit' => array(
-          'field_type' => 'entityreference',
-          'formatter' => 'entityreference_label',
-          'label' => 'Unit Measure',
-          'module' => 'entityreference',
-          'not_supported_widgets' => array(
-            0 => 'entityreference_autocomplete',
-            1 => 'entityreference_autocomplete_tags',
-          ),
-          'widget' => 'options_select',
-        ),
-        'value' => array(
-          'field_type' => 'number_decimal',
-          'formatter' => 'number_decimal',
-          'label' => 'Value',
-          'module' => 'number',
-          'not_supported_widgets' => array(),
-          'widget' => 'number',
-        ),
-      ),
-      'unit' => array(
-        'handler' => 'base',
-        'handler_settings' => array(
-          'behaviors' => array(
-            'views-select-list' => array(
-              'status' => 0,
-            ),
-          ),
-          'sort' => array(
-            'type' => 'none',
-          ),
-          'target_bundles' => array(
-            'area' => 'area',
-          ),
-        ),
-        'target_type' => 'units_unit',
-      ),
-      'value' => array(
-        'decimal_separator' => '.',
-        'precision' => 10,
-        'scale' => 2,
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'mvf_number_decimal_entityreference',
-  );
-
   // Exported field_base: 'field_corpse_area_terrain'.
   $field_bases['field_corpse_area_terrain'] = array(
     'active' => 1,
@@ -262,6 +199,69 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_corpse_built_area'.
+  $field_bases['field_corpse_built_area'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_built_area',
+    'indexes' => array(
+      'target_id' => array(
+        0 => 'target_id',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'mvf',
+    'settings' => array(
+      'meta_info' => array(
+        'unit' => array(
+          'field_type' => 'entityreference',
+          'formatter' => 'entityreference_label',
+          'label' => 'Unit Measure',
+          'module' => 'entityreference',
+          'not_supported_widgets' => array(
+            0 => 'entityreference_autocomplete',
+            1 => 'entityreference_autocomplete_tags',
+          ),
+          'widget' => 'options_select',
+        ),
+        'value' => array(
+          'field_type' => 'number_decimal',
+          'formatter' => 'number_decimal',
+          'label' => 'Value',
+          'module' => 'number',
+          'not_supported_widgets' => array(),
+          'widget' => 'number',
+        ),
+      ),
+      'unit' => array(
+        'handler' => 'base',
+        'handler_settings' => array(
+          'behaviors' => array(
+            'views-select-list' => array(
+              'status' => 0,
+            ),
+          ),
+          'sort' => array(
+            'type' => 'none',
+          ),
+          'target_bundles' => array(
+            'area' => 'area',
+          ),
+        ),
+        'target_type' => 'units_unit',
+      ),
+      'value' => array(
+        'decimal_separator' => '.',
+        'precision' => 10,
+        'scale' => 2,
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'mvf_number_decimal_entityreference',
   );
 
   // Exported field_base: 'field_corpse_contractor'.
