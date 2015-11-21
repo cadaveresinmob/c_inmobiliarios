@@ -3,6 +3,7 @@ description = Urban corpses' map configuration.
 core = 7.x
 package = Cadáveres Inmobiliarios
 version = 7.x-1.0
+dependencies[] = entity
 dependencies[] = ft_c_inmobiliarios_core
 dependencies[] = ft_c_inmobiliarios_corpses
 dependencies[] = ip_geoloc

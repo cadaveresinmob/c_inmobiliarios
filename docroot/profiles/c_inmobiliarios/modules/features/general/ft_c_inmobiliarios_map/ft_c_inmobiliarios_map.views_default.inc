@@ -28,8 +28,11 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'ip_geoloc_leaflet';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
@@ -44,10 +47,9 @@ function ft_c_inmobiliarios_map_views_default_views() {
     'getlocations_fields_latitude' => 'getlocations_fields_latitude',
   );
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_longitude'] = 'getlocations_fields_longitude';
-  $handler->display->display_options['style_options']['default_marker']['default_marker_color'] = 'blue';
+  $handler->display->display_options['style_options']['default_marker']['default_marker_color'] = 'yellow';
   $handler->display->display_options['style_options']['visitor_marker']['visitor_marker_accuracy_circle'] = 0;
   $handler->display->display_options['style_options']['center_option'] = '0';
-  $handler->display->display_options['style_options']['tooltips']['marker_tooltip'] = 'title';
   $handler->display->display_options['style_options']['sync']['2'] = 0;
   $handler->display->display_options['style_options']['sync']['4'] = 0;
   $handler->display->display_options['style_options']['sync']['8'] = 1;
@@ -111,9 +113,53 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'corpse' => 'corpse',
+  );
+  /* Filter criterion: Content: Type (field_corpse_type) */
+  $handler->display->display_options['filters']['field_corpse_type_tid']['id'] = 'field_corpse_type_tid';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['table'] = 'field_data_field_corpse_type';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['field'] = 'field_corpse_type_tid';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_corpse_type_tid']['expose']['operator_id'] = 'field_corpse_type_tid_op';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['expose']['operator'] = 'field_corpse_type_tid_op';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['expose']['identifier'] = 'field_corpse_type_tid';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_corpse_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_corpse_type_tid']['vocabulary'] = 'corpse_type';
+  /* Filter criterion: Getlocations Fields: Province */
+  $handler->display->display_options['filters']['province']['id'] = 'province';
+  $handler->display->display_options['filters']['province']['table'] = 'getlocations_fields';
+  $handler->display->display_options['filters']['province']['field'] = 'province';
+  $handler->display->display_options['filters']['province']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['province']['expose']['operator_id'] = 'province_op';
+  $handler->display->display_options['filters']['province']['expose']['label'] = 'Province';
+  $handler->display->display_options['filters']['province']['expose']['operator'] = 'province_op';
+  $handler->display->display_options['filters']['province']['expose']['identifier'] = 'province';
+  $handler->display->display_options['filters']['province']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'entity';
+  $handler->display->display_options['row_options']['view_mode'] = 'teaser';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'map';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Map';
@@ -121,6 +167,38 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Map Attachment */
+  $handler = $view->new_display('attachment', 'Map Attachment', 'attachment_1');
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
+  $handler->display->display_options['inherit_exposed_filters'] = TRUE;
+
+  /* Display: Attachment 2 */
+  $handler = $view->new_display('attachment', 'Attachment 2', 'attachment_2');
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: View result counter */
+  $handler->display->display_options['fields']['counter']['id'] = 'counter';
+  $handler->display->display_options['fields']['counter']['table'] = 'views';
+  $handler->display->display_options['fields']['counter']['field'] = 'counter';
+  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
+  $handler->display->display_options['fields']['counter']['reverse'] = 0;
+  $handler->display->display_options['displays'] = array(
+    'default' => 0,
+    'page' => 0,
+  );
+  $handler->display->display_options['inherit_exposed_filters'] = TRUE;
   $translatables['urban_corpses_map'] = array(
     t('Master'),
     t('Leaflet map'),
@@ -130,10 +208,22 @@ function ft_c_inmobiliarios_map_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
     t('Coordinates'),
     t('Latitude'),
     t('Longitude'),
+    t('Type'),
+    t('Province'),
     t('Page'),
+    t('Map Attachment'),
+    t('Attachment 2'),
+    t('View result counter'),
   );
   $export['urban_corpses_map'] = $view;
 
