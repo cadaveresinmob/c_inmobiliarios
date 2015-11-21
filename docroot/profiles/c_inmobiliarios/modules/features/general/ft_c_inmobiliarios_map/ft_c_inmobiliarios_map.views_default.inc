@@ -22,7 +22,7 @@ function ft_c_inmobiliarios_map_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Leaflet map';
+  $handler->display->display_options['title'] = 'Urban corpses\' list';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -201,7 +201,7 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['inherit_exposed_filters'] = TRUE;
   $translatables['urban_corpses_map'] = array(
     t('Master'),
-    t('Leaflet map'),
+    t('Urban corpses\' list'),
     t('more'),
     t('Apply'),
     t('Reset'),
