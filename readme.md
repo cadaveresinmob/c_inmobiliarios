@@ -1,6 +1,8 @@
 # Cadáveres Inmobiliarios
 
-Prototipo de Cadáveres Inmbobiliarios en drupal 7 para el hackaton.
+Este prototipo para [cadáveres inmobiliarios](http://cadaveresinmobiliarios.org) utiliza un perfil de instalación de drupal 7 ([leer acerca de los perfiles de instalación](https://www.drupal.org/node/306267)) y tiene como objetivos principales los siguientes:
+* ser una plataforma que permita añadir y editar de forma visual los cadáveres inmobiliarios.
+* ofrecer una API para utilizar la base de datos de los cadáveres inmobiliarios en sitios de terceros.
 
 ## Instalación
 
