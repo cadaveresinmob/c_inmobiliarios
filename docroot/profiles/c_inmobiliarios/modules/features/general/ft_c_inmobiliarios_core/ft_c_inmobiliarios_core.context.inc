@@ -38,6 +38,12 @@ function ft_c_inmobiliarios_core_context_default_contexts() {
           'region' => 'sidebar',
           'weight' => '-9',
         ),
+        'user-login' => array(
+          'module' => 'user',
+          'delta' => 'login',
+          'region' => 'sidebar',
+          'weight' => '-8',
+        ),
         'system-powered-by' => array(
           'module' => 'system',
           'delta' => 'powered-by',
