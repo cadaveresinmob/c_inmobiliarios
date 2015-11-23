@@ -48,7 +48,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_urban_data';
   $field_group->data = array(
     'label' => 'Approved units',
-    'weight' => '52',
+    'weight' => '53',
     'children' => array(
       0 => 'field_approved_industrial_plots',
       1 => 'field_approved_leisure_plots',
@@ -80,9 +80,9 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'Areas',
     'weight' => '24',
     'children' => array(
-      0 => 'field_corpse_used_land',
-      1 => 'field_corpse_area_terrain',
-      2 => 'field_corpse_built_area',
+      0 => 'field_corpse_area_terrain',
+      1 => 'field_corpse_built_area',
+      2 => 'field_corpse_used_land',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -292,6 +292,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       3 => 'field_corpse_ine_code_province',
       4 => 'field_corpse_use',
       5 => 'group_approved_units',
+      6 => 'group_urban_planning_dates',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -304,6 +305,33 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $export['group_urban_data|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_urban_planning_dates|node|corpse|form';
+  $field_group->group_name = 'group_urban_planning_dates';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_urban_data';
+  $field_group->data = array(
+    'label' => 'Urban Planning dates',
+    'weight' => '52',
+    'children' => array(
+      0 => 'field_corpse_lic_date_agreement',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-urban-planning-dates field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_urban_planning_dates|node|corpse|form'] = $field_group;
 
   return $export;
 }
