@@ -98,6 +98,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'url',
             'unique' => FALSE,
           ),
+          11 => array(
+            'source' => 'padre_adoptivo',
+            'target' => 'field_corpse_endorser:label',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
