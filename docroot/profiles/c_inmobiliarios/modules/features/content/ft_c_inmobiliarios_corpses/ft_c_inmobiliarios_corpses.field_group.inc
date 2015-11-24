@@ -78,7 +78,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_phisical_properties';
   $field_group->data = array(
     'label' => 'Areas',
-    'weight' => '24',
+    'weight' => '28',
     'children' => array(
       0 => 'field_corpse_area_terrain',
       1 => 'field_corpse_built_area',
@@ -107,7 +107,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_phisical_properties';
   $field_group->data = array(
     'label' => 'Built units',
-    'weight' => '25',
+    'weight' => '29',
     'children' => array(
       0 => 'field_corpse_equipment_plots',
       1 => 'field_corpse_hotel_beds',
@@ -167,7 +167,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_phisical_properties';
   $field_group->data = array(
     'label' => 'Current status',
-    'weight' => '23',
+    'weight' => '27',
     'children' => array(
       0 => 'field_corpse_status',
       1 => 'field_corpse_status_description',
@@ -201,6 +201,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       1 => 'field_corpse_type',
       2 => 'field_urban_name',
       3 => 'field_url',
+      4 => 'field_corpse_endorser',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -284,15 +285,15 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Urban data',
-    'weight' => '26',
+    'weight' => '27',
     'children' => array(
       0 => 'field_corpse_building_typology',
       1 => 'field_corpse_edificability',
       2 => 'field_corpse_ine_code_city',
       3 => 'field_corpse_ine_code_province',
       4 => 'field_corpse_use',
-      5 => 'group_approved_units',
-      6 => 'group_urban_planning_dates',
+      5 => 'group_urban_planning_dates',
+      6 => 'group_approved_units',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
