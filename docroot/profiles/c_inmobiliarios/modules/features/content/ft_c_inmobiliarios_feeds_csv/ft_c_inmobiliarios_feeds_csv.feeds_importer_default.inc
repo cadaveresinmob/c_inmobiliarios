@@ -94,13 +94,18 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'autocreate' => 1,
           ),
           10 => array(
-            'source' => 'enlace_web',
-            'target' => 'url',
+            'source' => 'padre_adoptivo',
+            'target' => 'field_corpse_endorser:label',
             'unique' => FALSE,
           ),
           11 => array(
-            'source' => 'padre_adoptivo',
-            'target' => 'field_corpse_endorser:label',
+            'source' => 'archivos_adjuntos',
+            'target' => 'field_url:url',
+            'unique' => FALSE,
+          ),
+          12 => array(
+            'source' => 'enlace_web',
+            'target' => 'field_url:url',
             'unique' => FALSE,
           ),
         ),

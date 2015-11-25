@@ -9,4 +9,4 @@ Sobre el google docs:
 
 Sobre la migración de datos a drupal:
 
-* Es necesario separar el campo latitud, longitud en dos campos distintos (columnas distintas)
+* Los archivos adjuntos se pierden, pues en google están como urls. Quizá estaría mejor mapearlos como enlaces.

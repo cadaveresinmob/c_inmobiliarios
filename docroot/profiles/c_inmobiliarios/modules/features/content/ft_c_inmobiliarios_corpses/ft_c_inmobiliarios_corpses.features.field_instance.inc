@@ -305,6 +305,48 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_corpse_attachments'.
+  $field_instances['node-corpse-field_corpse_attachments'] = array(
+    'bundle' => 'corpse',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 36,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_attachments',
+    'label' => 'Attachments',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 1,
+      'file_directory' => 'cadaveres_inmobiliarios',
+      'file_extensions' => 'pdf odt doc',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_corpse_building_typology'.
   $field_instances['node-corpse-field_corpse_building_typology'] = array(
     'bundle' => 'corpse',
@@ -2108,6 +2150,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Agreement date');
   t('Area (Terrain)');
   t('Arquitecto o técnico redactor. Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
+  t('Attachments');
   t('Building typology');
   t('Built area');
   t('City\'s INE Code');

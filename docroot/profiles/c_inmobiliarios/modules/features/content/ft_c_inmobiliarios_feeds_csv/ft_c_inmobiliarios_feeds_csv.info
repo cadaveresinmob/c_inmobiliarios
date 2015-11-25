@@ -5,6 +5,7 @@ package = Cadáveres Inmobiliarios
 version = 7.x-1.0-alpha1
 dependencies[] = ctools
 dependencies[] = feeds
+dependencies[] = feeds_ui
 dependencies[] = ft_c_inmobiliarios_core
 dependencies[] = ft_c_inmobiliarios_corpses
 dependencies[] = getlocations_feeds
