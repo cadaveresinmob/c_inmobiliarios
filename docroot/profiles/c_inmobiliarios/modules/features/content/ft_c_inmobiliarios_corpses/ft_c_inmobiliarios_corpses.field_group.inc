@@ -138,13 +138,14 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Corpse\'s Vertical tabs',
-    'weight' => '5',
+    'weight' => '1',
     'children' => array(
       0 => 'group_address',
       1 => 'group_general_info',
       2 => 'group_phisical_properties',
       3 => 'group_property_data',
       4 => 'group_urban_data',
+      5 => 'group_references',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -202,7 +203,6 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       2 => 'field_corpse_type',
       3 => 'field_urban_name',
       4 => 'field_url',
-      5 => 'field_corpse_attachments',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -278,6 +278,34 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_references|node|corpse|form';
+  $field_group->group_name = 'group_references';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_corpse_vertical_tab';
+  $field_group->data = array(
+    'label' => 'References',
+    'weight' => '27',
+    'children' => array(
+      0 => 'field_corpse_attachments',
+      1 => 'field_corpse_link_to_news',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-references field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_references|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_urban_data|node|corpse|form';
   $field_group->group_name = 'group_urban_data';
   $field_group->entity_type = 'node';
@@ -286,7 +314,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Urban data',
-    'weight' => '27',
+    'weight' => '26',
     'children' => array(
       0 => 'field_corpse_building_typology',
       1 => 'field_corpse_edificability',

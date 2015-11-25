@@ -108,6 +108,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_url:url',
             'unique' => FALSE,
           ),
+          13 => array(
+            'source' => 'enlaces_noticia',
+            'target' => 'field_corpse_link_to_news:url',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
