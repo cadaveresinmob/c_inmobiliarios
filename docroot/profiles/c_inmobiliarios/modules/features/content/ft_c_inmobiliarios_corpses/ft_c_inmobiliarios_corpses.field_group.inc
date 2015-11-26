@@ -198,7 +198,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'General info',
     'weight' => '22',
     'children' => array(
-      0 => 'field_corpose_source',
+      0 => 'field_corpse_source',
       1 => 'field_corpse_endorser',
       2 => 'field_corpse_type',
       3 => 'field_urban_name',

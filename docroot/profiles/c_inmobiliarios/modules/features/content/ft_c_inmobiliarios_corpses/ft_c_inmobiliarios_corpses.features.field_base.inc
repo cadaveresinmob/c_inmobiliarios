@@ -48,13 +48,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_corpose_source'.
-  $field_bases['field_corpose_source'] = array(
+  // Exported field_base: 'field_corpse_source'.
+  $field_bases['field_corpse_source'] = array(
     'active' => 1,
     'cardinality' => 3,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_corpose_source',
+    'field_name' => 'field_corpse_source',
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
