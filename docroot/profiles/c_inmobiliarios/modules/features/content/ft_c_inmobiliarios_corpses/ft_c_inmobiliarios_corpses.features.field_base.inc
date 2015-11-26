@@ -48,32 +48,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_corpse_source'.
-  $field_bases['field_corpse_source'] = array(
-    'active' => 1,
-    'cardinality' => 3,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_corpse_source',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'corpse_source',
-          'parent' => 0,
-        ),
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
-  );
-
   // Exported field_base: 'field_corpse_approved_hotel_beds'.
   $field_bases['field_corpse_approved_hotel_beds'] = array(
     'active' => 1,
@@ -616,6 +590,32 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_corpse_source'.
+  $field_bases['field_corpse_source'] = array(
+    'active' => 1,
+    'cardinality' => 3,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_source',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'corpse_source',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_corpse_status'.
   $field_bases['field_corpse_status'] = array(
     'active' => 1,
@@ -690,7 +690,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
   // Exported field_base: 'field_corpse_type'.
   $field_bases['field_corpse_type'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_corpse_type',
