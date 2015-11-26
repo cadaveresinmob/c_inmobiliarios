@@ -12,6 +12,7 @@ dependencies[] = features
 dependencies[] = field_group
 dependencies[] = ft_wysiwyg
 dependencies[] = jquery_update
+dependencies[] = l10n_update
 dependencies[] = node
 dependencies[] = search
 dependencies[] = strongarm
