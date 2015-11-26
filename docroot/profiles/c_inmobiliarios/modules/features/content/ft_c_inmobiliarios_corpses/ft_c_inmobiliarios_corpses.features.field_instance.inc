@@ -1121,6 +1121,49 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_corpse_public_domain'.
+  $field_instances['node-corpse-field_corpse_public_domain'] = array(
+    'bundle' => 'corpse',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 39,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_public_domain',
+    'label' => 'Public domain',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 0,
+      ),
+      'type' => 'options_buttons',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_corpse_source'.
   $field_instances['node-corpse-field_corpse_source'] = array(
     'bundle' => 'corpse',
@@ -2294,6 +2337,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Promoter');
   t('Property\'s description');
   t('Province\'s INE Code');
+  t('Public domain');
   t('Source');
   t('Status');
   t('Technician');
