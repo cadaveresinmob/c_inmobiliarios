@@ -144,8 +144,8 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       1 => 'group_general_info',
       2 => 'group_phisical_properties',
       3 => 'group_property_data',
-      4 => 'group_urban_data',
-      5 => 'group_references',
+      4 => 'group_references',
+      5 => 'group_urban_data',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -286,7 +286,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'References',
-    'weight' => '27',
+    'weight' => '28',
     'children' => array(
       0 => 'field_corpse_attachments',
       1 => 'field_corpse_link_to_news',
@@ -350,6 +350,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '52',
     'children' => array(
       0 => 'field_corpse_lic_date_agreement',
+      1 => 'field_corpse_building_permit',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
