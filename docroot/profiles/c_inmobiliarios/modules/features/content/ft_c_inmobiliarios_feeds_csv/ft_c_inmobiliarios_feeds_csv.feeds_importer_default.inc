@@ -89,7 +89,7 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
           ),
           9 => array(
             'source' => 'fuente',
-            'target' => 'field_corpose_source',
+            'target' => 'field_corpse_source',
             'term_search' => '0',
             'autocreate' => 1,
           ),

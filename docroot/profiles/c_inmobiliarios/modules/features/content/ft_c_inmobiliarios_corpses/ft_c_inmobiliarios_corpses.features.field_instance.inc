@@ -102,8 +102,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpose_source'.
-  $field_instances['node-corpse-field_corpose_source'] = array(
+  // Exported field_instance: 'node-corpse-field_corpse_source'.
+  $field_instances['node-corpse-field_corpse_source'] = array(
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
@@ -124,7 +124,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_corpose_source',
+    'field_name' => 'field_corpse_source',
     'label' => 'Source',
     'required' => 0,
     'settings' => array(
