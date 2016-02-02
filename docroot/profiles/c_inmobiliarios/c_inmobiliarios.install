@@ -126,6 +126,7 @@ function c_inmobiliarios_enable_default_modules() {
     'views',
     'wysiwyg',
     // Features.
+    'ft_c_inmobiliarios_blog_post',
     'ft_c_inmobiliarios_core',
     'ft_c_inmobiliarios_corpses',
     'ft_c_inmobiliarios_feeds_csv',
