@@ -120,6 +120,7 @@ function c_inmobiliarios_enable_default_modules() {
   $modules = array(
     // Modules.
     'field_group',
+    'l10n_update',
     'link',
     'linkit',
     'views',
