@@ -41,7 +41,6 @@ function ft_c_inmobiliarios_map_views_default_views() {
       'rendered_strip' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['map'] = 'geocommons';
   $handler->display->display_options['style_options']['map_height'] = '600';
   $handler->display->display_options['style_options']['ip_geoloc_views_plugin_latitude'] = array(
     'getlocations_fields_latitude' => 'getlocations_fields_latitude',
