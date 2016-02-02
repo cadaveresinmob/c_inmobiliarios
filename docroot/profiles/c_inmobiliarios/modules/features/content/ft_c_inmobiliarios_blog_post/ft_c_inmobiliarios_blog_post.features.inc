@@ -14,6 +14,13 @@ function ft_c_inmobiliarios_blog_post_ctools_plugin_api($module = NULL, $api = N
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function ft_c_inmobiliarios_blog_post_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function ft_c_inmobiliarios_blog_post_node_info() {
