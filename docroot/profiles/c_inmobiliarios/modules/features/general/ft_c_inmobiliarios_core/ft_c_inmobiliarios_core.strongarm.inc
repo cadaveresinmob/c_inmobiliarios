@@ -104,6 +104,13 @@ function ft_c_inmobiliarios_core_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_string_source_language';
+  $strongarm->value = 'en';
+  $export['i18n_string_source_language'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_count';
   $strongarm->value = 2;
   $export['language_count'] = $strongarm;
@@ -113,15 +120,15 @@ function ft_c_inmobiliarios_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'language_default';
   $strongarm->value = (object) array(
-    'language' => 'en',
-    'name' => 'English',
-    'native' => 'English',
+    'language' => 'es',
+    'name' => 'Spanish',
+    'native' => 'Español',
     'direction' => '0',
     'enabled' => 1,
     'plurals' => '0',
     'formula' => '',
     'domain' => '',
-    'prefix' => '',
+    'prefix' => 'es',
     'weight' => '0',
     'javascript' => '',
   );
