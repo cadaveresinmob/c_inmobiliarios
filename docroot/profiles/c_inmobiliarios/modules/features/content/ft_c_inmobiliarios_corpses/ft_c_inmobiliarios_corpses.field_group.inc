@@ -48,7 +48,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_urban_data';
   $field_group->data = array(
     'label' => 'Approved units',
-    'weight' => '54',
+    'weight' => '53',
     'children' => array(
       0 => 'field_approved_industrial_plots',
       1 => 'field_approved_leisure_plots',
@@ -307,6 +307,33 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_technicians|node|corpse|form';
+  $field_group->group_name = 'group_technicians';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_urban_data';
+  $field_group->data = array(
+    'label' => 'Technicians',
+    'weight' => '54',
+    'children' => array(
+      0 => 'field_corpse_tech_permit',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-technicians field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_technicians|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_urban_data|node|corpse|form';
   $field_group->group_name = 'group_urban_data';
   $field_group->entity_type = 'node';
@@ -324,6 +351,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       4 => 'field_corpse_use',
       5 => 'group_approved_units',
       6 => 'group_urban_planning_dates',
+      7 => 'group_technicians',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -348,7 +376,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_urban_data';
   $field_group->data = array(
     'label' => 'Urban Planning dates',
-    'weight' => '53',
+    'weight' => '52',
     'children' => array(
       0 => 'field_corpse_building_permit',
       1 => 'field_corpse_lic_date_agreement',
