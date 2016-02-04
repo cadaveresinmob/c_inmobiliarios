@@ -123,14 +123,14 @@ function ft_c_inmobiliarios_core_strongarm() {
     'language' => 'es',
     'name' => 'Spanish',
     'native' => 'Español',
-    'direction' => '0',
-    'enabled' => '1',
-    'plurals' => '2',
-    'formula' => '($n!=1)',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 0,
+    'formula' => '',
     'domain' => '',
     'prefix' => 'es',
-    'weight' => '0',
-    'javascript' => 'YnoTm61dP_vA9kPQi5NgZMgRXg-qD38l13sKT3yHWMU',
+    'weight' => 0,
+    'javascript' => '',
   );
   $export['language_default'] = $strongarm;
 

@@ -316,25 +316,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_corpse_floor_area_ratio'.
-  $field_bases['field_corpse_floor_area_ratio'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_corpse_floor_area_ratio',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(
-      'decimal_separator' => '.',
-      'precision' => 10,
-      'scale' => 2,
-    ),
-    'translatable' => 0,
-    'type' => 'number_decimal',
-  );
-
   // Exported field_base: 'field_corpse_endorser'.
   $field_bases['field_corpse_endorser'] = array(
     'active' => 1,
@@ -383,6 +364,25 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'number_integer',
+  );
+
+  // Exported field_base: 'field_corpse_floor_area_ratio'.
+  $field_bases['field_corpse_floor_area_ratio'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_floor_area_ratio',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'number_decimal',
   );
 
   // Exported field_base: 'field_corpse_hotel_beds'.
@@ -543,6 +543,35 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'link_field',
+  );
+
+  // Exported field_base: 'field_corpse_partial_plan_date'.
+  $field_bases['field_corpse_partial_plan_date'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_partial_plan_date',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'date',
+    'settings' => array(
+      'cache_count' => 4,
+      'cache_enabled' => 1,
+      'granularity' => array(
+        'day' => 'day',
+        'hour' => 0,
+        'minute' => 0,
+        'month' => 'month',
+        'second' => 0,
+        'year' => 'year',
+      ),
+      'timezone_db' => '',
+      'todate' => '',
+      'tz_handling' => 'none',
+    ),
+    'translatable' => 0,
+    'type' => 'datetime',
   );
 
   // Exported field_base: 'field_corpse_promoter'.
