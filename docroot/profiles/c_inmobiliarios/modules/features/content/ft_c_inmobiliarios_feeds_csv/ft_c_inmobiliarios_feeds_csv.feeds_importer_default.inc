@@ -123,6 +123,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_urban_plan_date:start',
             'unique' => FALSE,
           ),
+          16 => array(
+            'source' => 'licencia_obras_planeamiento_tecnico_redactor',
+            'target' => 'field_corpse_tech_permit',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
