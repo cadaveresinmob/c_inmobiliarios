@@ -353,6 +353,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       0 => 'field_corpse_building_permit',
       1 => 'field_corpse_lic_date_agreement',
       2 => 'field_corpse_partial_plan_date',
+      3 => 'field_corpse_urban_plan_date',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
