@@ -318,7 +318,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '26',
     'children' => array(
       0 => 'field_corpse_building_typology',
-      1 => 'field_corpse_edificability',
+      1 => 'field_corpse_floor_area_ratio',
       2 => 'field_corpse_ine_code_city',
       3 => 'field_corpse_ine_code_province',
       4 => 'field_corpse_use',
