@@ -40,6 +40,34 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_agents|node|corpse|form';
+  $field_group->group_name = 'group_agents';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_corpse_vertical_tab';
+  $field_group->data = array(
+    'label' => 'Involved agents',
+    'weight' => '27',
+    'children' => array(
+      0 => 'group_technicians',
+      1 => 'group_other_agents',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-agents field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_agents|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_approved_units|node|corpse|form';
   $field_group->group_name = 'group_approved_units';
   $field_group->entity_type = 'node';
@@ -226,10 +254,10 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'corpse';
   $field_group->mode = 'form';
-  $field_group->parent_name = '_add_new_group';
+  $field_group->parent_name = 'group_agents';
   $field_group->data = array(
     'label' => 'Other agents',
-    'weight' => '55',
+    'weight' => '56',
     'children' => array(
       0 => 'field_corpse_financial_entities',
     ),
@@ -340,7 +368,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'corpse';
   $field_group->mode = 'form';
-  $field_group->parent_name = '_add_new_group';
+  $field_group->parent_name = 'group_agents';
   $field_group->data = array(
     'label' => 'Technicians',
     'weight' => '54',
@@ -377,8 +405,9 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       2 => 'field_corpse_ine_code_city',
       3 => 'field_corpse_ine_code_province',
       4 => 'field_corpse_use',
-      5 => 'group_approved_units',
-      6 => 'group_urban_planning_dates',
+      5 => 'field_zoning_protection_level',
+      6 => 'group_approved_units',
+      7 => 'group_urban_planning_dates',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
