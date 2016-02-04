@@ -118,6 +118,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_partial_plan_date:start',
             'unique' => FALSE,
           ),
+          15 => array(
+            'source' => 'proyecto_urbanistico_planeamiento_fecha_licencia',
+            'target' => 'field_corpse_urban_plan_date:start',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
