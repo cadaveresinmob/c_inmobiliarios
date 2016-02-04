@@ -128,6 +128,12 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_tech_permit',
             'unique' => FALSE,
           ),
+          17 => array(
+            'source' => 'entidades_financieras',
+            'target' => 'field_corpse_financial_entities',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',

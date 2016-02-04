@@ -18,5 +18,6 @@ features[feeds_importer][] = corpses_csv
 features[feeds_tamper][] = corpses_csv-enlace_web-explode
 features[feeds_tamper][] = corpses_csv-enlaces_noticia-explode
 features[feeds_tamper][] = corpses_csv-enlaces_noticias-explode
+features[feeds_tamper][] = corpses_csv-entidades_financieras-explode
 features[feeds_tamper][] = corpses_csv-fuente-explode
 project path = profiles/c_inmobiliarios/modules/features/content

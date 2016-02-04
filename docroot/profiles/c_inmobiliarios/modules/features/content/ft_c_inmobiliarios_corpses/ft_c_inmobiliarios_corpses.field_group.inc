@@ -146,6 +146,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       3 => 'group_property_data',
       4 => 'group_references',
       5 => 'group_urban_data',
+      6 => 'group_agents',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -216,6 +217,33 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $export['group_general_info|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_other_agents|node|corpse|form';
+  $field_group->group_name = 'group_other_agents';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '_add_new_group';
+  $field_group->data = array(
+    'label' => 'Other agents',
+    'weight' => '55',
+    'children' => array(
+      0 => 'field_corpse_financial_entities',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-other-agents field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_other_agents|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -312,7 +340,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'corpse';
   $field_group->mode = 'form';
-  $field_group->parent_name = 'group_urban_data';
+  $field_group->parent_name = '_add_new_group';
   $field_group->data = array(
     'label' => 'Technicians',
     'weight' => '54',
@@ -351,7 +379,6 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       4 => 'field_corpse_use',
       5 => 'group_approved_units',
       6 => 'group_urban_planning_dates',
-      7 => 'group_technicians',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
