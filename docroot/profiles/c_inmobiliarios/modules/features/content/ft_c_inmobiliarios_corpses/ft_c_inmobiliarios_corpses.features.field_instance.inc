@@ -510,52 +510,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpse_floor_area_ratio'.
-  $field_instances['node-corpse-field_corpse_floor_area_ratio'] = array(
-    'bundle' => 'corpse',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Edificabilidad absoluta planificada o aprobada (m²)',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 27,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 25,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_corpse_floor_area_ratio',
-    'label' => 'Floor Area Ratio',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => 'm²',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 51,
-    ),
-  );
-
   // Exported field_instance: 'node-corpse-field_corpse_endorser'.
   $field_instances['node-corpse-field_corpse_endorser'] = array(
     'bundle' => 'corpse',
@@ -642,6 +596,52 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 31,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_floor_area_ratio'.
+  $field_instances['node-corpse-field_corpse_floor_area_ratio'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Edificabilidad absoluta planificada o aprobada (m²)',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 27,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_floor_area_ratio',
+    'label' => 'Floor Area Ratio',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => 'm²',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 51,
     ),
   );
 
@@ -1033,6 +1033,61 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'settings' => array(),
       'type' => 'link_field',
       'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_partial_plan_date'.
+  $field_instances['node-corpse-field_corpse_partial_plan_date'] = array(
+    'bundle' => 'corpse',
+    'deleted' => 0,
+    'description' => 'Date in which partial plan was approved.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 40,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_partial_plan_date',
+    'label' => 'Partial plan date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 30,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '1990:+0',
+      ),
+      'type' => 'date_popup',
+      'weight' => 54,
     ),
   );
 
@@ -2322,18 +2377,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Contractor');
   t('Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Corresponde a los datos de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
+  t('Date in which partial plan was approved.');
   t('Description');
   t('Edificabilidad absoluta planificada o aprobada (m²)');
-  t('Floor Area Ratio');
   t('Endorser');
   t('Equipment plots');
   t('Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.');
+  t('Floor Area Ratio');
   t('Hotel beds');
   t('Housing');
   t('Industrial plots');
   t('Leisure plots');
   t('Link to news');
   t('Nombre del/de los colectivos o fuente de donde has escogido el cadáver para adoptar. Separar por comas. ');
+  t('Partial plan date');
   t('Promoter');
   t('Property\'s description');
   t('Province\'s INE Code');

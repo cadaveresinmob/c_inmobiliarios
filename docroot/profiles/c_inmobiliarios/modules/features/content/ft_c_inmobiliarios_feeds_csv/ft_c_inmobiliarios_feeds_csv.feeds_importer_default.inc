@@ -113,6 +113,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_link_to_news:url',
             'unique' => FALSE,
           ),
+          14 => array(
+            'source' => 'plan_parcial_planeamiento_fecha_licencia',
+            'target' => 'field_corpse_partial_plan_date:start',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',

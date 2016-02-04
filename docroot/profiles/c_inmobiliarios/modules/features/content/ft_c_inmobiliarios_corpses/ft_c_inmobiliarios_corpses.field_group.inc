@@ -199,11 +199,11 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '22',
     'children' => array(
       0 => 'field_corpse_endorser',
-      1 => 'field_corpse_type',
-      2 => 'field_urban_name',
-      3 => 'field_url',
-      4 => 'field_corpse_source',
-      5 => 'field_corpse_public_domain',
+      1 => 'field_corpse_public_domain',
+      2 => 'field_corpse_source',
+      3 => 'field_corpse_type',
+      4 => 'field_urban_name',
+      5 => 'field_url',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -352,6 +352,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'children' => array(
       0 => 'field_corpse_building_permit',
       1 => 'field_corpse_lic_date_agreement',
+      2 => 'field_corpse_partial_plan_date',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
