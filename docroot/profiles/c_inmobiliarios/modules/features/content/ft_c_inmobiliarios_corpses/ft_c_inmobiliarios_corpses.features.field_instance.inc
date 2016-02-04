@@ -339,7 +339,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'label' => 'Building permit',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -355,10 +355,10 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'label_position' => 'above',
         'no_fieldset' => 0,
         'text_parts' => array(),
-        'year_range' => '-3:+3',
+        'year_range' => '1990:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 53,
+      'weight' => 55,
     ),
   );
 
@@ -951,7 +951,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'label' => 'Agreement date',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -967,7 +967,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'label_position' => 'above',
         'no_fieldset' => 0,
         'text_parts' => array(),
-        'year_range' => '-3:+3',
+        'year_range' => '1990:+3',
       ),
       'type' => 'date_popup',
       'weight' => 52,
@@ -1068,7 +1068,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'label' => 'Partial plan date',
     'required' => 0,
     'settings' => array(
-      'default_value' => 'now',
+      'default_value' => 'blank',
       'default_value2' => 'same',
       'default_value_code' => '',
       'default_value_code2' => '',
@@ -1087,7 +1087,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'year_range' => '1990:+0',
       ),
       'type' => 'date_popup',
-      'weight' => 54,
+      'weight' => 53,
     ),
   );
 
@@ -1473,7 +1473,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'year_range' => '1990:+0',
       ),
       'type' => 'date_popup',
-      'weight' => 55,
+      'weight' => 54,
     ),
   );
 
