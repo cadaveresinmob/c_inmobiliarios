@@ -316,13 +316,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_corpse_edificability'.
-  $field_bases['field_corpse_edificability'] = array(
+  // Exported field_base: 'field_corpse_floor_area_ratio'.
+  $field_bases['field_corpse_floor_area_ratio'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_corpse_edificability',
+    'field_name' => 'field_corpse_floor_area_ratio',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',

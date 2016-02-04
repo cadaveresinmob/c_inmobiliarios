@@ -510,8 +510,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpse_edificability'.
-  $field_instances['node-corpse-field_corpse_edificability'] = array(
+  // Exported field_instance: 'node-corpse-field_corpse_floor_area_ratio'.
+  $field_instances['node-corpse-field_corpse_floor_area_ratio'] = array(
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
@@ -537,8 +537,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_corpse_edificability',
-    'label' => 'Edificability',
+    'field_name' => 'field_corpse_floor_area_ratio',
+    'label' => 'Floor Area Ratio',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -2324,7 +2324,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Corresponde a los datos de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Description');
   t('Edificabilidad absoluta planificada o aprobada (m²)');
-  t('Edificability');
+  t('Floor Area Ratio');
   t('Endorser');
   t('Equipment plots');
   t('Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.');
