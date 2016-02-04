@@ -2498,6 +2498,51 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_zoning_protection_level'.
+  $field_instances['node-corpse-field_zoning_protection_level'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 44,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_zoning_protection_level',
+    'label' => 'Zoning protection level',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 54,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
@@ -2542,6 +2587,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Urban plan date');
   t('Use');
   t('Used land (%)');
+  t('Zoning protection level');
 
   return $field_instances;
 }

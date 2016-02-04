@@ -134,6 +134,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'term_search' => '0',
             'autocreate' => 1,
           ),
+          18 => array(
+            'source' => 'zonificacion_nivel_proteccion',
+            'target' => 'field_zoning_protection_level',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
