@@ -8,7 +8,7 @@ Este prototipo para [cadáveres inmobiliarios](http://cadaveresinmobiliarios.org
 
 ### Interfaz
 
-Deberemos ejecutar una instalación normal de drupal ([ver instrucciones de instalación](http://drupal.org/documentation/install)) con la particularidad de que en el paso 1 deberemos elegir el perfil de instalación llamado `c_inmobiliarios`
+Deberemos ejecutar una instalación normal de drupal  ([ver instrucciones](http://drupal.org/documentation/install)) con la particularidad de que en el paso 1 deberemos elegir el perfil de instalación llamado `c_inmobiliarios`
 
 ### Con línea de comandos
 
