@@ -139,6 +139,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_zoning_protection_level',
             'unique' => FALSE,
           ),
+          19 => array(
+            'source' => 'concurso_acreedores',
+            'target' => 'field_corpse_creditors_meeting',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',

@@ -50,8 +50,8 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'Involved agents',
     'weight' => '27',
     'children' => array(
-      0 => 'group_technicians',
-      1 => 'group_other_agents',
+      0 => 'group_other_agents',
+      1 => 'group_technicians',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -168,13 +168,14 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'Corpse\'s Vertical tabs',
     'weight' => '1',
     'children' => array(
-      0 => 'group_address',
-      1 => 'group_general_info',
-      2 => 'group_phisical_properties',
-      3 => 'group_property_data',
-      4 => 'group_references',
-      5 => 'group_urban_data',
-      6 => 'group_agents',
+      0 => 'group_legal',
+      1 => 'group_address',
+      2 => 'group_agents',
+      3 => 'group_general_info',
+      4 => 'group_phisical_properties',
+      5 => 'group_property_data',
+      6 => 'group_references',
+      7 => 'group_urban_data',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -245,6 +246,33 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $export['group_general_info|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_legal|node|corpse|form';
+  $field_group->group_name = 'group_legal';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_corpse_vertical_tab';
+  $field_group->data = array(
+    'label' => 'Legal and financial',
+    'weight' => '28',
+    'children' => array(
+      0 => 'field_corpse_creditors_meeting',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-legal field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_legal|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -343,7 +371,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'References',
-    'weight' => '28',
+    'weight' => '29',
     'children' => array(
       0 => 'field_corpse_attachments',
       1 => 'field_corpse_link_to_news',
