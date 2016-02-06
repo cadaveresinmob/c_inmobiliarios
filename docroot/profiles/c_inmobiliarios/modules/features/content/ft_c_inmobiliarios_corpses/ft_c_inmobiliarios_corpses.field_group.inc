@@ -261,6 +261,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '28',
     'children' => array(
       0 => 'field_corpse_creditors_meeting',
+      1 => 'field_corpse_mortgage_amount',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
