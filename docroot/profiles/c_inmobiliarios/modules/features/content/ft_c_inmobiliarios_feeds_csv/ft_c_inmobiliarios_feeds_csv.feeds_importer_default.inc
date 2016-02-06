@@ -144,6 +144,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_creditors_meeting',
             'unique' => FALSE,
           ),
+          20 => array(
+            'source' => 'cuantia_hipoteca',
+            'target' => 'field_corpse_mortgage_amount',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
