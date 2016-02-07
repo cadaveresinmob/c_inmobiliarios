@@ -159,6 +159,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_other_dates',
             'unique' => FALSE,
           ),
+          23 => array(
+            'source' => 'recursos_interpuestos',
+            'target' => 'field_corpse_filed_appeals',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
