@@ -76,7 +76,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_urban_data';
   $field_group->data = array(
     'label' => 'Approved units',
-    'weight' => '53',
+    'weight' => '54',
     'children' => array(
       0 => 'field_approved_industrial_plots',
       1 => 'field_approved_leisure_plots',
@@ -142,6 +142,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       2 => 'field_corpse_housing',
       3 => 'field_corpse_industrial_plots',
       4 => 'field_corpse_leisure_plots',
+      5 => 'field_corpse_planned_inhabitants',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -286,7 +287,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_agents';
   $field_group->data = array(
     'label' => 'Other agents',
-    'weight' => '56',
+    'weight' => '63',
     'children' => array(
       0 => 'field_corpse_financial_entities',
     ),
@@ -400,7 +401,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_agents';
   $field_group->data = array(
     'label' => 'Technicians',
-    'weight' => '54',
+    'weight' => '62',
     'children' => array(
       0 => 'field_corpse_tech_permit',
     ),
@@ -461,7 +462,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_urban_data';
   $field_group->data = array(
     'label' => 'Urban Planning dates',
-    'weight' => '52',
+    'weight' => '53',
     'children' => array(
       0 => 'field_corpse_building_permit',
       1 => 'field_corpse_lic_date_agreement',

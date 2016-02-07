@@ -1222,6 +1222,51 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_corpse_planned_inhabitants'.
+  $field_instances['node-corpse-field_corpse_planned_inhabitants'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Type a number here in case you know the exact value. Otherwise leave it empty and it will be calculated automatically based on the number of planned housings * 3.5',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 47,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_planned_inhabitants',
+    'label' => 'Number of planned inhabitants',
+    'required' => 0,
+    'settings' => array(
+      'prefix' => '',
+      'read-only' => FALSE,
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'mathfield',
+      'settings' => array(),
+      'type' => 'mathfield_text',
+      'weight' => 32,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_corpse_promoter'.
   $field_instances['node-corpse-field_corpse_promoter'] = array(
     'bundle' => 'corpse',
@@ -2630,7 +2675,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 54,
+      'weight' => 55,
     ),
   );
 
@@ -2666,6 +2711,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Link to news');
   t('Mortgage amount');
   t('Nombre del/de los colectivos o fuente de donde has escogido el cadáver para adoptar. Separar por comas. ');
+  t('Number of planned inhabitants');
   t('Partial plan date');
   t('Promoter');
   t('Property\'s description');
@@ -2675,6 +2721,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Status');
   t('Technician');
   t('Type');
+  t('Type a number here in case you know the exact value. Otherwise leave it empty and it will be calculated automatically based on the number of planned housings * 3.5');
   t('URL');
   t('Urban name');
   t('Urban plan date');
