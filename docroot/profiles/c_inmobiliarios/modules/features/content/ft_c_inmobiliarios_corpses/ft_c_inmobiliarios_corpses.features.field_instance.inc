@@ -551,7 +551,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 63,
+      'weight' => 68,
     ),
   );
 
@@ -725,7 +725,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 57,
+      'weight' => 69,
     ),
   );
 
@@ -1208,7 +1208,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 62,
+      'weight' => 67,
     ),
   );
 
@@ -1909,6 +1909,91 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 24,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_court_sentence'.
+  $field_instances['node-corpse-field_court_sentence'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 63,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_court_sentence',
+    'label' => 'Court sentence',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 62,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_court_that_rules_sentence'.
+  $field_instances['node-corpse-field_court_that_rules_sentence'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 65,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_court_that_rules_sentence',
+    'label' => 'Court  that rules sentence',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 64,
     ),
   );
 
@@ -2663,6 +2748,96 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_mortgage_charges'.
+  $field_instances['node-corpse-field_mortgage_charges'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 67,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_mortgage_charges',
+    'label' => 'Mortgage charges',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 66,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_number_of_sentences'.
+  $field_instances['node-corpse-field_number_of_sentences'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 64,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_number_of_sentences',
+    'label' => 'Number of sentences',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 63,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_pgou_modification_date'.
   $field_instances['node-corpse-field_pgou_modification_date'] = array(
     'bundle' => 'corpse',
@@ -2960,6 +3135,51 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
       'type' => 'text_textarea',
       'weight' => 78,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_ruling_sentence'.
+  $field_instances['node-corpse-field_ruling_sentence'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 66,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ruling_sentence',
+    'label' => 'Ruling',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 65,
     ),
   );
 
@@ -3336,6 +3556,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Contractor');
   t('Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Corresponde a los datos de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
+  t('Court  that rules sentence');
+  t('Court sentence');
   t('Creditors meeting');
   t('Date in which partial plan was approved.');
   t('Date in which urban plan was approved.');
@@ -3353,9 +3575,11 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Leisure plots');
   t('Link to news');
   t('Mortgage amount');
+  t('Mortgage charges');
   t('Nombre del/de los colectivos o fuente de donde has escogido el cadáver para adoptar. Separar por comas. ');
   t('Number of planned inhabitants');
   t('Number of planned visitors');
+  t('Number of sentences');
   t('Other dates');
   t('Other politicians');
   t('Other technicians');
@@ -3371,6 +3595,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Property\'s description');
   t('Province\'s INE Code');
   t('Public domain');
+  t('Ruling');
   t('Source');
   t('Status');
   t('Technician');

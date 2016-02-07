@@ -228,6 +228,32 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_politicians_other',
             'unique' => FALSE,
           ),
+          35 => array(
+            'source' => 'sentencias_judiciales',
+            'target' => 'field_court_sentence',
+            'unique' => FALSE,
+          ),
+          36 => array(
+            'source' => 'n_fecha_sentencias',
+            'target' => 'field_number_of_sentences',
+            'unique' => FALSE,
+          ),
+          37 => array(
+            'source' => 'tribunal_dicta',
+            'target' => 'field_court_that_rules_sentence',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
+          38 => array(
+            'source' => 'fallo',
+            'target' => 'field_ruling_sentence',
+            'unique' => FALSE,
+          ),
+          39 => array(
+            'source' => 'hipoteca_cargas',
+            'target' => 'field_mortgage_charges',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',

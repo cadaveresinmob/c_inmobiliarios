@@ -260,11 +260,17 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Legal and financial',
-    'weight' => '29',
+    'weight' => '28',
     'children' => array(
-      0 => 'field_corpse_creditors_meeting',
-      1 => 'field_corpse_mortgage_amount',
-      2 => 'field_corpse_filed_appeals',
+      0 => 'field_corpse_financial_entities',
+      1 => 'field_corpse_creditors_meeting',
+      2 => 'field_corpse_mortgage_amount',
+      3 => 'field_corpse_filed_appeals',
+      4 => 'field_court_sentence',
+      5 => 'field_number_of_sentences',
+      6 => 'field_court_that_rules_sentence',
+      7 => 'field_ruling_sentence',
+      8 => 'field_mortgage_charges',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
