@@ -126,7 +126,8 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
           16 => array(
             'source' => 'licencia_obras_planeamiento_tecnico_redactor',
             'target' => 'field_corpse_tech_permit',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
           17 => array(
             'source' => 'entidades_financieras',
@@ -163,6 +164,12 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'source' => 'recursos_interpuestos',
             'target' => 'field_corpse_filed_appeals',
             'unique' => FALSE,
+          ),
+          24 => array(
+            'source' => 'convenio_urbanistico_planeamiento_tecnico_redactor',
+            'target' => 'field_technician_plan_agreement',
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '2',

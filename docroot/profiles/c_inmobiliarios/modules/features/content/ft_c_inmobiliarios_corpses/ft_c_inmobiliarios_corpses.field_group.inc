@@ -406,6 +406,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '62',
     'children' => array(
       0 => 'field_corpse_tech_permit',
+      1 => 'field_technician_plan_agreement',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
