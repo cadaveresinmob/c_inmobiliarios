@@ -358,7 +358,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'year_range' => '1990:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 55,
+      'weight' => 56,
     ),
   );
 
@@ -1253,7 +1253,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 56,
+      'weight' => 57,
     ),
   );
 
@@ -1691,7 +1691,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 65,
+      'weight' => 68,
     ),
   );
 
@@ -1825,7 +1825,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'year_range' => '1990:+0',
       ),
       'type' => 'date_popup',
-      'weight' => 54,
+      'weight' => 55,
     ),
   );
 
@@ -2663,6 +2663,61 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_pgou_modification_date'.
+  $field_instances['node-corpse-field_pgou_modification_date'] = array(
+    'bundle' => 'corpse',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 52,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_pgou_modification_date',
+    'label' => 'PGOU Modification date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'blank',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'd/m/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'no_fieldset' => 0,
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_popup',
+      'weight' => 54,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_technician_plan_agreement'.
   $field_instances['node-corpse-field_technician_plan_agreement'] = array(
     'bundle' => 'corpse',
@@ -2699,7 +2754,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 64,
+      'weight' => 67,
     ),
   );
 
@@ -2891,6 +2946,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Number of planned inhabitants');
   t('Number of planned visitors');
   t('Other dates');
+  t('PGOU Modification date');
   t('Partial plan date');
   t('Planning agreement technician');
   t('Promoter');

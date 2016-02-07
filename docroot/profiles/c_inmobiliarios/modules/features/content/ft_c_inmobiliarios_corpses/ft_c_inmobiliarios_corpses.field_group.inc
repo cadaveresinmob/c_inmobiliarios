@@ -472,6 +472,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       2 => 'field_corpse_partial_plan_date',
       3 => 'field_corpse_urban_plan_date',
       4 => 'field_corpse_other_dates',
+      5 => 'field_pgou_modification_date',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
