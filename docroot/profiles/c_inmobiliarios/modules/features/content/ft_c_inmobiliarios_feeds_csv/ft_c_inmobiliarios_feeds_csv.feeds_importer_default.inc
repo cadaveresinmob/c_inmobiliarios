@@ -149,6 +149,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_mortgage_amount',
             'unique' => FALSE,
           ),
+          21 => array(
+            'source' => 'numero_de_visitantes_previsto_aplicable_centros_de_ocio_planeamiento',
+            'target' => 'field_corpse_planned_visitors',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',

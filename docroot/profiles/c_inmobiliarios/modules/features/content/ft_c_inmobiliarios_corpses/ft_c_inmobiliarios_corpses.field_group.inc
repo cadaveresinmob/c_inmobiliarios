@@ -48,7 +48,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Involved agents',
-    'weight' => '27',
+    'weight' => '28',
     'children' => array(
       0 => 'group_other_agents',
       1 => 'group_technicians',
@@ -143,6 +143,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       3 => 'field_corpse_industrial_plots',
       4 => 'field_corpse_leisure_plots',
       5 => 'field_corpse_planned_inhabitants',
+      6 => 'field_corpse_planned_visitors',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -259,7 +260,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Legal and financial',
-    'weight' => '28',
+    'weight' => '29',
     'children' => array(
       0 => 'field_corpse_creditors_meeting',
       1 => 'field_corpse_mortgage_amount',
@@ -373,7 +374,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'References',
-    'weight' => '29',
+    'weight' => '30',
     'children' => array(
       0 => 'field_corpse_attachments',
       1 => 'field_corpse_link_to_news',
@@ -428,7 +429,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Urban data',
-    'weight' => '26',
+    'weight' => '27',
     'children' => array(
       0 => 'field_corpse_building_typology',
       1 => 'field_corpse_floor_area_ratio',
