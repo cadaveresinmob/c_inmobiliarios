@@ -429,7 +429,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Urban data',
-    'weight' => '27',
+    'weight' => '26',
     'children' => array(
       0 => 'field_corpse_building_typology',
       1 => 'field_corpse_floor_area_ratio',
@@ -469,6 +469,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       1 => 'field_corpse_lic_date_agreement',
       2 => 'field_corpse_partial_plan_date',
       3 => 'field_corpse_urban_plan_date',
+      4 => 'field_corpse_other_dates',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

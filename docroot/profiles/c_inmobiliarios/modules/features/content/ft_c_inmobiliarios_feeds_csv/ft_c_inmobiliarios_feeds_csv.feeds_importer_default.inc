@@ -154,6 +154,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_planned_visitors',
             'unique' => FALSE,
           ),
+          22 => array(
+            'source' => 'otras_fechas_planeamiento_fecha_licencia',
+            'target' => 'field_corpse_other_dates',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
