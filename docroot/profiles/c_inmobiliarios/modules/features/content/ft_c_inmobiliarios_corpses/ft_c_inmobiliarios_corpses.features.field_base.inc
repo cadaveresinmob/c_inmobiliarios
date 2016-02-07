@@ -638,6 +638,29 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'datetime',
   );
 
+  // Exported field_base: 'field_corpse_planned_inhabitants'.
+  $field_bases['field_corpse_planned_inhabitants'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_planned_inhabitants',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'mathfield',
+    'settings' => array(
+      'decimal_separator' => '.',
+      'expression' => '[field_corpse_housing:0:value] * 3.5',
+      'field_dependencies' => array(
+        0 => 'field_corpse_housing',
+      ),
+      'precision' => 10,
+      'scale' => 2,
+    ),
+    'translatable' => 0,
+    'type' => 'mathfield',
+  );
+
   // Exported field_base: 'field_corpse_promoter'.
   $field_bases['field_corpse_promoter'] = array(
     'active' => 1,
