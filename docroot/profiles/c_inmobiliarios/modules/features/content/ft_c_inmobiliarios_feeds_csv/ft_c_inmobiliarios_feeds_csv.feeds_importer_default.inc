@@ -171,6 +171,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'term_search' => '0',
             'autocreate' => 1,
           ),
+          25 => array(
+            'source' => 'modificacion_pgou_planeamiento_fecha_licencia',
+            'target' => 'field_pgou_modification_date:start',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
