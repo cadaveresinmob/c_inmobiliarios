@@ -2718,6 +2718,251 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_politician_building_permit'.
+  $field_instances['node-corpse-field_politician_building_permit'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 61,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_politician_building_permit',
+    'label' => 'Building permit politician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 77,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_politician_partial_plan'.
+  $field_instances['node-corpse-field_politician_partial_plan'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 58,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_politician_partial_plan',
+    'label' => 'Partial plan politician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 74,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_politician_pgou_modifi'.
+  $field_instances['node-corpse-field_politician_pgou_modifi'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 59,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_politician_pgou_modifi',
+    'label' => 'PGOU Modification politician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 75,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_politician_plan_agreement'.
+  $field_instances['node-corpse-field_politician_plan_agreement'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 57,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_politician_plan_agreement',
+    'label' => 'Planning agreement politician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 73,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_politician_urban_plan'.
+  $field_instances['node-corpse-field_politician_urban_plan'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 60,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_politician_urban_plan',
+    'label' => 'Urban plan politician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 76,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_politicians_other'.
+  $field_instances['node-corpse-field_politicians_other'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 62,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_politicians_other',
+    'label' => 'Other politicians',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 78,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_technician_parcial_plan'.
   $field_instances['node-corpse-field_technician_parcial_plan'] = array(
     'bundle' => 'corpse',
@@ -3083,6 +3328,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Arquitecto o técnico redactor. Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Attachments');
   t('Building permit');
+  t('Building permit politician');
   t('Building permit technician');
   t('Building typology');
   t('Built area');
@@ -3111,11 +3357,15 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Number of planned inhabitants');
   t('Number of planned visitors');
   t('Other dates');
+  t('Other politicians');
   t('Other technicians');
   t('PGOU Modification date');
+  t('PGOU Modification politician');
   t('PGOU Modification technician');
   t('Parcial plan technician');
   t('Partial plan date');
+  t('Partial plan politician');
+  t('Planning agreement politician');
   t('Planning agreement technician');
   t('Promoter');
   t('Property\'s description');
@@ -3129,6 +3379,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('URL');
   t('Urban name');
   t('Urban plan date');
+  t('Urban plan politician');
   t('Urban plan technician');
   t('Use');
   t('Used land (%)');
