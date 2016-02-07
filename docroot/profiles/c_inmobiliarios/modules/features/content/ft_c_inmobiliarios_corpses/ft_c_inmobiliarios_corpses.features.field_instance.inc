@@ -1691,7 +1691,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 68,
+      'weight' => 71,
     ),
   );
 
@@ -2718,6 +2718,86 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_technician_parcial_plan'.
+  $field_instances['node-corpse-field_technician_parcial_plan'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 53,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_technician_parcial_plan',
+    'label' => 'Parcial plan technician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 68,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_technician_pgou_modif'.
+  $field_instances['node-corpse-field_technician_pgou_modif'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 54,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_technician_pgou_modif',
+    'label' => 'PGOU Modification technician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 69,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_technician_plan_agreement'.
   $field_instances['node-corpse-field_technician_plan_agreement'] = array(
     'bundle' => 'corpse',
@@ -2755,6 +2835,91 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
       'type' => 'taxonomy_autocomplete',
       'weight' => 67,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_technician_urban_plan'.
+  $field_instances['node-corpse-field_technician_urban_plan'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 55,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_technician_urban_plan',
+    'label' => 'Urban plan technician',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 70,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_technicians_other'.
+  $field_instances['node-corpse-field_technicians_other'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 56,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_technicians_other',
+    'label' => 'Other technicians',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 72,
     ),
   );
 
@@ -2946,7 +3111,10 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Number of planned inhabitants');
   t('Number of planned visitors');
   t('Other dates');
+  t('Other technicians');
   t('PGOU Modification date');
+  t('PGOU Modification technician');
+  t('Parcial plan technician');
   t('Partial plan date');
   t('Planning agreement technician');
   t('Promoter');
@@ -2961,6 +3129,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('URL');
   t('Urban name');
   t('Urban plan date');
+  t('Urban plan technician');
   t('Use');
   t('Used land (%)');
   t('Zoning protection level');
