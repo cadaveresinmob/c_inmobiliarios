@@ -97,6 +97,7 @@ features[field_group][] = group_areas|node|corpse|form
 features[field_group][] = group_built_units|node|corpse|form
 features[field_group][] = group_corpse_vertical_tab|node|corpse|form
 features[field_group][] = group_current_status|node|corpse|form
+features[field_group][] = group_environmental_info|node|corpse|form
 features[field_group][] = group_general_info|node|corpse|form
 features[field_group][] = group_legal|node|corpse|form
 features[field_group][] = group_other_agents|node|corpse|form

@@ -171,13 +171,13 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'children' => array(
       0 => 'group_legal',
       1 => 'group_address',
-      2 => 'group_agents',
-      3 => 'group_general_info',
-      4 => 'group_phisical_properties',
-      5 => 'group_property_data',
-      6 => 'group_references',
-      7 => 'group_urban_data',
-      8 => 'group_politicians',
+      2 => 'group_general_info',
+      3 => 'group_phisical_properties',
+      4 => 'group_property_data',
+      5 => 'group_references',
+      6 => 'group_urban_data',
+      7 => 'group_politicians',
+      8 => 'group_environmental_info',
     ),
     'format_type' => 'tabs',
     'format_settings' => array(
@@ -216,6 +216,33 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $export['group_current_status|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_environmental_info|node|corpse|form';
+  $field_group->group_name = 'group_environmental_info';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_corpse_vertical_tab';
+  $field_group->data = array(
+    'label' => 'Environmental information',
+    'weight' => '29',
+    'children' => array(
+      0 => 'field_zoning_protection_level',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-environmental-info field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_environmental_info|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -480,10 +507,9 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       2 => 'field_corpse_ine_code_city',
       3 => 'field_corpse_ine_code_province',
       4 => 'field_corpse_use',
-      5 => 'field_zoning_protection_level',
-      6 => 'group_approved_units',
-      7 => 'group_technicians',
-      8 => 'group_urban_planning_dates',
+      5 => 'group_approved_units',
+      6 => 'group_technicians',
+      7 => 'group_urban_planning_dates',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
