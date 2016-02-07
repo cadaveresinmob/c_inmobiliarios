@@ -1257,6 +1257,32 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'getlocations_fields',
   );
 
+  // Exported field_base: 'field_technician_plan_agreement'.
+  $field_bases['field_technician_plan_agreement'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_technician_plan_agreement',
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'corpse_technician',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_urban_name'.
   $field_bases['field_urban_name'] = array(
     'active' => 1,
