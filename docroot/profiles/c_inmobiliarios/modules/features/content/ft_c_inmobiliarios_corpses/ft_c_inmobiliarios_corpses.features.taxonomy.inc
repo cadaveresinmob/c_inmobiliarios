@@ -55,6 +55,29 @@ function ft_c_inmobiliarios_corpses_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'corpse_court' => array(
+      'name' => 'Corpse\'s court',
+      'machine_name' => 'corpse_court',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'corpse_politician' => array(
       'name' => 'Corpse\'s politician',
       'machine_name' => 'corpse_politician',
