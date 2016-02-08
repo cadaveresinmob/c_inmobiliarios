@@ -4,74 +4,38 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2015-11-26 19:21+0100\n"
-"PO-Revision-Date: 2015-11-26 19:21+0100\n"
+"POT-Creation-Date: 2016-02-08 16:06+0100\n"
+"PO-Revision-Date: 2016-02-08 16:06+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: field:body:blog_post:label
+msgctxt "body:blog_post:label"
+msgid "Body"
+msgstr ""
+
+#: field:comment_body:comment_node_blog_post:label
+msgctxt "comment_body:comment_node_blog_post:label"
+msgid "Comment"
+msgstr ""
 
 #: field:comment_body:comment_node_corpse:label
 msgctxt "comment_body:comment_node_corpse:label"
 msgid "Comment"
 msgstr ""
 
-#: field:field_approved_industrial_plots:corpse:label
-msgctxt "field_approved_industrial_plots:corpse:label"
-msgid "Industrial plots"
+#: field:field_blog_category:blog_post:label
+msgctxt "field_blog_category:blog_post:label"
+msgid "Category"
 msgstr ""
 
-#: field:field_approved_leisure_plots:corpse:label
-msgctxt "field_approved_leisure_plots:corpse:label"
-msgid "Leisure plots"
-msgstr ""
-
-#: field:field_corpose_source:corpse:description
-msgctxt "field_corpose_source:corpse:description"
-msgid ""
-"Nombre del/de los colectivos o fuente de donde has escogido el "
-"cadáver para adoptar. Separar por comas. "
-msgstr ""
-
-#: field:field_corpose_source:corpse:label
-msgctxt "field_corpose_source:corpse:label"
-msgid "Source"
-msgstr ""
-
-#: field:field_corpse_approved_hotel_beds:corpse:label
-msgctxt "field_corpse_approved_hotel_beds:corpse:label"
-msgid "Hotel beds"
-msgstr ""
-
-#: field:field_corpse_approved_housing:corpse:label
-msgctxt "field_corpse_approved_housing:corpse:label"
-msgid "Housing"
-msgstr ""
-
-#: field:field_corpse_area_terrain:corpse:label
-msgctxt "field_corpse_area_terrain:corpse:label"
-msgid "Area (Terrain)"
-msgstr ""
-
-#: field:field_corpse_attachments:corpse:label
-msgctxt "field_corpse_attachments:corpse:label"
-msgid "Attachments"
-msgstr ""
-
-#: field:field_corpse_building_permit:corpse:label
-msgctxt "field_corpse_building_permit:corpse:label"
-msgid "Building permit"
-msgstr ""
-
-#: field:field_corpse_building_typology:corpse:label
-msgctxt "field_corpse_building_typology:corpse:label"
-msgid "Building typology"
-msgstr ""
-
-#: field:field_corpse_built_area:corpse:label
-msgctxt "field_corpse_built_area:corpse:label"
-msgid "Built area"
+#: field:field_blog_tags:blog_post:label
+msgctxt "field_blog_tags:blog_post:label"
+msgid "Tags"
 msgstr ""
 
 #: field:field_corpse_contractor:corpse:description
@@ -82,69 +46,14 @@ msgid ""
 "que los comercialicen"
 msgstr ""
 
-#: field:field_corpse_contractor:corpse:label
-msgctxt "field_corpse_contractor:corpse:label"
-msgid "Contractor"
-msgstr ""
-
-#: field:field_corpse_edificability:corpse:description
-msgctxt "field_corpse_edificability:corpse:description"
+#: field:field_corpse_floor_area_ratio:corpse:description
+msgctxt "field_corpse_floor_area_ratio:corpse:description"
 msgid "Edificabilidad absoluta planificada o aprobada (m²)"
 msgstr ""
 
-#: field:field_corpse_edificability:corpse:label
-msgctxt "field_corpse_edificability:corpse:label"
-msgid "Edificability"
-msgstr ""
-
-#: field:field_corpse_endorser:corpse:label
-msgctxt "field_corpse_endorser:corpse:label"
-msgid "Endorser"
-msgstr ""
-
-#: field:field_corpse_equipment_plots:corpse:label
-msgctxt "field_corpse_equipment_plots:corpse:label"
-msgid "Equipment plots"
-msgstr ""
-
-#: field:field_corpse_hotel_beds:corpse:label
-msgctxt "field_corpse_hotel_beds:corpse:label"
-msgid "Hotel beds"
-msgstr ""
-
-#: field:field_corpse_housing:corpse:label
-msgctxt "field_corpse_housing:corpse:label"
-msgid "Housing"
-msgstr ""
-
-#: field:field_corpse_industrial_plots:corpse:label
-msgctxt "field_corpse_industrial_plots:corpse:label"
-msgid "Industrial plots"
-msgstr ""
-
-#: field:field_corpse_ine_code_city:corpse:label
-msgctxt "field_corpse_ine_code_city:corpse:label"
-msgid "City's INE Code"
-msgstr ""
-
-#: field:field_corpse_ine_code_province:corpse:label
-msgctxt "field_corpse_ine_code_province:corpse:label"
-msgid "Province's INE Code"
-msgstr ""
-
-#: field:field_corpse_leisure_plots:corpse:label
-msgctxt "field_corpse_leisure_plots:corpse:label"
-msgid "Leisure plots"
-msgstr ""
-
-#: field:field_corpse_lic_date_agreement:corpse:label
-msgctxt "field_corpse_lic_date_agreement:corpse:label"
-msgid "Agreement date"
-msgstr ""
-
-#: field:field_corpse_link_to_news:corpse:label
-msgctxt "field_corpse_link_to_news:corpse:label"
-msgid "Link to news"
+#: field:field_corpse_partial_plan_date:corpse:description
+msgctxt "field_corpse_partial_plan_date:corpse:description"
+msgid "Date in which partial plan was approved."
 msgstr ""
 
 #: field:field_corpse_promoter:corpse:description
@@ -155,24 +64,31 @@ msgid ""
 "que los comercialicen"
 msgstr ""
 
-#: field:field_corpse_promoter:corpse:label
-msgctxt "field_corpse_promoter:corpse:label"
-msgid "Promoter"
+#: field:field_corpse_public_domain:#allowed_values:0
+msgctxt "field_corpse_public_domain:#allowed_values:0"
+msgid "No"
 msgstr ""
 
-#: field:field_corpse_prop_description:corpse:label
-msgctxt "field_corpse_prop_description:corpse:label"
-msgid "Property's description"
+#: field:field_corpse_public_domain:#allowed_values:1
+msgctxt "field_corpse_public_domain:#allowed_values:1"
+msgid "Yes"
 msgstr ""
 
-#: field:field_corpse_status:corpse:label
-msgctxt "field_corpse_status:corpse:label"
-msgid "Status"
+#: field:field_corpse_public_domain:corpse:label
+msgctxt "field_corpse_public_domain:corpse:label"
+msgid "Public domain"
 msgstr ""
 
-#: field:field_corpse_status_description:corpse:label
-msgctxt "field_corpse_status_description:corpse:label"
-msgid "Description"
+#: field:field_corpse_source:corpse:description
+msgctxt "field_corpse_source:corpse:description"
+msgid ""
+"Nombre del/de los colectivos o fuente de donde has escogido el "
+"cadáver para adoptar. Separar por comas. "
+msgstr ""
+
+#: field:field_corpse_source:corpse:label
+msgctxt "field_corpse_source:corpse:label"
+msgid "Source"
 msgstr ""
 
 #: field:field_corpse_technician:corpse:description
@@ -183,24 +99,9 @@ msgid ""
 "emprendimientos, o de inmobiliarias que los comercialicen"
 msgstr ""
 
-#: field:field_corpse_technician:corpse:label
-msgctxt "field_corpse_technician:corpse:label"
-msgid "Technician"
-msgstr "Técnico"
-
-#: field:field_corpse_type:corpse:label
-msgctxt "field_corpse_type:corpse:label"
-msgid "Type"
-msgstr ""
-
-#: field:field_corpse_use:corpse:label
-msgctxt "field_corpse_use:corpse:label"
-msgid "Use"
-msgstr ""
-
-#: field:field_corpse_used_land:corpse:label
-msgctxt "field_corpse_used_land:corpse:label"
-msgid "Used land (%)"
+#: field:field_corpse_urban_plan_date:corpse:description
+msgctxt "field_corpse_urban_plan_date:corpse:description"
+msgid "Date in which urban plan was approved."
 msgstr ""
 
 #: field:field_file_image_alt_text:image:description
@@ -234,6 +135,11 @@ msgctxt "field_gl_address:corpse:label"
 msgid "Address"
 msgstr ""
 
+#: field:field_politician_plan_agreement:corpse:label
+msgctxt "field_politician_plan_agreement:corpse:label"
+msgid "Planning agreement politician"
+msgstr ""
+
 #: field:field_urban_name:corpse:description
 msgctxt "field_urban_name:corpse:description"
 msgid ""
@@ -242,13 +148,304 @@ msgid ""
 "de los archivos urbanísticos municipales."
 msgstr ""
 
-#: field:field_urban_name:corpse:label
-msgctxt "field_urban_name:corpse:label"
-msgid "Urban name"
-msgstr ""
-
 #: field:field_url:corpse:label
 msgctxt "field_url:corpse:label"
 msgid "URL"
 msgstr ""
+
+#: field:field_approved_industrial_plots:corpse:label
+msgctxt "field_approved_industrial_plots:corpse:label"
+msgid "Industrial plots"
+msgstr "Parcelas uso industrial"
+
+#: field:field_approved_leisure_plots:corpse:label
+msgctxt "field_approved_leisure_plots:corpse:label"
+msgid "Leisure plots"
+msgstr "Parcelas uso comercial"
+
+#: field:field_corpse_approved_hotel_beds:corpse:label
+msgctxt "field_corpse_approved_hotel_beds:corpse:label"
+msgid "Hotel beds"
+msgstr "Plazas hoteleras"
+
+#: field:field_corpse_approved_housing:corpse:label
+msgctxt "field_corpse_approved_housing:corpse:label"
+msgid "Housing"
+msgstr "Viviendas"
+
+#: field:field_corpse_area_terrain:corpse:label
+msgctxt "field_corpse_area_terrain:corpse:label"
+msgid "Area (Terrain)"
+msgstr "Superficie del terreno"
+
+#: field:field_corpse_attachments:corpse:label
+msgctxt "field_corpse_attachments:corpse:label"
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#: field:field_corpse_building_permit:corpse:label
+msgctxt "field_corpse_building_permit:corpse:label"
+msgid "Building permit"
+msgstr "Licencia de obras"
+
+#: field:field_corpse_building_typology:corpse:label
+msgctxt "field_corpse_building_typology:corpse:label"
+msgid "Building typology"
+msgstr "Tipología edificatoria"
+
+#: field:field_corpse_built_area:corpse:label
+msgctxt "field_corpse_built_area:corpse:label"
+msgid "Built area"
+msgstr "Superficie construida"
+
+#: field:field_corpse_contractor:corpse:label
+msgctxt "field_corpse_contractor:corpse:label"
+msgid "Contractor"
+msgstr "Constructor"
+
+#: field:field_corpse_creditors_meeting:corpse:label
+msgctxt "field_corpse_creditors_meeting:corpse:label"
+msgid "Creditors meeting"
+msgstr "Concurso de acreedores"
+
+#: field:field_corpse_endorser:corpse:label
+msgctxt "field_corpse_endorser:corpse:label"
+msgid "Endorser"
+msgstr "Familia adoptiva"
+
+#: field:field_corpse_equipment_plots:corpse:label
+msgctxt "field_corpse_equipment_plots:corpse:label"
+msgid "Equipment plots"
+msgstr "Parcelas uso equipamiento"
+
+#: field:field_corpse_filed_appeals:corpse:label
+msgctxt "field_corpse_filed_appeals:corpse:label"
+msgid "Filed appeals"
+msgstr "Recursos interpuestos"
+
+#: field:field_corpse_financial_entities:corpse:label
+msgctxt "field_corpse_financial_entities:corpse:label"
+msgid "Financial entities"
+msgstr "Entidades financieras"
+
+#: field:field_corpse_floor_area_ratio:corpse:label
+msgctxt "field_corpse_floor_area_ratio:corpse:label"
+msgid "Floor Area Ratio"
+msgstr "Edificabilidad absoluta planificada o aprobada"
+
+#: field:field_corpse_hotel_beds:corpse:label
+msgctxt "field_corpse_hotel_beds:corpse:label"
+msgid "Hotel beds"
+msgstr "Plazas hoteleras"
+
+#: field:field_corpse_housing:corpse:label
+msgctxt "field_corpse_housing:corpse:label"
+msgid "Housing"
+msgstr "Viviendas"
+
+#: field:field_corpse_industrial_plots:corpse:label
+msgctxt "field_corpse_industrial_plots:corpse:label"
+msgid "Industrial plots"
+msgstr "Parcelas uso industrial"
+
+#: field:field_corpse_ine_code_city:corpse:label
+msgctxt "field_corpse_ine_code_city:corpse:label"
+msgid "City's INE Code"
+msgstr "Código INE Municipio"
+
+#: field:field_corpse_ine_code_province:corpse:label
+msgctxt "field_corpse_ine_code_province:corpse:label"
+msgid "Province's INE Code"
+msgstr "Código INE Provincia"
+
+#: field:field_corpse_leisure_plots:corpse:label
+msgctxt "field_corpse_leisure_plots:corpse:label"
+msgid "Leisure plots"
+msgstr "Parcelas uso comercial"
+
+#: field:field_corpse_lic_date_agreement:corpse:label
+msgctxt "field_corpse_lic_date_agreement:corpse:label"
+msgid "Agreement date"
+msgstr "Fecha del convenio urbanístico"
+
+#: field:field_corpse_link_to_news:corpse:label
+msgctxt "field_corpse_link_to_news:corpse:label"
+msgid "Link to news"
+msgstr "Enlace a noticias"
+
+#: field:field_corpse_mortgage_amount:corpse:label
+msgctxt "field_corpse_mortgage_amount:corpse:label"
+msgid "Mortgage amount"
+msgstr "Cuantía de la hipoteca"
+
+#: field:field_corpse_other_dates:corpse:label
+msgctxt "field_corpse_other_dates:corpse:label"
+msgid "Other dates"
+msgstr "Otras fechas"
+
+#: field:field_corpse_partial_plan_date:corpse:label
+msgctxt "field_corpse_partial_plan_date:corpse:label"
+msgid "Partial plan date"
+msgstr "Fecha del plan parcial"
+
+#: field:field_corpse_planned_inhabitants:corpse:description
+msgctxt "field_corpse_planned_inhabitants:corpse:description"
+msgid ""
+"Type a number here in case you know the exact value. Otherwise leave "
+"it empty and it will be calculated automatically based on the number "
+"of planned housings * 3.5"
+msgstr ""
+"Introduce el número en este campo en caso de que conozcas el valor "
+"exacto. En caso contrario se calculará automáticamente a partir del "
+"número de viviendas * 3.5"
+
+#: field:field_corpse_planned_inhabitants:corpse:label
+msgctxt "field_corpse_planned_inhabitants:corpse:label"
+msgid "Number of planned inhabitants"
+msgstr "Número previsto de habitantes"
+
+#: field:field_corpse_planned_visitors:corpse:label
+msgctxt "field_corpse_planned_visitors:corpse:label"
+msgid "Number of planned visitors"
+msgstr "Número de visitantes previsto (aplicable a centros de ocio)"
+
+#: field:field_corpse_promoter:corpse:label
+msgctxt "field_corpse_promoter:corpse:label"
+msgid "Promoter"
+msgstr "Promotor"
+
+#: field:field_corpse_prop_description:corpse:label
+msgctxt "field_corpse_prop_description:corpse:label"
+msgid "Property's description"
+msgstr "Descripción de la propiedad"
+
+#: field:field_corpse_status:corpse:label
+msgctxt "field_corpse_status:corpse:label"
+msgid "Status"
+msgstr "Estado"
+
+#: field:field_corpse_status_description:corpse:label
+msgctxt "field_corpse_status_description:corpse:label"
+msgid "Description"
+msgstr "Descripción"
+
+#: field:field_corpse_technician:corpse:label
+msgctxt "field_corpse_technician:corpse:label"
+msgid "Technician"
+msgstr "Arquitecto o técnico redactor"
+
+#: field:field_corpse_tech_permit:corpse:label
+msgctxt "field_corpse_tech_permit:corpse:label"
+msgid "Building permit technician"
+msgstr "Técnico de Licencia de obras"
+
+#: field:field_corpse_type:corpse:label
+msgctxt "field_corpse_type:corpse:label"
+msgid "Type"
+msgstr "Tipología"
+
+#: field:field_corpse_urban_plan_date:corpse:label
+msgctxt "field_corpse_urban_plan_date:corpse:label"
+msgid "Urban plan date"
+msgstr "Fecha Proyecto urbanístico "
+
+#: field:field_corpse_use:corpse:label
+msgctxt "field_corpse_use:corpse:label"
+msgid "Use"
+msgstr "Uso"
+
+#: field:field_corpse_used_land:corpse:label
+msgctxt "field_corpse_used_land:corpse:label"
+msgid "Used land (%)"
+msgstr "Suelo ocupado actual"
+
+#: field:field_court_sentence:corpse:label
+msgctxt "field_court_sentence:corpse:label"
+msgid "Court sentence"
+msgstr "Sentencias judiciales"
+
+#: field:field_court_that_rules_sentence:corpse:label
+msgctxt "field_court_that_rules_sentence:corpse:label"
+msgid "Court  that rules sentence"
+msgstr "Tribunal que dicta sentencia"
+
+#: field:field_mortgage_charges:corpse:label
+msgctxt "field_mortgage_charges:corpse:label"
+msgid "Mortgage charges"
+msgstr "Cargas hipotecarias"
+
+#: field:field_number_of_sentences:corpse:label
+msgctxt "field_number_of_sentences:corpse:label"
+msgid "Number of sentences"
+msgstr "Número y fecha de sentencias judiciales"
+
+#: field:field_pgou_modification_date:corpse:label
+msgctxt "field_pgou_modification_date:corpse:label"
+msgid "PGOU Modification date"
+msgstr "Fecha de Modificación puntual de PGOU"
+
+#: field:field_politicians_other:corpse:label
+msgctxt "field_politicians_other:corpse:label"
+msgid "Other politicians"
+msgstr "Otros políticos"
+
+#: field:field_politician_building_permit:corpse:label
+msgctxt "field_politician_building_permit:corpse:label"
+msgid "Building permit politician"
+msgstr "Político licencia de obras"
+
+#: field:field_politician_partial_plan:corpse:label
+msgctxt "field_politician_partial_plan:corpse:label"
+msgid "Partial plan politician"
+msgstr "Político Plan Parcial"
+
+#: field:field_politician_pgou_modifi:corpse:label
+msgctxt "field_politician_pgou_modifi:corpse:label"
+msgid "PGOU Modification politician"
+msgstr "Político Modificación puntual de PGOU"
+
+#: field:field_politician_urban_plan:corpse:label
+msgctxt "field_politician_urban_plan:corpse:label"
+msgid "Urban plan politician"
+msgstr "Político plan urbanístico"
+
+#: field:field_ruling_sentence:corpse:label
+msgctxt "field_ruling_sentence:corpse:label"
+msgid "Ruling"
+msgstr "Fallo"
+
+#: field:field_technicians_other:corpse:label
+msgctxt "field_technicians_other:corpse:label"
+msgid "Other technicians"
+msgstr "Otros técnicos"
+
+#: field:field_technician_parcial_plan:corpse:label
+msgctxt "field_technician_parcial_plan:corpse:label"
+msgid "Parcial plan technician"
+msgstr "Técnico del Plan Parcial"
+
+#: field:field_technician_pgou_modif:corpse:label
+msgctxt "field_technician_pgou_modif:corpse:label"
+msgid "PGOU Modification technician"
+msgstr "Técnico de Modificación puntual de PGOU"
+
+#: field:field_technician_plan_agreement:corpse:label
+msgctxt "field_technician_plan_agreement:corpse:label"
+msgid "Planning agreement technician"
+msgstr "Técnico del Convenio urbanístico"
+
+#: field:field_technician_urban_plan:corpse:label
+msgctxt "field_technician_urban_plan:corpse:label"
+msgid "Urban plan technician"
+msgstr "Técnico Proyecto urbanístico"
+
+#: field:field_urban_name:corpse:label
+msgctxt "field_urban_name:corpse:label"
+msgid "Urban name"
+msgstr "Nombre urbanístico"
+
+#: field:field_zoning_protection_level:corpse:label
+msgctxt "field_zoning_protection_level:corpse:label"
+msgid "Zoning protection level"
+msgstr "Figuras de protección ambiental"
 
