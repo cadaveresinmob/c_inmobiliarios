@@ -263,6 +263,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       3 => 'field_corpse_type',
       4 => 'field_urban_name',
       5 => 'field_url',
+      6 => 'field_corpse_category',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

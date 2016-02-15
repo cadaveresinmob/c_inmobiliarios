@@ -32,6 +32,29 @@ function ft_c_inmobiliarios_corpses_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'corpse_category' => array(
+      'name' => 'Corpse\'s category',
+      'machine_name' => 'corpse_category',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'corpse_contractor' => array(
       'name' => 'Corpse\'s contractor',
       'machine_name' => 'corpse_contractor',
