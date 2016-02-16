@@ -10,10 +10,8 @@
 // Note: secure http was chosen, as plain http may cause warnings popping up in
 // environments using certificates. Alternatively headless may work?
 // Size 5k.
-define('IP_GEOLOC_GOOGLE_MAPS', 'https://maps.googleapis.com/maps/api/js?sensor=false');
-// Size 5k.
-define('IP_GEOLOC_GOOGLE_MAPS_GPS', 'https://maps.googleapis.com/maps/api/js?sensor=true');
-define('IP_GEOLOC_GOOGLE_MAPS_SERVER', 'https://maps.googleapis.com/maps/api/geocode/json?sensor=false');
+define('IP_GEOLOC_GOOGLE_MAPS', 'https://maps.googleapis.com/maps/api/js');
+define('IP_GEOLOC_GOOGLE_MAPS_SERVER', 'https://maps.googleapis.com/maps/api/geocode/json');
 
 /**
  * Store the supplied IP geolocation info on the database.
@@ -109,11 +107,8 @@ function ip_geoloc_store_location($location) {
  *   CSS style applied to the div, e.g "height:250px; width:300px"
  */
 function ip_geoloc_output_map($latitude, $longitude, $div_id = 'ip-geoloc-map', $style = '', $balloon_text = '') {
-  $javascript_files = drupal_add_js();
-  if (empty($javascript_files[IP_GEOLOC_GOOGLE_MAPS_GPS])) {
-    // Only add non-GPS version when GPS version isn't already there.
-    drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
-  }
+
+  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
   drupal_add_js(drupal_get_path('module', 'ip_geoloc') . '/js/ip_geoloc_gmap.js');
 
   $script_code = "displayGMap($latitude, $longitude, '$div_id', '$balloon_text');";
@@ -148,7 +143,8 @@ function ip_geoloc_output_map($latitude, $longitude, $div_id = 'ip-geoloc-map', 
  */
 function ip_geoloc_output_map_current_location($div_id = 'ip-geoloc-map-current-location',
     $map_options = NULL, $map_style = NULL, $latitude = NULL, $longitude = NULL, $info_text = NULL) {
-  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS_GPS, array('type' => 'external', 'group' => JS_LIBRARY));
+
+  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
   drupal_add_js(drupal_get_path('module', 'ip_geoloc') . '/js/ip_geoloc_gmap_current_loc.js');
 
   if (!isset($map_options)) {
@@ -185,11 +181,8 @@ function ip_geoloc_output_map_current_location($div_id = 'ip-geoloc-map-current-
  *   CSS style applied to the div, e.g "height:250px; width:300px"
  */
 function ip_geoloc_output_map_multi_visitor($locations, $div_id = 'ip-geoloc-map-multi-locations', $map_options = NULL, $map_style = NULL) {
-  $javascript_files = drupal_add_js();
-  if (empty($javascript_files[IP_GEOLOC_GOOGLE_MAPS_GPS])) {
-    // Only add non-GPS version when GPS version isn't already there.
-    drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
-  }
+
+  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
   drupal_add_js(drupal_get_path('module', 'ip_geoloc') . '/js/ip_geoloc_gmap_multi_visitor.js');
 
   if (!isset($map_options)) {
@@ -259,16 +252,7 @@ function ip_geoloc_output_map_multi_location($locations, $div_id = 'ip-geoloc-ma
     $map_options = NULL, $map_style = NULL, $marker_color = NULL, $visitor_marker = TRUE,
     $center_option = 0, $center_latlng = array(0, 0), $visitor_location_gps = TRUE) {
 
-  if ($visitor_location_gps) {
-    drupal_add_js(IP_GEOLOC_GOOGLE_MAPS_GPS, array('type' => 'external', 'group' => JS_LIBRARY));
-  }
-  else {
-    $javascript_files = drupal_add_js();
-    if (empty($javascript_files[IP_GEOLOC_GOOGLE_MAPS_GPS])) {
-      // Only add non-GPS version when GPS version isn't already there.
-      drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
-    }
-  }
+  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
   drupal_add_js(drupal_get_path('module', 'ip_geoloc') . '/js/ip_geoloc_gmap_multi_loc.js');
 
   if (!isset($map_options)) {
@@ -383,13 +367,13 @@ function ip_geoloc_get_current_location($menu_callback = NULL, $reverse_geocode 
   if (empty($throbber_text)) {
     $throbber_text = IP_GEOLOC_THROBBER_DEFAULT_TEXT;
   }
-  if ($throbber_text !== '<none>') {
+  if ($throbber_text != '<none>') {
     drupal_set_message(filter_xss_admin($throbber_text));
   }
   _ip_geoloc_set_session_value('last_position_check', time());
   _ip_geoloc_set_session_value('position_pending_since', microtime(TRUE));
 
-  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS_GPS, array('type' => 'external', 'group' => JS_LIBRARY));
+  drupal_add_js(IP_GEOLOC_GOOGLE_MAPS, array('type' => 'external', 'group' => JS_LIBRARY));
   drupal_add_js(drupal_get_path('module', 'ip_geoloc') . '/js/ip_geoloc_current_location.js');
 
   if (!isset($menu_callback)) {
@@ -514,7 +498,7 @@ function ip_geoloc_reverse_geocode($latitude, $longitude, $lang = NULL) {
     return FALSE;
   }
   $query_start = microtime(TRUE);
-  $url = IP_GEOLOC_GOOGLE_MAPS_SERVER . "&latlng=$latitude,$longitude";
+  $url = IP_GEOLOC_GOOGLE_MAPS_SERVER . "?latlng=$latitude,$longitude";
   if (!empty($lang)) {
     $url .= "&language=$lang";
   }

@@ -403,6 +403,9 @@ function ip_geoloc_current_location_ajax_recipient() {
   _ip_geoloc_set_session_value('location', $location);
   // Got fresh location so reset 'position_pending_since' timer.
   _ip_geoloc_set_session_value('position_pending_since', NULL);
+  // [#2599950], #6
+  drupal_json_output('');
+  drupal_exit();
 }
 
 /**

@@ -112,7 +112,7 @@ function ip_geoloc_getCurrentPosition(callbackUrl, reverseGeocode, refreshPage) 
           else {
             //var msg = Drupal.t('Server confirmed with: @status', { '@status': textStatus });
           }
-          window.console.log(msg);
+          if (msg) window.console.log(msg);
         }
         if (refresh_page) {
           window.location.reload();

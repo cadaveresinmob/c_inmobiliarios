@@ -420,9 +420,10 @@ this:
 Note that, in order to see any meaningful session data when running on a local
 server (127.0.0.1), you must be connected to the internet and have ticked at
 Configuration >> IP Geolocation Views and Maps the data collection option
-"Employ the Google Maps API to reverse-geocode lat/long coordinates to street
-addresses". When debugging it is also recommended to activate on the same page
-the advanced option "Detail execution progress with status messages".
+"Employ a free Google service to periodically auto reverse-geocode visitor
+locations to street addresses". When debugging it is also recommended to
+activate on the same page the advanced option "Detail execution progress with
+status messages".
 
 See ip_geoloc.api.php for functions to retrieve and respond to lat/long and
 address information and to generate maps. Below are some of the functions

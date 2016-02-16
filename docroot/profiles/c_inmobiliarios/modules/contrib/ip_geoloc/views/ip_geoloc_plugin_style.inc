@@ -586,11 +586,12 @@ function theme_ip_geoloc_plugin_style_differentiator_color_table($variables) {
  *
  * @param string $views_plugin_style
  *   the style of views plugin
+ * @param bool $enable_balloons
  *
  * @return array
  *   array of location objects, each containing lat/long and balloon_text
  */
-function ip_geoloc_plugin_style_extract_locations($views_plugin_style) {
+function ip_geoloc_plugin_style_extract_locations($views_plugin_style, $enable_balloons = TRUE) {
 
   $latitudes = $views_plugin_style->options['ip_geoloc_views_plugin_latitude'];
   if (!is_array($latitudes)) {
@@ -688,7 +689,7 @@ function ip_geoloc_plugin_style_extract_locations($views_plugin_style) {
 
         if (_ip_geoloc_plugin_style_extract_lat_lng($location, $row, $latitude, $longitude, $base)) {
           // Remaining row values go into the balloon.
-          if (!empty($views_plugin_style->rendered_fields[$i])) {
+          if ($enable_balloons && !empty($views_plugin_style->rendered_fields[$i])) {
             $location->balloon_text = $views_plugin_style->rendered_fields[$i][$group_field];
             foreach ($set['rows'] as $i => $row) {
               $rendered_fields = $views_plugin_style->rendered_fields[$i];
@@ -732,7 +733,7 @@ function ip_geoloc_plugin_style_extract_locations($views_plugin_style) {
 
           if (_ip_geoloc_plugin_style_extract_lat_lng($location, $row, $latitude, $longitude, $base)) {
             // Remaining row values go into the balloon.
-            if (!empty($views_plugin_style->rendered_fields[$i])) {
+            if ($enable_balloons && !empty($views_plugin_style->rendered_fields[$i])) {
               $location->balloon_text = implode($separator, $views_plugin_style->rendered_fields[$i]);
             }
             if (!empty($diff_color_ass[$display_id][$differentiator])) {

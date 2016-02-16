@@ -200,7 +200,7 @@ function ip_geoloc_admin_configure() {
     '#type' => 'textfield',
     '#title' => t('Message displayed while visitor is being geolocated'),
     '#size' => 30,
-    '#default_value' => filter_xss_admin(variable_get('ip_geoloc_throbber_text2', '')),
+    '#default_value' => variable_get('ip_geoloc_throbber_text2', ''),
     '#description' => t('A standard status message to show the visitor that geolocation was initiated and is in progress. </br/>Defaults to %default <br/>You may use most HTML tags. Use <em>&lt;none&gt;</em> to have no message shown, which is probably the preferred choice if the <strong>Auto-refresh</strong> box below is unticked.', array(
       '%default' => IP_GEOLOC_THROBBER_DEFAULT_TEXT,
     )),
