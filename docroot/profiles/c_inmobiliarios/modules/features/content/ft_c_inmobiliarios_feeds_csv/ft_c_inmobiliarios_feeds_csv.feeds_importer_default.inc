@@ -369,6 +369,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_url:url',
             'unique' => FALSE,
           ),
+          62 => array(
+            'source' => 'comentarios_otros',
+            'target' => 'field_comments_other',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',

@@ -201,7 +201,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Environmental information',
-    'weight' => '29',
+    'weight' => '30',
     'children' => array(
       0 => 'field_zoning_protection_level',
     ),
@@ -237,6 +237,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       4 => 'field_corpse_type',
       5 => 'field_urban_name',
       6 => 'field_url',
+      7 => 'field_comments_other',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -261,7 +262,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'Legal and financial',
-    'weight' => '28',
+    'weight' => '29',
     'children' => array(
       0 => 'field_corpse_creditors_meeting',
       1 => 'field_corpse_filed_appeals',
@@ -387,7 +388,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group->parent_name = 'group_corpse_vertical_tab';
   $field_group->data = array(
     'label' => 'References',
-    'weight' => '30',
+    'weight' => '31',
     'children' => array(
       0 => 'field_corpse_attachments',
       1 => 'field_corpse_link_to_news',
@@ -512,9 +513,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   t('Current status');
   t('Environmental information');
   t('General info');
-  t('Involved agents');
   t('Legal and financial');
-  t('Other agents');
   t('Phisical properties');
   t('Political responsability');
   t('Property data');
