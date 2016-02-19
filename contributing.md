@@ -36,7 +36,7 @@ A nivel técnico, la web es una [distribución de drupal](https://www.drupal.org
 * Localización y visualización básica de datos, en función de algunos criterios predefindos 
 * API: expone los datos de la base de datos para que puedan ser utilizados por terceras partes
 
-### Estructura de archivos y carpetas
+#### Estructura de archivos y carpetas
 
 El repositorio contiene la siguiente estructura de carpetas
 
@@ -59,6 +59,21 @@ Además de estas carpetas resulta especialmente importante la carpeta `docroot/p
 
 Muy importante: únicamente deberemos trabajar con el contenido de la carpeta `docroot/profiles/c_inmobiliarios`. El resto de archivos no se alterarán (salvo posibles situaciones excepcionales que deberemos justificar) y se utilizar los archivos por defecto de drupal. 
 
+### Sobre git y github
+
+Para las personas que no estéis familiarizadas con eso de github, os explico brevemente para que podais participar. ¡No hace falta saber programar!
+
+* Git es un software para controlar los cambios en el desarrollo de proyectos, habitualmente de progamación. Puedes controlar qué cambios se han hecho al código de un proyecto a lo largo del tiempo ([más info sobre git](http://www.git-scm.com/)).
+* [Github](http://github.com) es un servicio web muy popular que aloja proyectos de desarrollo software y que utiliza Git. Es gratuito hacerse una cuenta y colgar tus proyectos. Se utiliza para compartir y abrir el código de los proyetos y permitir la participación y replica por otros. Un proyecto en github es solamente el código, tienes que descargarlo en tu ordenador o subirlo a un servidor web para poder verlo. Cada proyecto en Github, como el de la web de cadáveres inmobiliadios tiene:
+
+ * [code](https://github.com/cadaveresinmob/c_inmobiliarios): Todos archivos para replicar un proyecto.
+ * [commits](https://github.com/cadaveresinmob/c_inmobiliarios/commits/master) cada unos de los cambios que se hace al código se llama commit
+ * [issues](https://github.com/cadaveresinmob/c_inmobiliarios/issues): los problemas o sugerencias que tiene un proyecto. En ese lugar estamos teniendo la conversación  (Hace falta crearse un usuario en github para poder comentar).
+
+En Cadáveres inmobiliarios hemos abierto un usuario grupal para albergar todos los proyectos que se vayan haciendo sobre el tema https://github.com/cadaveresinmob Si quereis que os añadamos al grupo ¡decidlo!
+
+Así que os animo a que os hagais un usuario, os animeis a probar la web en pruebas () y participeis en las diferentes conversaciones "issues" abiertos en github. No hace falta saber programación, sino ganas de probar e ir encontrando errores, cosas que mejorar o pensar nuevas ideas.
+
 ## Formas de participar
 
 Tal y como se describe en [esta página de la web oficial](http://cadaveresinmobiliarios.org/como-participar/), hay muchas maneras de participar con el proyecto. Una de ellas es ayudar en lo relativo al funcionamiento de la página web que se encuentra en [este mismo repositorio](https://github.com/cadaveresinmob/c_inmobiliarios). Este documento detalla precisamente cómo puedes aydarnos con la web.
@@ -75,6 +90,7 @@ Puedes ayudarnos a que la web sea mejor de las siguientes maneras:
 
 El proceso de testeo sería el siguiente:
 
+1. Accede a la web de pruebas: http://new.cadaveresinmobiliarios.org
 1. Utiliza la web normalmente o como crees que la podría utilizar otra persona. Si detectas algún problema o aspecto mejorable pasa al punto siguiente.
 1. Abrir una issue en github (leer las [directrices](#crear-issues)) teniendo en cuenta que:
   * si es un problema: 
