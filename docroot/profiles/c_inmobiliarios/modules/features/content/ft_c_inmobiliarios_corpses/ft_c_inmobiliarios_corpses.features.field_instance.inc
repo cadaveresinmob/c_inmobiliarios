@@ -594,7 +594,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 64,
+      'weight' => 63,
     ),
   );
 
@@ -768,7 +768,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 65,
+      'weight' => 64,
     ),
   );
 
@@ -1251,7 +1251,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 63,
+      'weight' => 62,
     ),
   );
 
@@ -2036,7 +2036,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 60,
+      'weight' => 59,
     ),
   );
 
@@ -2832,7 +2832,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 62,
+      'weight' => 61,
     ),
   );
 
@@ -2877,7 +2877,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 59,
+      'weight' => 58,
     ),
   );
 
@@ -3222,7 +3222,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 61,
+      'weight' => 60,
     ),
   );
 

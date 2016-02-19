@@ -40,33 +40,6 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
-  $field_group->identifier = 'group_agents|node|corpse|form';
-  $field_group->group_name = 'group_agents';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'corpse';
-  $field_group->mode = 'form';
-  $field_group->parent_name = 'group_corpse_vertical_tab';
-  $field_group->data = array(
-    'label' => 'Involved agents',
-    'weight' => '28',
-    'children' => array(
-      0 => 'group_other_agents',
-    ),
-    'format_type' => 'tab',
-    'format_settings' => array(
-      'formatter' => 'closed',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-agents field-group-tab',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $field_groups['group_agents|node|corpse|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
   $field_group->identifier = 'group_approved_units|node|corpse|form';
   $field_group->group_name = 'group_approved_units';
   $field_group->entity_type = 'node';
@@ -257,13 +230,13 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'General info',
     'weight' => '22',
     'children' => array(
-      0 => 'field_corpse_endorser',
-      1 => 'field_corpse_public_domain',
-      2 => 'field_corpse_source',
-      3 => 'field_corpse_type',
-      4 => 'field_urban_name',
-      5 => 'field_url',
-      6 => 'field_corpse_category',
+      0 => 'field_corpse_category',
+      1 => 'field_corpse_endorser',
+      2 => 'field_corpse_public_domain',
+      3 => 'field_corpse_source',
+      4 => 'field_corpse_type',
+      5 => 'field_urban_name',
+      6 => 'field_url',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -311,33 +284,6 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_legal|node|corpse|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_other_agents|node|corpse|form';
-  $field_group->group_name = 'group_other_agents';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'corpse';
-  $field_group->mode = 'form';
-  $field_group->parent_name = 'group_agents';
-  $field_group->data = array(
-    'label' => 'Other agents',
-    'weight' => '63',
-    'children' => array(
-      0 => 'field_corpse_financial_entities',
-    ),
-    'format_type' => 'fieldset',
-    'format_settings' => array(
-      'formatter' => 'collapsible',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => 'group-other-agents field-group-fieldset',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $field_groups['group_other_agents|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
