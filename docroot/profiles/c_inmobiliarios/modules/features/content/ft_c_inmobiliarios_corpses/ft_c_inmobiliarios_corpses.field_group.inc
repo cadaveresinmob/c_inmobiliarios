@@ -8,7 +8,7 @@
  * Implements hook_field_group_info().
  */
 function ft_c_inmobiliarios_corpses_field_group_info() {
-  $export = array();
+  $field_groups = array();
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -35,7 +35,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_address|node|corpse|form'] = $field_group;
+  $field_groups['group_address|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -62,7 +62,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_agents|node|corpse|form'] = $field_group;
+  $field_groups['group_agents|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -94,7 +94,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_approved_units|node|corpse|form'] = $field_group;
+  $field_groups['group_approved_units|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -123,7 +123,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_areas|node|corpse|form'] = $field_group;
+  $field_groups['group_areas|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -154,7 +154,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_built_units|node|corpse|form'] = $field_group;
+  $field_groups['group_built_units|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -187,7 +187,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_corpse_vertical_tab|node|corpse|form'] = $field_group;
+  $field_groups['group_corpse_vertical_tab|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -215,7 +215,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_current_status|node|corpse|form'] = $field_group;
+  $field_groups['group_current_status|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -242,7 +242,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_environmental_info|node|corpse|form'] = $field_group;
+  $field_groups['group_environmental_info|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -275,7 +275,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_general_info|node|corpse|form'] = $field_group;
+  $field_groups['group_general_info|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -310,7 +310,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_legal|node|corpse|form'] = $field_group;
+  $field_groups['group_legal|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -337,7 +337,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_other_agents|node|corpse|form'] = $field_group;
+  $field_groups['group_other_agents|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -366,7 +366,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_phisical_properties|node|corpse|form'] = $field_group;
+  $field_groups['group_phisical_properties|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -398,7 +398,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_politicians|node|corpse|form'] = $field_group;
+  $field_groups['group_politicians|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -428,7 +428,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_property_data|node|corpse|form'] = $field_group;
+  $field_groups['group_property_data|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -456,7 +456,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_references|node|corpse|form'] = $field_group;
+  $field_groups['group_references|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -488,7 +488,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_technicians|node|corpse|form'] = $field_group;
+  $field_groups['group_technicians|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -522,7 +522,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_urban_data|node|corpse|form'] = $field_group;
+  $field_groups['group_urban_data|node|corpse|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -554,7 +554,28 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       ),
     ),
   );
-  $export['group_urban_planning_dates|node|corpse|form'] = $field_group;
+  $field_groups['group_urban_planning_dates|node|corpse|form'] = $field_group;
 
-  return $export;
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Address');
+  t('Approved units');
+  t('Areas');
+  t('Built units');
+  t('Corpse\'s Vertical tabs');
+  t('Current status');
+  t('Environmental information');
+  t('General info');
+  t('Involved agents');
+  t('Legal and financial');
+  t('Other agents');
+  t('Phisical properties');
+  t('Political responsability');
+  t('Property data');
+  t('References');
+  t('Technicians');
+  t('Urban Planning dates');
+  t('Urban data');
+
+  return $field_groups;
 }
