@@ -45,6 +45,8 @@ function ft_c_inmobiliarios_corpses_user_default_permissions() {
     'name' => 'edit any corpse content',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'editor' => 'editor',
     ),
     'module' => 'node',
