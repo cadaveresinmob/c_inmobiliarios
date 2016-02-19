@@ -364,6 +364,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_building_permit:start',
             'unique' => FALSE,
           ),
+          61 => array(
+            'source' => 'material_grafico',
+            'target' => 'field_url:url',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
