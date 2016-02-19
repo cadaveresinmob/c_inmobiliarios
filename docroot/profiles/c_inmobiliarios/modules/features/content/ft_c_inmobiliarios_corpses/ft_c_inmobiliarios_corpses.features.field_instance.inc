@@ -102,51 +102,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_comments_other'.
-  $field_instances['node-corpse-field_comments_other'] = array(
-    'bundle' => 'corpse',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 69,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_comments_other',
-    'label' => 'Comments from import',
-    'required' => 0,
-    'settings' => array(
-      'linkit' => array(
-        'button_text' => 'Search',
-        'enable' => 0,
-        'profile' => '',
-      ),
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 8,
-    ),
-  );
-
   // Exported field_instance: 'node-corpse-field_corpse_approved_hotel_beds'.
   $field_instances['node-corpse-field_corpse_approved_hotel_beds'] = array(
     'bundle' => 'corpse',
@@ -639,7 +594,52 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 63,
+      'weight' => 87,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_corpse_description'.
+  $field_instances['node-corpse-field_corpse_description'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 70,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_description',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 9,
     ),
   );
 
@@ -728,7 +728,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 32,
+      'weight' => 31,
     ),
   );
 
@@ -773,7 +773,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 56,
+      'weight' => 80,
     ),
   );
 
@@ -813,7 +813,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 64,
+      'weight' => 88,
     ),
   );
 
@@ -1087,7 +1087,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 49,
+      'weight' => 48,
     ),
   );
 
@@ -1296,7 +1296,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 62,
+      'weight' => 86,
     ),
   );
 
@@ -2041,7 +2041,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 57,
+      'weight' => 81,
     ),
   );
 
@@ -2081,7 +2081,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 59,
+      'weight' => 83,
     ),
   );
 
@@ -2877,7 +2877,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 61,
+      'weight' => 85,
     ),
   );
 
@@ -2922,7 +2922,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 58,
+      'weight' => 82,
     ),
   );
 
@@ -3267,7 +3267,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 60,
+      'weight' => 84,
     ),
   );
 
@@ -3307,7 +3307,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 69,
+      'weight' => 68,
     ),
   );
 
@@ -3347,7 +3347,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 70,
+      'weight' => 69,
     ),
   );
 
@@ -3427,7 +3427,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 71,
+      'weight' => 70,
     ),
   );
 
@@ -3624,7 +3624,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 55,
+      'weight' => 80,
     ),
   );
 
@@ -3641,7 +3641,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Building typology');
   t('Built area');
   t('City\'s INE Code');
-  t('Comments from import');
   t('Contractor');
   t('Corpse\'s category');
   t('Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
