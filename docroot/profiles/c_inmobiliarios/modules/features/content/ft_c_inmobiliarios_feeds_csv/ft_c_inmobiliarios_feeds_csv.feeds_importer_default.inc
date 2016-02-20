@@ -384,6 +384,11 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_description',
             'unique' => FALSE,
           ),
+          65 => array(
+            'source' => 'coprse_category',
+            'target' => 'field_corpse_category',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
