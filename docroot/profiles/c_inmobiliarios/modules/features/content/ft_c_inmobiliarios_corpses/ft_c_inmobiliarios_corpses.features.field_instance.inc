@@ -2085,6 +2085,96 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_env_protection_entity'.
+  $field_instances['node-corpse-field_env_protection_entity'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 71,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_env_protection_entity',
+    'label' => 'Environment\'s protection entity',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Buscar',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 89,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_env_protection_entity_name'.
+  $field_instances['node-corpse-field_env_protection_entity_name'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 72,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_env_protection_entity_name',
+    'label' => 'Name of environmental protection entity',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Buscar',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 90,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_gl_address'.
   $field_instances['node-corpse-field_gl_address'] = array(
     'bundle' => 'corpse',
@@ -3624,7 +3714,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 80,
+      'weight' => 91,
     ),
   );
 
@@ -3653,6 +3743,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Description');
   t('Edificabilidad absoluta planificada o aprobada (m²)');
   t('Endorser');
+  t('Environment\'s protection entity');
   t('Equipment plots');
   t('Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.');
   t('Filed appeals');
@@ -3665,6 +3756,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Link to news');
   t('Mortgage amount');
   t('Mortgage charges');
+  t('Name of environmental protection entity');
   t('Nombre del/de los colectivos o fuente de donde has escogido el cadáver para adoptar. Separar por comas. ');
   t('Number of planned inhabitants');
   t('Number of planned visitors');

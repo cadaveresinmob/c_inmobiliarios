@@ -389,6 +389,16 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'target' => 'field_corpse_category',
             'unique' => FALSE,
           ),
+          66 => array(
+            'source' => 'figuras_proteccion_ambiental',
+            'target' => 'field_env_protection_entity',
+            'unique' => FALSE,
+          ),
+          67 => array(
+            'source' => 'nombre_figuras_proteccion_ambiental',
+            'target' => 'field_env_protection_entity_name',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'update_non_existent' => 'skip',
