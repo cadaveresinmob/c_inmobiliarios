@@ -75,7 +75,6 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'editor' => 'editor',
-      'translator' => 'translator',
     ),
     'module' => 'toolbar',
   );
@@ -106,6 +105,15 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'comment',
+  );
+
+  // Exported permission: 'administer content translations'.
+  $permissions['administer content translations'] = array(
+    'name' => 'administer content translations',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'i18n_node',
   );
 
   // Exported permission: 'administer content types'.
@@ -534,6 +542,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'name' => 'translate content',
     'roles' => array(
       'administrator' => 'administrator',
+      'translator' => 'translator',
     ),
     'module' => 'translation',
   );
@@ -543,7 +552,6 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'name' => 'translate interface',
     'roles' => array(
       'administrator' => 'administrator',
-      'translator' => 'translator',
     ),
     'module' => 'locale',
   );
@@ -553,6 +561,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'name' => 'translate user-defined strings',
     'roles' => array(
       'administrator' => 'administrator',
+      'translator' => 'translator',
     ),
     'module' => 'i18n_string',
   );
