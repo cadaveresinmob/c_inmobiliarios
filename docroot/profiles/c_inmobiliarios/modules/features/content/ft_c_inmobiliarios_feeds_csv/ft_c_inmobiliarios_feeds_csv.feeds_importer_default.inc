@@ -385,18 +385,18 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'unique' => FALSE,
           ),
           65 => array(
-            'source' => 'coprse_category',
-            'target' => 'field_corpse_category',
-            'unique' => FALSE,
-          ),
-          66 => array(
             'source' => 'figuras_proteccion_ambiental',
             'target' => 'field_env_protection_entity',
             'unique' => FALSE,
           ),
-          67 => array(
+          66 => array(
             'source' => 'nombre_figuras_proteccion_ambiental',
             'target' => 'field_env_protection_entity_name',
+            'unique' => FALSE,
+          ),
+          67 => array(
+            'source' => 'corpse_category',
+            'target' => 'field_corpse_category',
             'unique' => FALSE,
           ),
         ),
