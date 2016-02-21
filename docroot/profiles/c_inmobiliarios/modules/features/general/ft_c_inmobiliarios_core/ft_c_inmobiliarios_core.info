@@ -13,6 +13,7 @@ dependencies[] = field_group
 dependencies[] = ft_wysiwyg
 dependencies[] = i18n
 dependencies[] = i18n_field
+dependencies[] = i18n_node
 dependencies[] = i18n_redirect
 dependencies[] = i18n_string
 dependencies[] = jquery_update
