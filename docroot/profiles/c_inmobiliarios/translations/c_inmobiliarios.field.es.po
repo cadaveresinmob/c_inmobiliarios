@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2016-02-08 16:06+0100\n"
-"PO-Revision-Date: 2016-02-08 16:06+0100\n"
+"POT-Creation-Date: 2016-02-21 09:28+0100\n"
+"PO-Revision-Date: 2016-02-21 09:28+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -38,32 +38,6 @@ msgctxt "field_blog_tags:blog_post:label"
 msgid "Tags"
 msgstr ""
 
-#: field:field_corpse_contractor:corpse:description
-msgctxt "field_corpse_contractor:corpse:description"
-msgid ""
-"Corresponde a los datos  de venta de la promoción. se obtiene de "
-"catálogos y webs de los propios emprendimientos, o de inmobiliarias "
-"que los comercialicen"
-msgstr ""
-
-#: field:field_corpse_floor_area_ratio:corpse:description
-msgctxt "field_corpse_floor_area_ratio:corpse:description"
-msgid "Edificabilidad absoluta planificada o aprobada (m²)"
-msgstr ""
-
-#: field:field_corpse_partial_plan_date:corpse:description
-msgctxt "field_corpse_partial_plan_date:corpse:description"
-msgid "Date in which partial plan was approved."
-msgstr ""
-
-#: field:field_corpse_promoter:corpse:description
-msgctxt "field_corpse_promoter:corpse:description"
-msgid ""
-"Corresponde a los datos de venta de la promoción. se obtiene de "
-"catálogos y webs de los propios emprendimientos, o de inmobiliarias "
-"que los comercialicen"
-msgstr ""
-
 #: field:field_corpse_public_domain:#allowed_values:0
 msgctxt "field_corpse_public_domain:#allowed_values:0"
 msgid "No"
@@ -74,34 +48,12 @@ msgctxt "field_corpse_public_domain:#allowed_values:1"
 msgid "Yes"
 msgstr ""
 
-#: field:field_corpse_public_domain:corpse:label
-msgctxt "field_corpse_public_domain:corpse:label"
-msgid "Public domain"
-msgstr ""
-
-#: field:field_corpse_source:corpse:description
-msgctxt "field_corpse_source:corpse:description"
-msgid ""
-"Nombre del/de los colectivos o fuente de donde has escogido el "
-"cadáver para adoptar. Separar por comas. "
-msgstr ""
-
-#: field:field_corpse_source:corpse:label
-msgctxt "field_corpse_source:corpse:label"
-msgid "Source"
-msgstr ""
-
 #: field:field_corpse_technician:corpse:description
 msgctxt "field_corpse_technician:corpse:description"
 msgid ""
 "Arquitecto o técnico redactor. Corresponde a los datos  de venta de "
 "la promoción. se obtiene de catálogos y webs de los propios "
 "emprendimientos, o de inmobiliarias que los comercialicen"
-msgstr ""
-
-#: field:field_corpse_urban_plan_date:corpse:description
-msgctxt "field_corpse_urban_plan_date:corpse:description"
-msgid "Date in which urban plan was approved."
 msgstr ""
 
 #: field:field_file_image_alt_text:image:description
@@ -128,16 +80,6 @@ msgstr ""
 #: field:field_file_image_title_text:image:label
 msgctxt "field_file_image_title_text:image:label"
 msgid "Title Text"
-msgstr ""
-
-#: field:field_gl_address:corpse:label
-msgctxt "field_gl_address:corpse:label"
-msgid "Address"
-msgstr ""
-
-#: field:field_politician_plan_agreement:corpse:label
-msgctxt "field_politician_plan_agreement:corpse:label"
-msgid "Planning agreement politician"
 msgstr ""
 
 #: field:field_urban_name:corpse:description
@@ -198,6 +140,22 @@ msgctxt "field_corpse_built_area:corpse:label"
 msgid "Built area"
 msgstr "Superficie construida"
 
+#: field:field_corpse_category:corpse:label
+msgctxt "field_corpse_category:corpse:label"
+msgid "Corpse's category"
+msgstr "Cateogría del cadáver inmobiliario"
+
+#: field:field_corpse_contractor:corpse:description
+msgctxt "field_corpse_contractor:corpse:description"
+msgid ""
+"Corresponde a los datos  de venta de la promoción. se obtiene de "
+"catálogos y webs de los propios emprendimientos, o de inmobiliarias "
+"que los comercialicen"
+msgstr ""
+"Corresponde a los datos de venta de la promoción. se obtiene de "
+"catálogos y webs de los propios emprendimientos, o de inmobiliarias "
+"que los comercialicen"
+
 #: field:field_corpse_contractor:corpse:label
 msgctxt "field_corpse_contractor:corpse:label"
 msgid "Contractor"
@@ -207,6 +165,11 @@ msgstr "Constructor"
 msgctxt "field_corpse_creditors_meeting:corpse:label"
 msgid "Creditors meeting"
 msgstr "Concurso de acreedores"
+
+#: field:field_corpse_description:corpse:label
+msgctxt "field_corpse_description:corpse:label"
+msgid "Description"
+msgstr "Descripción"
 
 #: field:field_corpse_endorser:corpse:label
 msgctxt "field_corpse_endorser:corpse:label"
@@ -227,6 +190,11 @@ msgstr "Recursos interpuestos"
 msgctxt "field_corpse_financial_entities:corpse:label"
 msgid "Financial entities"
 msgstr "Entidades financieras"
+
+#: field:field_corpse_floor_area_ratio:corpse:description
+msgctxt "field_corpse_floor_area_ratio:corpse:description"
+msgid "Edificabilidad absoluta planificada o aprobada (m²)"
+msgstr "Edificabilidad absoluta planificada o aprobada (m²)"
 
 #: field:field_corpse_floor_area_ratio:corpse:label
 msgctxt "field_corpse_floor_area_ratio:corpse:label"
@@ -283,6 +251,11 @@ msgctxt "field_corpse_other_dates:corpse:label"
 msgid "Other dates"
 msgstr "Otras fechas"
 
+#: field:field_corpse_partial_plan_date:corpse:description
+msgctxt "field_corpse_partial_plan_date:corpse:description"
+msgid "Date in which partial plan was approved."
+msgstr "Fecha de aprobación del plan parcial"
+
 #: field:field_corpse_partial_plan_date:corpse:label
 msgctxt "field_corpse_partial_plan_date:corpse:label"
 msgid "Partial plan date"
@@ -309,6 +282,17 @@ msgctxt "field_corpse_planned_visitors:corpse:label"
 msgid "Number of planned visitors"
 msgstr "Número de visitantes previsto (aplicable a centros de ocio)"
 
+#: field:field_corpse_promoter:corpse:description
+msgctxt "field_corpse_promoter:corpse:description"
+msgid ""
+"Corresponde a los datos de venta de la promoción. se obtiene de "
+"catálogos y webs de los propios emprendimientos, o de inmobiliarias "
+"que los comercialicen"
+msgstr ""
+"Corresponde a los datos de venta de la promoción. se obtiene de "
+"catálogos y webs de los propios emprendimientos, o de inmobiliarias "
+"que los comercialicen"
+
 #: field:field_corpse_promoter:corpse:label
 msgctxt "field_corpse_promoter:corpse:label"
 msgid "Promoter"
@@ -318,6 +302,25 @@ msgstr "Promotor"
 msgctxt "field_corpse_prop_description:corpse:label"
 msgid "Property's description"
 msgstr "Descripción de la propiedad"
+
+#: field:field_corpse_public_domain:corpse:label
+msgctxt "field_corpse_public_domain:corpse:label"
+msgid "Public domain"
+msgstr "Dominio público"
+
+#: field:field_corpse_source:corpse:description
+msgctxt "field_corpse_source:corpse:description"
+msgid ""
+"Nombre del/de los colectivos o fuente de donde has escogido el "
+"cadáver para adoptar. Separar por comas. "
+msgstr ""
+"Nombre del/de los colectivos o fuente de donde has escogido el "
+"cadáver para adoptar. Separar por comas. "
+
+#: field:field_corpse_source:corpse:label
+msgctxt "field_corpse_source:corpse:label"
+msgid "Source"
+msgstr "Fuente"
 
 #: field:field_corpse_status:corpse:label
 msgctxt "field_corpse_status:corpse:label"
@@ -344,6 +347,11 @@ msgctxt "field_corpse_type:corpse:label"
 msgid "Type"
 msgstr "Tipología"
 
+#: field:field_corpse_urban_plan_date:corpse:description
+msgctxt "field_corpse_urban_plan_date:corpse:description"
+msgid "Date in which urban plan was approved."
+msgstr "Fecha de aprobación del plan urbanísitico"
+
 #: field:field_corpse_urban_plan_date:corpse:label
 msgctxt "field_corpse_urban_plan_date:corpse:label"
 msgid "Urban plan date"
@@ -368,6 +376,11 @@ msgstr "Sentencias judiciales"
 msgctxt "field_court_that_rules_sentence:corpse:label"
 msgid "Court  that rules sentence"
 msgstr "Tribunal que dicta sentencia"
+
+#: field:field_gl_address:corpse:label
+msgctxt "field_gl_address:corpse:label"
+msgid "Address"
+msgstr "Dirección"
 
 #: field:field_mortgage_charges:corpse:label
 msgctxt "field_mortgage_charges:corpse:label"
@@ -403,6 +416,11 @@ msgstr "Político Plan Parcial"
 msgctxt "field_politician_pgou_modifi:corpse:label"
 msgid "PGOU Modification politician"
 msgstr "Político Modificación puntual de PGOU"
+
+#: field:field_politician_plan_agreement:corpse:label
+msgctxt "field_politician_plan_agreement:corpse:label"
+msgid "Planning agreement politician"
+msgstr "Político convenio urbanístico"
 
 #: field:field_politician_urban_plan:corpse:label
 msgctxt "field_politician_urban_plan:corpse:label"
