@@ -416,5 +416,90 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
   );
   $export['corpses_csv'] = $feeds_importer;
 
+  $feeds_importer = new stdClass();
+  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
+  $feeds_importer->api_version = 1;
+  $feeds_importer->id = 'nacion_rotonda_importer';
+  $feeds_importer->config = array(
+    'name' => 'Nación Rotonda Importer',
+    'description' => 'CSV importer for Urban corpses from Nación Rotonda',
+    'fetcher' => array(
+      'plugin_key' => 'FeedsFileFetcher',
+      'config' => array(
+        'allowed_extensions' => 'txt csv tsv xml opml',
+        'direct' => FALSE,
+        'directory' => 'private://feeds',
+        'allowed_schemes' => array(
+          0 => 'public',
+          1 => 'private',
+        ),
+      ),
+    ),
+    'parser' => array(
+      'plugin_key' => 'FeedsCSVParser',
+      'config' => array(
+        'delimiter' => ',',
+        'no_headers' => 0,
+      ),
+    ),
+    'processor' => array(
+      'plugin_key' => 'FeedsNodeProcessor',
+      'config' => array(
+        'expire' => '-1',
+        'author' => 0,
+        'authorize' => 1,
+        'mappings' => array(
+          0 => array(
+            'source' => 'nombre_promocional',
+            'target' => 'title',
+            'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'longitud',
+            'target' => 'field_gl_address:longitude',
+            'unique' => FALSE,
+          ),
+          2 => array(
+            'source' => 'latitud',
+            'target' => 'field_gl_address:latitude',
+            'unique' => FALSE,
+          ),
+          3 => array(
+            'source' => 'enlace_web',
+            'target' => 'field_url:url',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'corpse_category',
+            'target' => 'field_corpse_category',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'creator',
+            'target' => 'user_name',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'fuente',
+            'target' => 'field_corpse_source',
+            'unique' => FALSE,
+          ),
+        ),
+        'update_existing' => '2',
+        'update_non_existent' => 'skip',
+        'input_format' => 'plain_text',
+        'skip_hash_check' => 0,
+        'bundle' => 'corpse',
+      ),
+    ),
+    'content_type' => '',
+    'update' => 0,
+    'import_period' => '-1',
+    'expire_period' => 3600,
+    'import_on_create' => 1,
+    'process_in_background' => 0,
+  );
+  $export['nacion_rotonda_importer'] = $feeds_importer;
+
   return $export;
 }
