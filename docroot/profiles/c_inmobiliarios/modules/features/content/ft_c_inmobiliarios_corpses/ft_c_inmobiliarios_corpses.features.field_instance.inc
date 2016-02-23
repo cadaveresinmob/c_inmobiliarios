@@ -18,6 +18,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 12,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -64,6 +76,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 14,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -110,6 +134,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 11,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -156,6 +192,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 10,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -202,6 +250,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'formatter_unit' => array(),
+            'formatter_unit_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 31,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'mvf',
         'settings' => array(
@@ -272,6 +334,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 23,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'file',
         'settings' => array(),
@@ -314,6 +383,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 17,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
@@ -370,6 +453,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 7,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -407,6 +497,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'mvf',
+        'settings' => array(
+          'mvf' => array(
+            'formatter_unit' => array(),
+            'formatter_unit_settings' => array(),
+          ),
+          'unit' => array(),
+          'value' => array(),
+        ),
+        'type' => 'mvf_formatter_default',
+        'weight' => 30,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'mvf',
         'settings' => array(
@@ -482,6 +586,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -521,6 +632,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 7,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -561,6 +679,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 50,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -606,6 +731,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -651,6 +783,15 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 11,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'entityreference',
         'settings' => array(
@@ -694,6 +835,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 5,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -740,6 +893,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 45,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -785,6 +945,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 53,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -825,6 +992,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Edificabilidad absoluta planificada o aprobada (m²)',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 8,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -871,6 +1050,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 4,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -917,6 +1108,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 3,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -963,6 +1166,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 7,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -1009,6 +1224,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -1054,6 +1276,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -1099,6 +1328,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 6,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -1144,6 +1385,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 14,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
@@ -1200,6 +1455,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 24,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -1262,6 +1524,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 51,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -1308,6 +1582,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 19,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -1352,6 +1633,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Date in which partial plan was approved.',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 16,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
@@ -1408,6 +1703,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Type a number here in case you know the exact value. Otherwise leave it empty and it will be calculated automatically based on the number of planned housings * 3.5',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 15,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -1453,6 +1760,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 16,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -1499,6 +1818,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Corresponde a los datos de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1539,6 +1865,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -1588,6 +1921,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 10,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'list',
         'settings' => array(),
@@ -1627,6 +1967,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Nombre del/de los colectivos o fuente de donde has escogido el cadáver para adoptar. Separar por comas. ',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 7,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1667,6 +2014,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1706,6 +2060,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -1751,6 +2112,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 18,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1791,6 +2159,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Arquitecto o técnico redactor. Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 8,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1831,6 +2206,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1869,6 +2251,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Date in which urban plan was approved.',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 15,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
@@ -1925,6 +2321,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 6,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -1962,6 +2365,18 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 32,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'number',
         'settings' => array(
@@ -2008,6 +2423,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 46,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -2053,6 +2475,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 48,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -2093,6 +2522,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 23,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -2138,6 +2574,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 24,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -2650,6 +3093,219 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
           'zoomcontrolposition' => '',
         ),
         'type' => 'getlocations_fields_default',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'getlocations_fields',
+        'settings' => array(
+          'baselayers' => array(
+            'DeLorme' => 0,
+            'ESRI' => 1,
+            'Hybrid' => 1,
+            'Map' => 1,
+            'NatGeoWorldMap' => 0,
+            'OCM' => 0,
+            'OCML' => 0,
+            'OCMO' => 0,
+            'OCMT' => 0,
+            'OSM' => 0,
+            'OSMBW' => 0,
+            'OSMDE' => 0,
+            'OceanBasemap' => 0,
+            'Physical' => 1,
+            'Satellite' => 1,
+            'Stamen' => 0,
+            'StamenBG' => 0,
+            'StamenHY' => 0,
+            'StamenLA' => 0,
+            'StamenLI' => 0,
+            'StamenLT' => 0,
+            'Watercolor' => 0,
+            'WorldGrayCanvas' => 0,
+            'WorldImagery' => 0,
+            'WorldPhysical' => 0,
+            'WorldShadedRelief' => 0,
+            'WorldTerrain' => 0,
+            'WorldTopoMap' => 0,
+          ),
+          'bicycleinfo' => 0,
+          'bicycleinfo_state' => 0,
+          'circles_apply' => 0,
+          'circles_clickable' => 0,
+          'circles_coords' => '',
+          'circles_enable' => 0,
+          'circles_fillcolor' => '#FF0000',
+          'circles_fillopacity' => 0.35,
+          'circles_message' => '',
+          'circles_radius' => 0,
+          'circles_strokecolor' => '#FF0000',
+          'circles_strokeopacity' => 0.8,
+          'circles_strokeweight' => 3,
+          'comment_map_marker' => 'webiconset-pins-32 pin8',
+          'controltype' => 'small',
+          'country_full' => 0,
+          'display_additional' => 0,
+          'display_city' => 0,
+          'display_country' => 0,
+          'display_dms' => 0,
+          'display_fax' => 0,
+          'display_geo_microformat' => 0,
+          'display_latlong' => 0,
+          'display_mapheight' => '400px',
+          'display_maplink' => 1,
+          'display_mapwidth' => '100%',
+          'display_mobile' => 0,
+          'display_name' => 0,
+          'display_onemap' => 0,
+          'display_phone' => 0,
+          'display_postal_code' => 0,
+          'display_province' => 0,
+          'display_showmap' => 1,
+          'display_street' => 0,
+          'draggable' => 1,
+          'fullscreen' => 1,
+          'fullscreen_controlposition' => '',
+          'geocoder_enable' => 0,
+          'geojson_data' => '',
+          'geojson_enable' => 0,
+          'geojson_options' => '',
+          'getdirections_link' => 0,
+          'gps_bubble' => 0,
+          'gps_button' => 0,
+          'gps_button_label' => '',
+          'gps_center' => 0,
+          'gps_geocode' => 0,
+          'gps_marker' => '',
+          'gps_marker_title' => '',
+          'gps_type' => 0,
+          'gps_zoom' => -1,
+          'highlight_enable' => 0,
+          'highlight_fillcolor' => '#FF0000',
+          'highlight_fillopacity' => 0.35,
+          'highlight_radius' => 10,
+          'highlight_strokecolor' => '#FF0000',
+          'highlight_strokeopacity' => 0.8,
+          'highlight_strokeweight' => 3,
+          'jquery_colorpicker_enabled' => 0,
+          'kml_group' => array(
+            'kml_url' => '',
+            'kml_url_button' => 0,
+            'kml_url_button_label' => 'Kml Layer',
+            'kml_url_button_state' => 0,
+            'kml_url_click' => 1,
+            'kml_url_infowindow' => 0,
+            'kml_url_viewport' => 1,
+          ),
+          'map_backgroundcolor' => '',
+          'map_marker' => 'webiconset-pins-32 pin8',
+          'mapcontrolposition' => '',
+          'maptype' => 'Hybrid',
+          'markeraction' => 1,
+          'markeraction_click_center' => 0,
+          'markeraction_click_zoom' => -1,
+          'markeractiontype' => 1,
+          'maxzoom_map' => -1,
+          'minzoom_map' => -1,
+          'mtc' => 'standard',
+          'node_map_marker' => 'webiconset-pins-32 pin8',
+          'nodezoom' => 18,
+          'nodoubleclickzoom' => 0,
+          'nokeyboard' => 0,
+          'overview' => 0,
+          'overview_opened' => 0,
+          'pancontrol' => 1,
+          'pancontrolposition' => '',
+          'panoramio_show' => 0,
+          'panoramio_state' => 0,
+          'panoramio_use' => 0,
+          'per_item_marker' => 0,
+          'poi_show' => 1,
+          'polygons_clickable' => 0,
+          'polygons_coords' => '',
+          'polygons_enable' => 0,
+          'polygons_fillcolor' => '#FF0000',
+          'polygons_fillopacity' => 0.35,
+          'polygons_message' => '',
+          'polygons_strokecolor' => '#FF0000',
+          'polygons_strokeopacity' => 0.8,
+          'polygons_strokeweight' => 3,
+          'polylines_clickable' => 0,
+          'polylines_coords' => '',
+          'polylines_enable' => 0,
+          'polylines_message' => '',
+          'polylines_strokecolor' => '#FF0000',
+          'polylines_strokeopacity' => 0.8,
+          'polylines_strokeweight' => 3,
+          'rectangles_apply' => 0,
+          'rectangles_clickable' => 0,
+          'rectangles_coords' => '',
+          'rectangles_dist' => 0,
+          'rectangles_enable' => 0,
+          'rectangles_fillcolor' => '#FF0000',
+          'rectangles_fillopacity' => 0.35,
+          'rectangles_message' => '',
+          'rectangles_strokecolor' => '#FF0000',
+          'rectangles_strokeopacity' => 0.8,
+          'rectangles_strokeweight' => 3,
+          'scale' => 0,
+          'scalecontrolposition' => '',
+          'scrollwheel' => 0,
+          'search_places' => 0,
+          'search_places_dd' => 0,
+          'search_places_label' => 'Google Places Search',
+          'search_places_list' => 0,
+          'search_places_placeholder' => '',
+          'search_places_position' => 'outside_above',
+          'search_places_size' => 40,
+          'show_bubble_on_one_marker' => 0,
+          'show_maplinks' => 0,
+          'show_search_distance' => 0,
+          'sv_addresscontrol' => 1,
+          'sv_addresscontrolposition' => '',
+          'sv_clicktogo' => 1,
+          'sv_heading' => 0,
+          'sv_imagedatecontrol' => 0,
+          'sv_linkscontrol' => 1,
+          'sv_pancontrol' => 1,
+          'sv_pancontrolposition' => '',
+          'sv_pitch' => 0,
+          'sv_scrollwheel' => 1,
+          'sv_show' => 0,
+          'sv_showfirst' => 0,
+          'sv_zoom' => 1,
+          'sv_zoomcontrol' => 'default',
+          'sv_zoomcontrolposition' => '',
+          'svcontrolposition' => '',
+          'trafficinfo' => 0,
+          'trafficinfo_state' => 0,
+          'transit_show' => 1,
+          'transitinfo' => 0,
+          'transitinfo_state' => 0,
+          'user_map_marker' => 'webiconset-pins-32 pin8',
+          'views_search_center' => 0,
+          'views_search_marker' => 'drupal',
+          'views_search_marker_enable' => 0,
+          'views_search_marker_toggle' => 0,
+          'views_search_marker_toggle_active' => 0,
+          'views_search_radshape_enable' => 0,
+          'views_search_radshape_fillcolor' => '#FF0000',
+          'views_search_radshape_fillopacity' => 0.35,
+          'views_search_radshape_strokecolor' => '#FF0000',
+          'views_search_radshape_strokeopacity' => 0.8,
+          'views_search_radshape_strokeweight' => 3,
+          'views_search_radshape_toggle' => 0,
+          'views_search_radshape_toggle_active' => 0,
+          'vocabulary_map_marker' => 'webiconset-pins-32 pin8',
+          'weather_cloud' => 1,
+          'weather_cloud_state' => 0,
+          'weather_show' => 0,
+          'weather_state' => 0,
+          'weather_use' => 0,
+          'what3words_display' => 0,
+          'zoomcontrolposition' => '',
+        ),
+        'type' => 'getlocations_fields_default',
         'weight' => 1,
       ),
       'teaser' => array(
@@ -2934,6 +3590,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 52,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -2979,6 +3642,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 47,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -3023,6 +3693,20 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+          'show_remaining_days' => FALSE,
+        ),
+        'type' => 'date_default',
+        'weight' => 18,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'date',
         'settings' => array(
@@ -3079,6 +3763,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 26,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3119,6 +3810,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 23,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3159,6 +3857,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 24,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3199,6 +3904,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 22,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3239,6 +3951,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 25,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3279,6 +3998,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 27,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -3324,6 +4050,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 49,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -3369,6 +4102,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 13,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3409,6 +4149,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 14,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3449,6 +4196,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 16,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3489,6 +4243,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 15,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'taxonomy',
         'settings' => array(),
@@ -3529,6 +4290,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 17,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -3574,6 +4342,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => 'Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -3619,6 +4394,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 8,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'link',
         'settings' => array(),
@@ -3681,6 +4463,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 22,
+      ),
+      'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),

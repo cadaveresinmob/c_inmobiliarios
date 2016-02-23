@@ -40,6 +40,38 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_approved_units|node|corpse|default';
+  $field_group->group_name = 'group_approved_units';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_urban_data';
+  $field_group->data = array(
+    'label' => 'Approved units',
+    'weight' => '10',
+    'children' => array(
+      0 => 'field_approved_industrial_plots',
+      1 => 'field_approved_leisure_plots',
+      2 => 'field_corpse_approved_hotel_beds',
+      3 => 'field_corpse_approved_housing',
+      4 => 'field_corpse_planned_inhabitants',
+      5 => 'field_corpse_planned_visitors',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-approved-units field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_approved_units|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_approved_units|node|corpse|form';
   $field_group->group_name = 'group_approved_units';
   $field_group->entity_type = 'node';
@@ -72,6 +104,35 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_areas|node|corpse|default';
+  $field_group->group_name = 'group_areas';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_phisical_properties';
+  $field_group->data = array(
+    'label' => 'Areas',
+    'weight' => '28',
+    'children' => array(
+      0 => 'field_corpse_area_terrain',
+      1 => 'field_corpse_built_area',
+      2 => 'field_corpse_used_land',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-areas field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_areas|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_areas|node|corpse|form';
   $field_group->group_name = 'group_areas';
   $field_group->entity_type = 'node';
@@ -97,6 +158,37 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_areas|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_built_units|node|corpse|default';
+  $field_group->group_name = 'group_built_units';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_phisical_properties';
+  $field_group->data = array(
+    'label' => 'Built units',
+    'weight' => '31',
+    'children' => array(
+      0 => 'field_corpse_equipment_plots',
+      1 => 'field_corpse_hotel_beds',
+      2 => 'field_corpse_housing',
+      3 => 'field_corpse_industrial_plots',
+      4 => 'field_corpse_leisure_plots',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-built-units field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_built_units|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -165,6 +257,34 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_current_status|node|corpse|default';
+  $field_group->group_name = 'group_current_status';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_phisical_properties';
+  $field_group->data = array(
+    'label' => 'Current status',
+    'weight' => '27',
+    'children' => array(
+      0 => 'field_corpse_status',
+      1 => 'field_corpse_description',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-current-status field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_current_status|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_current_status|node|corpse|form';
   $field_group->group_name = 'group_current_status';
   $field_group->entity_type = 'node';
@@ -189,6 +309,35 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_current_status|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_environmental_info|node|corpse|default';
+  $field_group->group_name = 'group_environmental_info';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Environmental information',
+    'weight' => '8',
+    'children' => array(
+      0 => 'field_zoning_protection_level',
+      1 => 'field_env_protection_entity',
+      2 => 'field_env_protection_entity_name',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_environmental_info|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -218,6 +367,39 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_environmental_info|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_general_info|node|corpse|default';
+  $field_group->group_name = 'group_general_info';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'General info',
+    'weight' => '1',
+    'children' => array(
+      0 => 'field_corpse_category',
+      1 => 'field_corpse_endorser',
+      2 => 'field_corpse_source',
+      3 => 'field_corpse_status_description',
+      4 => 'field_corpse_type',
+      5 => 'field_urban_name',
+      6 => 'field_url',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_general_info|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -252,6 +434,41 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_general_info|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_legal|node|corpse|default';
+  $field_group->group_name = 'group_legal';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Legal and financial',
+    'weight' => '7',
+    'children' => array(
+      0 => 'field_corpse_creditors_meeting',
+      1 => 'field_corpse_filed_appeals',
+      2 => 'field_corpse_financial_entities',
+      3 => 'field_corpse_mortgage_amount',
+      4 => 'field_court_sentence',
+      5 => 'field_court_that_rules_sentence',
+      6 => 'field_mortgage_charges',
+      7 => 'field_number_of_sentences',
+      8 => 'field_ruling_sentence',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_legal|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -291,6 +508,36 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_phisical_properties|node|corpse|default';
+  $field_group->group_name = 'group_phisical_properties';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Phisical properties',
+    'weight' => '2',
+    'children' => array(
+      0 => 'group_areas',
+      1 => 'group_built_units',
+      2 => 'group_current_status',
+      3 => 'group_property_data',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_phisical_properties|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_phisical_properties|node|corpse|form';
   $field_group->group_name = 'group_phisical_properties';
   $field_group->entity_type = 'node';
@@ -316,6 +563,38 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_phisical_properties|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_politicians|node|corpse|default';
+  $field_group->group_name = 'group_politicians';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Political responsability',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_politician_building_permit',
+      1 => 'field_politician_partial_plan',
+      2 => 'field_politician_pgou_modifi',
+      3 => 'field_politician_plan_agreement',
+      4 => 'field_politician_urban_plan',
+      5 => 'field_politicians_other',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_politicians|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -352,6 +631,36 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_property_data|node|corpse|default';
+  $field_group->group_name = 'group_property_data';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_phisical_properties';
+  $field_group->data = array(
+    'label' => 'Property data',
+    'weight' => '30',
+    'children' => array(
+      0 => 'field_corpse_contractor',
+      1 => 'field_corpse_promoter',
+      2 => 'field_corpse_prop_description',
+      3 => 'field_corpse_technician',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_property_data|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_property_data|node|corpse|form';
   $field_group->group_name = 'group_property_data';
   $field_group->entity_type = 'node';
@@ -382,6 +691,34 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_references|node|corpse|default';
+  $field_group->group_name = 'group_references';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'References',
+    'weight' => '9',
+    'children' => array(
+      0 => 'field_corpse_attachments',
+      1 => 'field_corpse_link_to_news',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_references|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_references|node|corpse|form';
   $field_group->group_name = 'group_references';
   $field_group->entity_type = 'node';
@@ -406,6 +743,38 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_references|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_technicians|node|corpse|default';
+  $field_group->group_name = 'group_technicians';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_urban_data';
+  $field_group->data = array(
+    'label' => 'Technicians',
+    'weight' => '11',
+    'children' => array(
+      0 => 'field_corpse_tech_permit',
+      1 => 'field_technician_parcial_plan',
+      2 => 'field_technician_pgou_modif',
+      3 => 'field_technician_plan_agreement',
+      4 => 'field_technician_urban_plan',
+      5 => 'field_technicians_other',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-technicians field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_technicians|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
@@ -442,6 +811,40 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_urban_data|node|corpse|default';
+  $field_group->group_name = 'group_urban_data';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Urban data',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_corpse_building_typology',
+      1 => 'field_corpse_floor_area_ratio',
+      2 => 'field_corpse_ine_code_city',
+      3 => 'field_corpse_ine_code_province',
+      4 => 'field_corpse_use',
+      5 => 'group_approved_units',
+      6 => 'group_technicians',
+      7 => 'group_urban_planning_dates',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
+    ),
+  );
+  $field_groups['group_urban_data|node|corpse|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_urban_data|node|corpse|form';
   $field_group->group_name = 'group_urban_data';
   $field_group->entity_type = 'node';
@@ -472,6 +875,38 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     ),
   );
   $field_groups['group_urban_data|node|corpse|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_urban_planning_dates|node|corpse|default';
+  $field_group->group_name = 'group_urban_planning_dates';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'corpse';
+  $field_group->mode = 'default';
+  $field_group->parent_name = 'group_urban_data';
+  $field_group->data = array(
+    'label' => 'Urban Planning dates',
+    'weight' => '9',
+    'children' => array(
+      0 => 'field_corpse_building_permit',
+      1 => 'field_corpse_lic_date_agreement',
+      2 => 'field_corpse_other_dates',
+      3 => 'field_corpse_partial_plan_date',
+      4 => 'field_corpse_urban_plan_date',
+      5 => 'field_pgou_modification_date',
+    ),
+    'format_type' => 'fieldset',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-urban-planning-dates field-group-fieldset',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_urban_planning_dates|node|corpse|default'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
