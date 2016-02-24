@@ -352,9 +352,10 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'Environmental information',
     'weight' => '30',
     'children' => array(
-      0 => 'field_zoning_protection_level',
-      1 => 'field_env_protection_entity',
+      0 => 'field_corpse_public_domain',
+      1 => 'field_zoning_protection_level',
       2 => 'field_env_protection_entity_name',
+      3 => 'field_env_protection_entity',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -416,12 +417,11 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'children' => array(
       0 => 'field_corpse_category',
       1 => 'field_corpse_endorser',
-      2 => 'field_corpse_public_domain',
-      3 => 'field_corpse_source',
-      4 => 'field_corpse_type',
-      5 => 'field_urban_name',
-      6 => 'field_url',
-      7 => 'field_corpse_description',
+      2 => 'field_corpse_source',
+      3 => 'field_corpse_type',
+      4 => 'field_urban_name',
+      5 => 'field_url',
+      6 => 'field_corpse_description',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

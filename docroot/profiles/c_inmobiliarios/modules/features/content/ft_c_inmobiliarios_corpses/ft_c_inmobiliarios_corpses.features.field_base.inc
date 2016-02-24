@@ -1131,20 +1131,27 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
   // Exported field_base: 'field_env_protection_entity'.
   $field_bases['field_env_protection_entity'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_env_protection_entity',
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'environmental_protection_entity',
+          'parent' => 0,
+        ),
+      ),
+    ),
     'translatable' => 0,
-    'type' => 'text_long',
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_env_protection_entity_name'.

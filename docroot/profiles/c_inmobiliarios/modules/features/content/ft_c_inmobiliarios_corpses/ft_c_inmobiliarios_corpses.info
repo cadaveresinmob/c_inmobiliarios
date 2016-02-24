@@ -203,6 +203,7 @@ features[taxonomy][] = corpse_status
 features[taxonomy][] = corpse_technician
 features[taxonomy][] = corpse_type
 features[taxonomy][] = corpse_use
+features[taxonomy][] = environmental_protection_entity
 features[taxonomy][] = financial_entities
 features[units_measure][] = area
 features[units_unit][] = area_hectares
