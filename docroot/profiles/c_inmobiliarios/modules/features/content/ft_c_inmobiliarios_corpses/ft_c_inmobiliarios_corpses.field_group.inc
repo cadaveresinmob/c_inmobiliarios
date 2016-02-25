@@ -323,9 +323,10 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'label' => 'Environmental information',
     'weight' => '8',
     'children' => array(
-      0 => 'field_zoning_protection_level',
-      1 => 'field_env_protection_entity',
+      0 => 'field_corpse_public_domain',
+      1 => 'field_zoning_protection_level',
       2 => 'field_env_protection_entity_name',
+      3 => 'field_env_protection_entity',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
