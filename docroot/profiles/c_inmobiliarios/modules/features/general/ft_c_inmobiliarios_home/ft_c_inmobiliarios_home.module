@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Cadáveres inmobiliarios' Home Page feature.
+ */
+
+include_once 'ft_c_inmobiliarios_home.features.inc';

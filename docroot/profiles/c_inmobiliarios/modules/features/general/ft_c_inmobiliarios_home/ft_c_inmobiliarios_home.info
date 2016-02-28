@@ -1,0 +1,13 @@
+name = Cadáveres inmobiliarios' Home Page
+description = Home page configuration
+core = 7.x
+package = Cadáveres Inmobiliarios
+version = 7.x-1.0
+dependencies[] = context
+dependencies[] = ft_c_inmobiliarios_core
+dependencies[] = ft_c_inmobiliarios_map
+dependencies[] = views
+features[context][] = home
+features[ctools][] = context:context:3
+features[features_api][] = api:2
+project path = profiles/c_inmobiliarios/modules/features/general
