@@ -89,7 +89,7 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['header']['result']['id'] = 'result';
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
-  $handler->display->display_options['header']['result']['content'] = 'Displaying @total Corpses';
+  $handler->display->display_options['header']['result']['content'] = 'We have @total urban corpses in our database';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -343,7 +343,7 @@ function ft_c_inmobiliarios_map_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('Displaying @total Corpses'),
+    t('We have @total urban corpses in our database'),
     t('Coordinates'),
     t('Latitude'),
     t('Longitude'),
