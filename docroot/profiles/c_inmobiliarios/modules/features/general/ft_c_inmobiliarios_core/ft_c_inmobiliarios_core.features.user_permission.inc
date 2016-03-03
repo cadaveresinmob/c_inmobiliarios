@@ -15,6 +15,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'translator' => 'translator',
     ),
     'module' => 'system',
   );
@@ -75,6 +76,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'editor' => 'editor',
+      'translator' => 'translator',
     ),
     'module' => 'toolbar',
   );
@@ -552,6 +554,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'name' => 'translate interface',
     'roles' => array(
       'administrator' => 'administrator',
+      'translator' => 'translator',
     ),
     'module' => 'locale',
   );
