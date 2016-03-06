@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Definition of EntityReference_SelectionHandler_Generic_units_unit class.
+ */
+
+/**
  * EntityReference_SelectionHandler_Generic class altered for MVF needs.
  *
  * For MVF only one bundle allowed for referencing per field. In field settings
@@ -18,8 +23,7 @@ class EntityReference_SelectionHandler_Generic_units_unit extends EntityReferenc
     // definition array from Field API, because our $field parameter might be
     // just a mocked up field in MVF module.
     $original_field = field_info_field($field['field_name']);
-    $mvf_field_types = array_keys(module_invoke('mvf', 'field_info'));
-    $is_mvf_field = in_array($original_field['type'], $mvf_field_types);
+    $is_mvf_field = in_array($original_field['type'], mvf_field_types());
     if (!$is_mvf_field) {
       return $form;
     }

@@ -1,0 +1,59 @@
+Implementing a custom unit suggester is as easy as defining a <a href="&topic:ctools/plugins-implementing&">CTools plugin</a> in the code of your module.
+
+The owner of plugin is <strong>mvf</strong> module, the plugin name is <strong>unit_suggesters</strong>. You can find an example of such plugin implementation in the <em>plugins</em> folder of mvf module.
+
+The parameters of <em>unit_suggesters</em> plugin should be:
+<dt>title</dt>
+<dd><strong>Required</strong>. The human readable name of your unit suggester.</dd>
+<dt>description</dt>
+<dd>A brief description of your unit suggester. Try to explain how exactly the unit suggestion happens in your plugin.</dd>
+<dt>applicable callback</dt>
+<dd><strong>Required</strong>. Either <strong>TRUE</strong> (denotes &quot;always applies&quot;) or name of the function that will be responsible to determine whether your unit suggester applies to a particular field instance. This function will receive the following input arguments:
+<ol>
+  <li><strong>$measure</strong>: (object) Fully loaded 'units_measure' entity, on which the MVF field is set up</li>
+  <li><strong>$field</strong>: (array) Field API field definition array of the MVF field in question</li>
+  <li><strong>$instance</strong>: (array) Field API instance definition array of the MVF field in question</li>
+</ol>
+Your function should analyze the input arguments and return <strong>TRUE</strong> if your unit suggester applies to the provided <strong>$measure</strong>, <strong>$field</strong>, and <strong>$instance</strong>. Otherwise return <strong>FALSE</strong>.</dd>
+<dt>enabled callback</dt>
+<dd>Name of the function. It will be invoked when your unit suggester is enabled in some formatter. You are welcome to do any initialization routines in here. This function will receive the following input arguments:
+<ol>
+  <li><strong>$measure</strong>: (object) Fully loaded 'units_measure' entity, on which the MVF field is set up</li>
+  <li><strong>$field</strong>: (array) Field API field definition array of MVF field</li>
+  <li><strong>$instance</strong>: (array) Field API instance definition array of MVF field</li>
+  <li><strong>$view_mode</strong>: (string) View mode (key in <strong>$instance['display']</strong> array) in which this unit suggester was enabled</li>
+  <li><strong>$settings</strong>: (array) Array of currently stored suggester settings in the provided <strong>$instance</strong></li>
+</ol></dd>
+<dt>disabled callback</dt>
+<dd>Name of the function. It will be invoked when your unit suggester is disabled in some formatter. You are welcome do to any destruction routines in here. This function will receive the following input arguments:
+<ol>
+  <li><strong>$measure</strong>: (object) Fully loaded 'units_measure' entity, on which the MVF field is set up</li>
+  <li><strong>$field</strong>: (array) Field API field definition array of MVF field</li>
+  <li><strong>$instance</strong>: (array) Field API instance definition array of MVF field</li>
+  <li><strong>$view_mode</strong>: (string) View mode (key in <strong>$instance['display']</strong> array) in which this unit suggester was disabled</li>
+  <li><strong>$settings</strong>: (array) Array of currently stored suggester settings in the provided <strong>$instance</strong></li>
+</ol></dd>
+<dt>settings form callback</dt>
+<dd>Name of the function. This function will generate form elements that represent settings form of your unit suggester. This function will receive the following input arguments:
+<ol>
+  <li><strong>$measure</strong>: (object) Fully loaded 'units_measure' entity, on which the MVF field is set up</li>
+  <li><strong>$field</strong>: (array) Field API field definition array of MVF field</li>
+  <li><strong>$instance</strong>: (array) Field API instance definition array of MVF field</li>
+  <li><strong>$settings</strong>: (array) Array of currently stored suggester settings in the provided <strong>$instance</strong>, you are encouraged to use it as source of #default_value for the form elements you are defining in this function</li>
+</ol>
+The function should return array - form elements that define settings of your unit suggester. Values, submitted by the returned form elements will be stored in <strong>$settings</strong></dd>
+<dt>suggest unit callback</dt>
+<dd><strong>Required</strong>. Name of the function that provides actual unit suggesting. This function will receive the following input arguments:
+<ol>
+  <li><strong>$items</strong>: (array) Array of MVF field items for which you are requested to suggest output unit</li>
+  <li><strong>$field</strong>: (array) Field API field definition array of MVF field</li>
+  <li><strong>$instance</strong>: (array) Field API instance definition array of MVF field</li>
+  <li><strong>$entity</strong>: (object) Fully loaded entity, for which you are requested to suggest output unit</li>
+  <li><strong>$entity_type</strong>: (string) Entity type of <strong>$entity</strong></li>
+  <li><strong>$settings</strong>: (array) Array of currently stored suggester settings in the provided <strong>$instance</strong>, you are encouraged to use it when deciding what output unit to suggest</li>
+</ol>
+The function should return ID of a 'units_unit' entity, that you suggest as output unit. Two additional constants can be used as output here:
+<ul>
+  <li><strong>MVF_UNIT_ORIGINAL</strong>: means to output <strong>$items</strong> as they are, in whatever units they were entered</li>
+  <li><strong>MVF_UNIT_UNKNOWN</strong>: means you cannot make any good suggestion for output unit</li>
+</ul></dd>

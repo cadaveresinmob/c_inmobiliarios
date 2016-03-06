@@ -16,12 +16,12 @@ class mvf_handler_field_mvf extends views_handler_field_field {
     }
 
     // Among other standard reasons not to be click sortable, MVF field column
-    // many not be sortable if the measure's convert callback is not standard.
-    // For non standard convert callbacks we do not have any knowledge about how
-    // convertion happens and thus we are hintless about how to sort it.
+    // many not be sortable if the measure's conversion is not linear. For non
+    // standard convert callbacks we do not have any knowledge about how
+    // conversion happens and thus we are hintless about how to sort it.
     $field = field_info_field($this->definition['field_name']);
     $measure = units_measure_machine_name_load(reset($field['settings']['unit']['handler_settings']['target_bundles']));
-    return $measure->convert_callback == UNITS_DEFAULT_CONVERT_CALLBACK;
+    return $measure->converter == 'linear';
   }
 
   function click_sort($order) {
