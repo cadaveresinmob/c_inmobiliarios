@@ -6,20 +6,17 @@ core = 7.x
 dependencies[] = units
 dependencies[] = number
 dependencies[] = entityreference
+dependencies[] = options
+dependencies[] = ctools
 
 files[] = includes/EntityReference_SelectionHandler_Generic_units_unit.class.inc
 files[] = views/mvf_handler_filter_mvf.inc
 files[] = views/mvf_handler_sort_mvf.inc
 files[] = views/mvf_handler_field_mvf.inc
-files[] = includes/NumericFieldFilterConverterMVF.inc
-files[] = includes/MVFUnitSuggestable.interface.inc
-files[] = includes/MVFUnitSuggesterHardCoded.class.inc
-files[] = includes/MVFUnitSuggesterOriginal.class.inc
-files[] = includes/MVFUnitSuggesterLocale.class.inc
 
-; Information added by Drupal.org packaging script on 2014-02-23
-version = "7.x-1.0-beta1"
+; Information added by Drupal.org packaging script on 2016-02-08
+version = "7.x-1.0-beta1+17-dev"
 core = "7.x"
 project = "mvf"
-datestamp = "1393180707"
+datestamp = "1454895241"
 

@@ -110,17 +110,3 @@ function mvf_views_label_pre_render($element) {
   $element['label']['#suffix'] .= '</div>';
   return $element;
 }
-
-/**
- * FAPI process function.
- *
- * Hide 'value' sub field of MVF field. Supposedly this function will be
- * executed while generating value form element in the scope of Numeric Field
- * Filter handler.
- */
-function _mvf_widget_numeric_field_filter_process($element) {
-  // We are not interested in the value part of MVF here. This part is replaced
-  // with formula textfield in Numeric Field Filter.
-  $element[mvf_subfield_to_column('value')]['#access'] = FALSE;
-  return $element;
-}

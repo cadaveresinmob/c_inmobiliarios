@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Module that allows to specify output units for MVF fields on per user basis.
+ */
+
+/**
+ * Implements hook_field_delete_field().
+ */
+function mvf_per_user_field_delete_field($field) {
+  // Cleaning up MVF per user corresponding field if it exists.
+  if ($mvf_field = mvf_per_user_unit_field_load($field)) {
+    field_delete_field($mvf_field['field_name']);
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mvf_per_user_ctools_plugin_directory($owner, $plugin_type) {
+  switch ($owner) {
+    case 'mvf':
+      switch ($plugin_type) {
+        case 'unit_suggesters':
+          return 'plugins/' . $plugin_type;
+      }
+      break;
+  }
+}
+
+/**
+ * Generate name for a unit field from MVF field, which it represents.
+ *
+ * @param array $mvf_field
+ *   MVF field array definition, name of unit field for this MVF field will be
+ *   returned
+ *
+ * @return string
+ *   Name for a unit field of a provided MVF field
+ *
+ * @throws FieldException
+ */
+function mvf_per_user_unit_field_name($mvf_field) {
+  // There is a limit of 32 chars for a field name in Field API.
+  $max_length = 32;
+  $prefix = 'mvfu_';
+  $name = $prefix . $mvf_field['field_name'];
+  if (drupal_strlen($name) > $max_length) {
+    throw new FieldException(t('Machine name of your MVF field %field_name is too long. MVF per User cannot create a corresponding unit field, because its machine name length would exceed allowed by Field API max length of 32 chars. Please, use a MVF field with machine name shorter than %max_length.', array(
+      '%field_name' => $mvf_field['field_name'],
+      '%max_length' => $max_length - drupal_strlen($prefix),
+    )));
+  }
+  return $name;
+}
+
+/**
+ * Load function for unit field of a MVF field.
+ *
+ * In the unit field users can store desired output unit for a corresponding MVF
+ * field.
+ *
+ * @param array|string $field
+ *   Machine name or field array of a MVF field, whose unit field should be
+ *   loaded
+ *
+ * @return array|bool
+ *   Fully loaded field definition array of unit field or FALSE if such unit
+ *   field does not exist
+ */
+function mvf_per_user_unit_field_load($field) {
+  if (!is_array($field)) {
+    $field = field_info_field($field);
+  }
+  if (!in_array($field['type'], mvf_field_types())) {
+    return FALSE;
+  }
+  try {
+    $unit_field_name = mvf_per_user_unit_field_name($field);
+  }
+  catch (FieldException $e) {
+    return FALSE;
+  }
+  $unit_field = field_info_field($unit_field_name);
+  return is_array($unit_field) ? $unit_field : FALSE;
+}

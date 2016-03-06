@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall, update hooks of MVF Per User module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function mvf_per_user_uninstall() {
+  drupal_load('module', 'mvf_per_user');
+  // We want to delete all possibly remaining unit fields for each existing
+  // MVF field.
+  $field_map = field_info_field_map();
+  foreach ($field_map as $field_name => $field_info) {
+    if (in_array($field_info['type'], mvf_field_types())) {
+      $unit_field = mvf_per_user_unit_field_load($field_name);
+      if ($unit_field) {
+        field_delete_field($unit_field['field_name']);
+      }
+    }
+  }
+}

@@ -16,23 +16,18 @@ class mvf_handler_sort_mvf extends views_handler_sort {
     $field = field_info_field($this->definition['field_name']);
 
     // First of all, right now we are able to sort only MVF based on the
-    // measures that use default convert callback of Units module. This one is
-    // simple to explain. We are gonna have something like:
+    // measures that use linear conversion of Units module. We are gonna have
+    // something like:
     // ORDER BY mvf_value * [factor of the unit in which value is measured]
-    // Such logic heavily relies on the idea that factor is linear
-    // characteristic of numerical relationship between units in a measure.
-    // Now, when we come across a non standard convert callback, we cannot have
-    // any kind of assumption how one unit relates to another within such a
-    // measure.
     $measure = units_measure_machine_name_load(reset($field['settings']['unit']['handler_settings']['target_bundles']));
-    if ($measure->convert_callback != UNITS_DEFAULT_CONVERT_CALLBACK) {
-      // Whooups... We can't sort MVF on a non standard convert callback. We
-      // show an error message, log it to watchdog and halt.
-      drupal_set_message(t('Measured Value Field cannot sort fields based on measures with non standard convert callback, such as %measure. Please, change sort settings of the view %view.', array(
+    if ($measure->converter != 'linear') {
+      // Whooups... We can't sort MVF on a non linear measure. We show an error
+      // message, log it to watchdog and halt.
+      drupal_set_message(t('Measured Value Field cannot sort fields based on measures non linear conversion, such as %measure. Please, change sort settings of the view %view.', array(
         '%measure' => entity_label('units_measure', $measure),
         '%view' => $this->view->get_human_name(),
       )), 'error');
-      watchdog('mvf', 'Measured Value Field cannot sort fields based on measures with non standard convert callback, such as %measure. Please, change sort settings of the view %view.', array(
+      watchdog('mvf', 'Measured Value Field cannot sort fields based on measures with non linear conversion, such as %measure. Please, change sort settings of the view %view.', array(
         '%measure' => entity_label('units_measure', $measure),
         '%view' => $this->view->get_human_name(),
       ), WATCHDOG_ERROR);
