@@ -4,16 +4,14 @@ Si estás leyendo este documento es que te estás planteando colaborar de forma 
 
 ### Contenido del documento
 
-[Información sobre el proyecto](#información-sobre-el-proyecto)
-
-[Información técnica](#información-técnica)
-
-* [Sobre la web](#sobre-la-web)
-* [Estructura de archivos y carpetas](#estructura-de-archivos-y-carpetas)
-
-[Formas de participar](#formas-de-participar)
-
-[Directrices para participar](#directrices-para-participar)
+* [Información sobre el proyecto](#información-sobre-el-proyecto)
+* [Información técnica](#información-técnica)
+ * [Sobre la web](#sobre-la-web)
+ * [Estructura de archivos y carpetas](#estructura-de-archivos-y-carpetas)
+* [Formas de participar](#formas-de-participar)
+ * [Toma de decisiones](#toma-de-decisiones)
+ * [Testeando](#testear)
+* [Directrices para participar](#directrices-para-participar)
 
 ## Información sobre el proyecto
 
@@ -25,6 +23,7 @@ Tienes más información en la página oficial:
 
 * [Sobre cadáveres inmobiliarios](http://cadaveresinmobiliarios.org/sobre/)
 * [Objetivos](http://cadaveresinmobiliarios.org/objetivos-de-cada-colectivo-o-individuo/)
+ 
 
 ## Información técnica
 
@@ -85,6 +84,10 @@ Puedes ayudarnos a que la web sea mejor de las siguientes maneras:
 * **Traduciendo** la interfaz
 * **Revisando** código
 * Desarrollando código
+
+### Toma de decisiones
+
+Si deseas estar al corriente de las últimas conversaciones y participar en la toma de decisiones deberás suscribirte a la [lista de correo](https://groups.google.com/forum/#!forum/hacia-base-datos-inmobiliaria).
 
 ### Testear
 
