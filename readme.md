@@ -22,3 +22,8 @@ Ejecutar el comando `drush si c_inmobiliarios --db-url=<mysql://root:pass@host/d
 * `docroot`: la carpeta que contiene el drupal y donde debe apuntar el dominio.
 * `drush`: comandos y alias específicos de drush.
 * `scripts`: script para reinstalar drupal usando el perfil de instalación específico de cadáveres inmobiliarios.
+ 
+## Colaboraciones
+
+Si quieres colaborar en el proyecto te damos la bienvenida. Puedes leer el archivo [contributing.md](https://github.com/cadaveresinmob/c_inmobiliarios/blob/master/contributing.md) que hemos creado para explicar las distintas formas de colaborar. 
+
