@@ -97,6 +97,48 @@ function ft_c_inmobiliarios_core_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_domain';
+  $strongarm->value = '';
+  $export['eu_cookie_compliance_domain'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_en';
+  $strongarm->value = array(
+    'popup_enabled' => 0,
+    'popup_clicking_confirmation' => 1,
+    'popup_position' => 0,
+    'popup_agree_button_message' => 'OK, I agree',
+    'popup_disagree_button_message' => 'No, give me more info',
+    'popup_info' => array(
+      'value' => '<h2>We use cookies on this site to enhance your user experience</h2><p>By clicking any link on this page you are giving your consent for us to set cookies.</p>',
+      'format' => 'filtered_html',
+    ),
+    'popup_agreed_enabled' => 1,
+    'popup_hide_agreed' => 0,
+    'popup_find_more_button_message' => 'More info',
+    'popup_hide_button_message' => 'Hide',
+    'popup_agreed' => array(
+      'value' => '<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>',
+      'format' => 'filtered_html',
+    ),
+    'popup_link' => 'cookies',
+    'popup_link_new_window' => 1,
+    'popup_height' => '',
+    'popup_width' => '100%',
+    'popup_delay' => '1',
+    'popup_bg_hex' => '0779BF',
+    'popup_text_hex' => 'ffffff',
+    'domains_option' => '1',
+    'domains_list' => '',
+    'exclude_paths' => '',
+  );
+  $export['eu_cookie_compliance_en'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'file_private_path';
   $strongarm->value = 'sites/default/files/private';
   $export['file_private_path'] = $strongarm;

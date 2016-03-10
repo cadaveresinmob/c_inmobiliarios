@@ -348,6 +348,17 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'display EU Cookie Compliance popup'.
+  $permissions['display EU Cookie Compliance popup'] = array(
+    'name' => 'display EU Cookie Compliance popup',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'eu_cookie_compliance',
+  );
+
   // Exported permission: 'edit any blog_post content'.
   $permissions['edit any blog_post content'] = array(
     'name' => 'edit any blog_post content',
