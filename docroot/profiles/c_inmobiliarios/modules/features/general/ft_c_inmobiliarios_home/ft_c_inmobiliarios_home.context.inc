@@ -30,7 +30,7 @@ function ft_c_inmobiliarios_home_context_default_contexts() {
           'module' => 'views',
           'delta' => 'urban_corpses_map-block_1',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-14',
         ),
       ),
     ),
