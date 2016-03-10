@@ -70,6 +70,17 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'access site-wide contact form'.
+  $permissions['access site-wide contact form'] = array(
+    'name' => 'access site-wide contact form',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'contact',
+  );
+
   // Exported permission: 'access toolbar'.
   $permissions['access toolbar'] = array(
     'name' => 'access toolbar',
@@ -79,6 +90,16 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
       'translator' => 'translator',
     ),
     'module' => 'toolbar',
+  );
+
+  // Exported permission: 'access user contact forms'.
+  $permissions['access user contact forms'] = array(
+    'name' => 'access user contact forms',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'contact',
   );
 
   // Exported permission: 'access user profiles'.
