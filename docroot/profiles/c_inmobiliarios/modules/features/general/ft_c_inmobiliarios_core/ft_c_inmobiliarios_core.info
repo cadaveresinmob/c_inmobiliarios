@@ -66,6 +66,7 @@ features[user_permission][] = administer search
 features[user_permission][] = administer taxonomy
 features[user_permission][] = administer url aliases
 features[user_permission][] = administer users
+features[user_permission][] = bypass honeypot protection
 features[user_permission][] = cancel account
 features[user_permission][] = change own username
 features[user_permission][] = create blog_post content
