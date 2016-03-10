@@ -11,6 +11,7 @@ dependencies[] = ctools
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = ft_wysiwyg
+dependencies[] = honeypot
 dependencies[] = i18n
 dependencies[] = i18n_field
 dependencies[] = i18n_node
