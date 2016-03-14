@@ -100,9 +100,9 @@ msgctxt "field_approved_industrial_plots:corpse:label"
 msgid "Industrial plots"
 msgstr "Parcelas uso industrial"
 
-#: field:field_approved_leisure_plots:corpse:label
-msgctxt "field_approved_leisure_plots:corpse:label"
-msgid "Leisure plots"
+#: field:field_approved_commercial_plots:corpse:label
+msgctxt "field_approved_commercial_plots:corpse:label"
+msgid "Commercial plots"
 msgstr "Parcelas uso comercial"
 
 #: field:field_corpse_approved_hotel_beds:corpse:label
@@ -226,9 +226,9 @@ msgctxt "field_corpse_ine_code_province:corpse:label"
 msgid "Province's INE Code"
 msgstr "Código INE Provincia"
 
-#: field:field_corpse_leisure_plots:corpse:label
-msgctxt "field_corpse_leisure_plots:corpse:label"
-msgid "Leisure plots"
+#: field:field_corpse_commercial_plots:corpse:label
+msgctxt "field_corpse_commercial_plots:corpse:label"
+msgid "Commercial plots"
 msgstr "Parcelas uso comercial"
 
 #: field:field_corpse_lic_date_agreement:corpse:label
@@ -447,9 +447,9 @@ msgctxt "field_technicians_other:corpse:label"
 msgid "Other technicians"
 msgstr "Otros técnicos"
 
-#: field:field_technician_parcial_plan:corpse:label
-msgctxt "field_technician_parcial_plan:corpse:label"
-msgid "Parcial plan technician"
+#: field:field_technician_partial_plan:corpse:label
+msgctxt "field_technician_partial_plan:corpse:label"
+msgid "Partial plan technician"
 msgstr "Técnico del Plan Parcial"
 
 #: field:field_technician_pgou_modif:corpse:label

@@ -51,7 +51,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '10',
     'children' => array(
       0 => 'field_approved_industrial_plots',
-      1 => 'field_approved_leisure_plots',
+      1 => 'field_approved_commercial_plots',
       2 => 'field_corpse_approved_hotel_beds',
       3 => 'field_corpse_approved_housing',
       4 => 'field_corpse_planned_inhabitants',
@@ -83,7 +83,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '54',
     'children' => array(
       0 => 'field_approved_industrial_plots',
-      1 => 'field_approved_leisure_plots',
+      1 => 'field_approved_commercial_plots',
       2 => 'field_corpse_approved_hotel_beds',
       3 => 'field_corpse_approved_housing',
       4 => 'field_corpse_planned_inhabitants',
@@ -176,7 +176,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       1 => 'field_corpse_hotel_beds',
       2 => 'field_corpse_housing',
       3 => 'field_corpse_industrial_plots',
-      4 => 'field_corpse_leisure_plots',
+      4 => 'field_corpse_commercial_plots',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -207,7 +207,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
       1 => 'field_corpse_hotel_beds',
       2 => 'field_corpse_housing',
       3 => 'field_corpse_industrial_plots',
-      4 => 'field_corpse_leisure_plots',
+      4 => 'field_corpse_commercial_plots',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -759,7 +759,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '11',
     'children' => array(
       0 => 'field_corpse_tech_permit',
-      1 => 'field_technician_parcial_plan',
+      1 => 'field_technician_partial_plan',
       2 => 'field_technician_pgou_modif',
       3 => 'field_technician_plan_agreement',
       4 => 'field_technician_urban_plan',
@@ -791,7 +791,7 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '55',
     'children' => array(
       0 => 'field_corpse_tech_permit',
-      1 => 'field_technician_parcial_plan',
+      1 => 'field_technician_partial_plan',
       2 => 'field_technician_pgou_modif',
       3 => 'field_technician_plan_agreement',
       4 => 'field_technician_urban_plan',

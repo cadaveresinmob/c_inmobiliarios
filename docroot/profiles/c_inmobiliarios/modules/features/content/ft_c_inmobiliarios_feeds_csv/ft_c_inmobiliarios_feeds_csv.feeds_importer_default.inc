@@ -309,7 +309,7 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
           ),
           42 => array(
             'source' => 'parcelas_uso_comercial_construidas',
-            'target' => 'field_corpse_leisure_plots',
+            'target' => 'field_corpse_commercial_plots',
             'unique' => FALSE,
             'language' => 'und',
           ),

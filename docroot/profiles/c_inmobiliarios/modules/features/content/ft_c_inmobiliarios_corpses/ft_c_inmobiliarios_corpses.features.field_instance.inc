@@ -68,8 +68,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_approved_leisure_plots'.
-  $field_instances['node-corpse-field_approved_leisure_plots'] = array(
+  // Exported field_instance: 'node-corpse-field_approved_commercial_plots'.
+  $field_instances['node-corpse-field_approved_commercial_plots'] = array(
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
@@ -107,8 +107,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_approved_leisure_plots',
-    'label' => 'Leisure plots',
+    'field_name' => 'field_approved_commercial_plots',
+    'label' => 'Commercial plots',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -1368,8 +1368,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpse_leisure_plots'.
-  $field_instances['node-corpse-field_corpse_leisure_plots'] = array(
+  // Exported field_instance: 'node-corpse-field_corpse_commercial_plots'.
+  $field_instances['node-corpse-field_corpse_commercial_plots'] = array(
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
@@ -1407,8 +1407,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_corpse_leisure_plots',
-    'label' => 'Leisure plots',
+    'field_name' => 'field_corpse_commercial_plots',
+    'label' => 'Commercial plots',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -4123,8 +4123,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_technician_parcial_plan'.
-  $field_instances['node-corpse-field_technician_parcial_plan'] = array(
+  // Exported field_instance: 'node-corpse-field_technician_partial_plan'.
+  $field_instances['node-corpse-field_technician_partial_plan'] = array(
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
@@ -4152,8 +4152,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_technician_parcial_plan',
-    'label' => 'Parcial plan technician',
+    'field_name' => 'field_technician_partial_plan',
+    'label' => 'Partial plan technician',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -4570,7 +4570,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Hotel beds');
   t('Housing');
   t('Industrial plots');
-  t('Leisure plots');
+  t('Commercial plots');
   t('Link to news');
   t('Mortgage amount');
   t('Mortgage charges');
@@ -4585,7 +4585,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('PGOU Modification date');
   t('PGOU Modification politician');
   t('PGOU Modification technician');
-  t('Parcial plan technician');
+  t('Partial plan technician');
   t('Partial plan date');
   t('Partial plan politician');
   t('Planning agreement politician');

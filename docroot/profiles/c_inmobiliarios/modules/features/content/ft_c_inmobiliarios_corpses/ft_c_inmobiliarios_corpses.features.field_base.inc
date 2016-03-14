@@ -29,13 +29,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_approved_leisure_plots'.
-  $field_bases['field_approved_leisure_plots'] = array(
+  // Exported field_base: 'field_approved_commercial_plots'.
+  $field_bases['field_approved_commercial_plots'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_approved_leisure_plots',
+    'field_name' => 'field_approved_commercial_plots',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -604,13 +604,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_corpse_leisure_plots'.
-  $field_bases['field_corpse_leisure_plots'] = array(
+  // Exported field_base: 'field_corpse_commercial_plots'.
+  $field_bases['field_corpse_commercial_plots'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_corpse_leisure_plots',
+    'field_name' => 'field_corpse_commercial_plots',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -1663,13 +1663,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_technician_parcial_plan'.
-  $field_bases['field_technician_parcial_plan'] = array(
+  // Exported field_base: 'field_technician_partial_plan'.
+  $field_bases['field_technician_partial_plan'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_technician_parcial_plan',
+    'field_name' => 'field_technician_partial_plan',
     'indexes' => array(
       'tid' => array(
         0 => 'tid',
