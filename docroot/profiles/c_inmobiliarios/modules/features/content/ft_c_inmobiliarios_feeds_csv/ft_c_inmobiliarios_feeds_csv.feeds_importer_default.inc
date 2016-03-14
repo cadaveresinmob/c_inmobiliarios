@@ -192,303 +192,309 @@ function ft_c_inmobiliarios_feeds_csv_feeds_importer_default() {
             'language' => 'und',
           ),
           24 => array(
-            'source' => 'plan_parcial_planeamiento_tecnico_redactor',
-            'target' => 'field_technician_parcial_plan',
-            'term_search' => '0',
-            'autocreate' => 1,
-            'language' => 'und',
-          ),
-          25 => array(
             'source' => 'modificacion_pgou_planeamiento_tecnico_redactor',
             'target' => 'field_technician_pgou_modif',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          26 => array(
+          25 => array(
             'source' => 'proyecto_urbanistico_planeamiento_tecnico_redactor',
             'target' => 'field_technician_urban_plan',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          27 => array(
+          26 => array(
             'source' => 'convenio_urbanistico_politica',
             'target' => 'field_politician_plan_agreement',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          28 => array(
+          27 => array(
             'source' => 'plan_parcial_urbanistico_politica',
             'target' => 'field_politician_partial_plan',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          29 => array(
+          28 => array(
             'source' => 'modificacion_urbanistico_politica',
             'target' => 'field_politician_pgou_modifi',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          30 => array(
+          29 => array(
             'source' => 'proyecto_urbanistico_politica',
             'target' => 'field_politician_urban_plan',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          31 => array(
+          30 => array(
             'source' => 'licencia_urbanistico_politica',
             'target' => 'field_politician_building_permit',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          32 => array(
+          31 => array(
             'source' => 'otros_urbanistico_politica',
             'target' => 'field_politicians_other',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          33 => array(
+          32 => array(
             'source' => 'sentencias_judiciales',
             'target' => 'field_court_sentence',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          34 => array(
+          33 => array(
             'source' => 'n_fecha_sentencias',
             'target' => 'field_number_of_sentences',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          35 => array(
+          34 => array(
             'source' => 'tribunal_dicta',
             'target' => 'field_court_that_rules_sentence',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          36 => array(
+          35 => array(
             'source' => 'fallo',
             'target' => 'field_ruling_sentence',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          37 => array(
+          36 => array(
             'source' => 'hipoteca_cargas',
             'target' => 'field_mortgage_charges',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          38 => array(
+          37 => array(
             'source' => 'viviendas_construidas',
             'target' => 'field_corpse_housing',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          39 => array(
+          38 => array(
             'source' => 'plazas_hoteleras_construidas',
             'target' => 'field_corpse_hotel_beds',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          40 => array(
+          39 => array(
             'source' => 'parcelas_uso_industrial_construidas',
             'target' => 'field_corpse_industrial_plots',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          41 => array(
+          40 => array(
             'source' => 'parcelas_uso_comercial_construidas',
             'target' => 'field_corpse_commercial_plots',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          42 => array(
+          41 => array(
             'source' => 'parcelas_uso_equipamiento_construidas',
             'target' => 'field_corpse_equipment_plots',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          43 => array(
+          42 => array(
             'source' => 'estado_actual',
             'target' => 'field_corpse_status',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          44 => array(
+          43 => array(
             'source' => 'promotor',
             'target' => 'field_corpse_promoter',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          45 => array(
+          44 => array(
             'source' => 'constructor',
             'target' => 'field_corpse_contractor',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          46 => array(
+          45 => array(
             'source' => 'arquitecto_o_tecnico_redactor',
             'target' => 'field_corpse_technician',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          47 => array(
+          46 => array(
             'source' => 'descripcion_propiedad',
             'target' => 'field_corpse_prop_description',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          48 => array(
+          47 => array(
             'source' => 'ubicacion_codigo_ine_municipio',
             'target' => 'field_corpse_ine_code_city',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          49 => array(
+          48 => array(
             'source' => 'ubicacion_codigo_ine_provincia',
             'target' => 'field_corpse_ine_code_province',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          50 => array(
+          49 => array(
             'source' => 'uso',
             'target' => 'field_corpse_use',
             'term_search' => '0',
             'autocreate' => 0,
             'language' => 'und',
           ),
-          51 => array(
+          50 => array(
             'source' => 'tipologia_edificatoria',
             'target' => 'field_corpse_building_typology',
             'term_search' => '0',
             'autocreate' => 1,
             'language' => 'und',
           ),
-          52 => array(
+          51 => array(
             'source' => 'edificabilidad_absoluta_planificada_o_aprobada',
             'target' => 'field_corpse_floor_area_ratio',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          53 => array(
+          52 => array(
             'source' => 'viviendas_aprobadas_en_planeamiento',
             'target' => 'field_corpse_approved_housing',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          54 => array(
+          53 => array(
             'source' => 'plazas_hoteleras_aprobadas_en_planeamiento',
             'target' => 'field_corpse_approved_hotel_beds',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          55 => array(
+          54 => array(
             'source' => 'parcelas_uso_industrial_aprobadas_en_planeamiento',
             'target' => 'field_approved_industrial_plots',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          56 => array(
-            'source' => 'parcelas_uso_comercial_aprobadas_en_planeamiento',
-            'target' => 'field_approved_leisure_plots',
-            'unique' => FALSE,
-            'language' => 'und',
-          ),
-          57 => array(
+          55 => array(
             'source' => 'convenio_urbanistico_planeamiento_fecha_licencia',
             'target' => 'field_corpse_lic_date_agreement:start',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          58 => array(
+          56 => array(
             'source' => 'licencia_obras_planeamiento_fecha_licencia',
             'target' => 'field_corpse_building_permit:start',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          59 => array(
+          57 => array(
             'source' => 'material_grafico',
             'target' => 'field_url:url',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          60 => array(
+          58 => array(
             'source' => 'comentarios_otros',
             'target' => 'field_corpse_description',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          61 => array(
+          59 => array(
             'source' => 'comentarios_otras_opciones',
             'target' => 'field_corpse_description',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          62 => array(
+          60 => array(
             'source' => ' comentarios_tipologia',
             'target' => 'field_corpse_description',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          63 => array(
+          61 => array(
             'source' => 'figuras_proteccion_ambiental',
             'target' => 'field_env_protection_entity',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          64 => array(
+          62 => array(
             'source' => 'nombre_figuras_proteccion_ambiental',
             'target' => 'field_env_protection_entity_name',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          65 => array(
+          63 => array(
             'source' => 'corpse_category',
             'target' => 'field_corpse_category',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          66 => array(
+          64 => array(
             'source' => 'enlace_web',
             'target' => 'field_url:url',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          67 => array(
+          65 => array(
             'source' => 'superficie_terreno',
             'target' => 'field_corpse_area_terrain:value',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          68 => array(
+          66 => array(
             'source' => 'superficie_terreno_units',
             'target' => 'field_corpse_area_terrain:unit',
             'unit_notation' => 'machine_name',
             'language' => 'und',
           ),
-          69 => array(
+          67 => array(
             'source' => 'superficie_construida',
             'target' => 'field_corpse_built_area:value',
             'unique' => FALSE,
             'language' => 'und',
           ),
-          70 => array(
+          68 => array(
             'source' => 'superficie_construida_units',
             'target' => 'field_corpse_built_area:unit',
             'unit_notation' => 'machine_name',
             'language' => 'und',
           ),
-          71 => array(
+          69 => array(
             'source' => 'padre_adoptivo',
             'target' => 'field_corpse_endorsers',
+            'term_search' => '0',
+            'autocreate' => 1,
+            'language' => 'und',
+          ),
+          70 => array(
+            'source' => 'parcelas_uso_equipamiento_aprobadas_planeamiento',
+            'target' => 'field_approved_equipments_plots',
+            'unique' => FALSE,
+            'language' => 'und',
+          ),
+          71 => array(
+            'source' => 'parcelas_uso_comercial_aprobadas_en_planeamiento',
+            'target' => 'field_approved_commercial_plots',
+            'unique' => FALSE,
+            'language' => 'und',
+          ),
+          72 => array(
+            'source' => 'plan_parcial_planeamiento_tecnico_redactor',
+            'target' => 'field_technician_partial_plan',
             'term_search' => '0',
             'autocreate' => 1,
           ),

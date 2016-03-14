@@ -68,6 +68,51 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_approved_equipments_plots'.
+  $field_instances['node-corpse-field_approved_equipments_plots'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 55,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_approved_equipments_plots',
+    'label' => 'Approved equipments',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'button_text' => 'Search',
+        'enable' => 0,
+        'profile' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 40,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_approved_industrial_plots'.
   $field_instances['node-corpse-field_approved_industrial_plots'] = array(
     'bundle' => 'corpse',
@@ -825,7 +870,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 87,
+      'weight' => 88,
     ),
   );
 
@@ -1074,7 +1119,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 88,
+      'weight' => 89,
     ),
   );
 
@@ -1606,7 +1651,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 86,
+      'weight' => 87,
     ),
   );
 
@@ -1784,7 +1829,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'mathfield',
       'settings' => array(),
       'type' => 'mathfield_text',
-      'weight' => 40,
+      'weight' => 41,
     ),
   );
 
@@ -1842,7 +1887,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 41,
+      'weight' => 42,
     ),
   );
 
@@ -2177,7 +2222,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 72,
+      'weight' => 71,
     ),
   );
 
@@ -3647,7 +3692,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 85,
+      'weight' => 86,
     ),
   );
 
@@ -4347,7 +4392,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 73,
+      'weight' => 72,
     ),
   );
 
@@ -4528,6 +4573,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Address');
   t('Agreement date');
+  t('Approved equipments');
   t('Area (Terrain)');
   t('Arquitecto o técnico redactor. Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
   t('Attachments');
