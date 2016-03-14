@@ -354,9 +354,9 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '30',
     'children' => array(
       0 => 'field_corpse_public_domain',
-      1 => 'field_zoning_protection_level',
+      1 => 'field_env_protection_entity',
       2 => 'field_env_protection_entity_name',
-      3 => 'field_env_protection_entity',
+      3 => 'field_zoning_protection_level',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -417,12 +417,12 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '22',
     'children' => array(
       0 => 'field_corpse_category',
-      1 => 'field_corpse_endorser',
+      1 => 'field_corpse_description',
       2 => 'field_corpse_source',
       3 => 'field_corpse_type',
       4 => 'field_urban_name',
       5 => 'field_url',
-      6 => 'field_corpse_description',
+      6 => 'field_corpse_endorsers',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -791,11 +791,11 @@ function ft_c_inmobiliarios_corpses_field_group_info() {
     'weight' => '55',
     'children' => array(
       0 => 'field_corpse_tech_permit',
-      1 => 'field_technician_partial_plan',
-      2 => 'field_technician_pgou_modif',
-      3 => 'field_technician_plan_agreement',
-      4 => 'field_technician_urban_plan',
-      5 => 'field_technicians_other',
+      1 => 'field_technician_pgou_modif',
+      2 => 'field_technician_plan_agreement',
+      3 => 'field_technician_urban_plan',
+      4 => 'field_technicians_other',
+      5 => 'field_technician_partial_plan',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

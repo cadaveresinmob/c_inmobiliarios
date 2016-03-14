@@ -10,13 +10,13 @@
 function ft_c_inmobiliarios_corpses_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'field_approved_industrial_plots'.
-  $field_bases['field_approved_industrial_plots'] = array(
+  // Exported field_base: 'field_approved_commercial_plots'.
+  $field_bases['field_approved_commercial_plots'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_approved_industrial_plots',
+    'field_name' => 'field_approved_commercial_plots',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -29,13 +29,13 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'number_decimal',
   );
 
-  // Exported field_base: 'field_approved_commercial_plots'.
-  $field_bases['field_approved_commercial_plots'] = array(
+  // Exported field_base: 'field_approved_industrial_plots'.
+  $field_bases['field_approved_industrial_plots'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_approved_commercial_plots',
+    'field_name' => 'field_approved_industrial_plots',
     'indexes' => array(),
     'locked' => 0,
     'module' => 'number',
@@ -337,6 +337,21 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
+  // Exported field_base: 'field_corpse_commercial_plots'.
+  $field_bases['field_corpse_commercial_plots'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_corpse_commercial_plots',
+    'indexes' => array(),
+    'locked' => 0,
+    'module' => 'number',
+    'settings' => array(),
+    'translatable' => 0,
+    'type' => 'number_integer',
+  );
+
   // Exported field_base: 'field_corpse_contractor'.
   $field_bases['field_corpse_contractor'] = array(
     'active' => 1,
@@ -402,39 +417,30 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_corpse_endorser'.
-  $field_bases['field_corpse_endorser'] = array(
+  // Exported field_base: 'field_corpse_endorsers'.
+  $field_bases['field_corpse_endorsers'] = array(
     'active' => 1,
-    'cardinality' => 1,
+    'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_corpse_endorser',
+    'field_name' => 'field_corpse_endorsers',
     'indexes' => array(
-      'target_id' => array(
-        0 => 'target_id',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'entityreference',
+    'module' => 'taxonomy',
     'settings' => array(
-      'handler' => 'base',
-      'handler_settings' => array(
-        'behaviors' => array(
-          'views-select-list' => array(
-            'status' => 0,
-          ),
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'corpse_endorser',
+          'parent' => 0,
         ),
-        'sort' => array(
-          'direction' => 'ASC',
-          'property' => 'name',
-          'type' => 'property',
-        ),
-        'target_bundles' => array(),
       ),
-      'target_type' => 'user',
     ),
     'translatable' => 0,
-    'type' => 'entityreference',
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_corpse_equipment_plots'.
@@ -602,21 +608,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
-  );
-
-  // Exported field_base: 'field_corpse_commercial_plots'.
-  $field_bases['field_corpse_commercial_plots'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_corpse_commercial_plots',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
   );
 
   // Exported field_base: 'field_corpse_lic_date_agreement'.

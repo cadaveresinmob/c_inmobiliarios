@@ -10,64 +10,6 @@
 function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-corpse-field_approved_industrial_plots'.
-  $field_instances['node-corpse-field_approved_industrial_plots'] = array(
-    'bundle' => 'corpse',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => ',',
-          'prefix_suffix' => 1,
-          'scale' => 2,
-          'thousand_separator' => '.',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 12,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 2,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_decimal',
-        'weight' => 30,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 27,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_approved_industrial_plots',
-    'label' => 'Industrial plots',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 38,
-    ),
-  );
-
   // Exported field_instance: 'node-corpse-field_approved_commercial_plots'.
   $field_instances['node-corpse-field_approved_commercial_plots'] = array(
     'bundle' => 'corpse',
@@ -123,6 +65,64 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 39,
+    ),
+  );
+
+  // Exported field_instance: 'node-corpse-field_approved_industrial_plots'.
+  $field_instances['node-corpse-field_approved_industrial_plots'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => ',',
+          'prefix_suffix' => 1,
+          'scale' => 2,
+          'thousand_separator' => '.',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 12,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 2,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_decimal',
+        'weight' => 30,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_approved_industrial_plots',
+    'label' => 'Industrial plots',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 38,
     ),
   );
 
@@ -672,6 +672,64 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-corpse-field_corpse_commercial_plots'.
+  $field_instances['node-corpse-field_corpse_commercial_plots'] = array(
+    'bundle' => 'corpse',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => 1,
+          'scale' => 0,
+          'thousand_separator' => '.',
+        ),
+        'type' => 'number_integer',
+        'weight' => 6,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => '',
+        ),
+        'type' => 'number_integer',
+        'weight' => 18,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_corpse_commercial_plots',
+    'label' => 'Commercial plots',
+    'required' => 0,
+    'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'number',
+      'settings' => array(),
+      'type' => 'number',
+      'weight' => 30,
+    ),
+  );
+
   // Exported field_instance: 'node-corpse-field_corpse_contractor'.
   $field_instances['node-corpse-field_corpse_contractor'] = array(
     'bundle' => 'corpse',
@@ -819,34 +877,23 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 6,
     ),
   );
 
-  // Exported field_instance: 'node-corpse-field_corpse_endorser'.
-  $field_instances['node-corpse-field_corpse_endorser'] = array(
+  // Exported field_instance: 'node-corpse-field_corpse_endorsers'.
+  $field_instances['node-corpse-field_corpse_endorsers'] = array(
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 10,
-      ),
-      'full' => array(
         'label' => 'above',
-        'module' => 'entityreference',
-        'settings' => array(
-          'link' => FALSE,
-        ),
-        'type' => 'entityreference_label',
-        'weight' => 35,
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 54,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -856,22 +903,21 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_corpse_endorser',
-    'label' => 'Endorser',
+    'field_name' => 'field_corpse_endorsers',
+    'label' => 'Endorsers',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'entityreference',
+      'active' => 0,
+      'module' => 'taxonomy',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
+        'autocomplete_path' => 'taxonomy/autocomplete',
         'size' => 60,
       ),
-      'type' => 'entityreference_autocomplete_tags',
-      'weight' => 6,
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 7,
     ),
   );
 
@@ -1365,64 +1411,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 48,
-    ),
-  );
-
-  // Exported field_instance: 'node-corpse-field_corpse_commercial_plots'.
-  $field_instances['node-corpse-field_corpse_commercial_plots'] = array(
-    'bundle' => 'corpse',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => 1,
-          'scale' => 0,
-          'thousand_separator' => '.',
-        ),
-        'type' => 'number_integer',
-        'weight' => 6,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 18,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_corpse_commercial_plots',
-    'label' => 'Commercial plots',
-    'required' => 0,
-    'settings' => array(
-      'max' => '',
-      'min' => '',
-      'prefix' => '',
-      'suffix' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 30,
     ),
   );
 
@@ -4549,6 +4537,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Building typology');
   t('Built area');
   t('City\'s INE Code');
+  t('Commercial plots');
   t('Contractor');
   t('Corpse\'s category');
   t('Corresponde a los datos  de venta de la promoción. se obtiene de catálogos y webs de los propios emprendimientos, o de inmobiliarias que los comercialicen');
@@ -4560,7 +4549,7 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Date in which urban plan was approved.');
   t('Description');
   t('Edificabilidad absoluta planificada o aprobada (m²)');
-  t('Endorser');
+  t('Endorsers');
   t('Environment\'s protection entity');
   t('Equipment plots');
   t('Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.');
@@ -4570,7 +4559,6 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Hotel beds');
   t('Housing');
   t('Industrial plots');
-  t('Commercial plots');
   t('Link to news');
   t('Mortgage amount');
   t('Mortgage charges');
@@ -4585,9 +4573,9 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('PGOU Modification date');
   t('PGOU Modification politician');
   t('PGOU Modification technician');
-  t('Partial plan technician');
   t('Partial plan date');
   t('Partial plan politician');
+  t('Partial plan technician');
   t('Planning agreement politician');
   t('Planning agreement technician');
   t('Promoter');

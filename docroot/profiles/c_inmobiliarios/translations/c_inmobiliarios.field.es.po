@@ -171,9 +171,9 @@ msgctxt "field_corpse_description:corpse:label"
 msgid "Description"
 msgstr "Descripción"
 
-#: field:field_corpse_endorser:corpse:label
-msgctxt "field_corpse_endorser:corpse:label"
-msgid "Endorser"
+#: field:field_corpse_endorsers:corpse:label
+msgctxt "field_corpse_endorsers:corpse:label"
+msgid "Endorsers"
 msgstr "Familia adoptiva"
 
 #: field:field_corpse_equipment_plots:corpse:label
