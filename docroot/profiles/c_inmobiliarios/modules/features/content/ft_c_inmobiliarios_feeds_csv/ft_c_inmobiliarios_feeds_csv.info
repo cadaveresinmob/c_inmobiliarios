@@ -24,6 +24,7 @@ features[feeds_tamper][] = corpses_csv-enlaces_noticias-explode
 features[feeds_tamper][] = corpses_csv-entidades_financieras-explode
 features[feeds_tamper][] = corpses_csv-fuente-explode
 features[feeds_tamper][] = corpses_csv-modificacion_pgou_planeamiento_tecnico_redactor-explode
+features[feeds_tamper][] = corpses_csv-padre_adoptivo-explode
 features[feeds_tamper][] = corpses_csv-plan_parcial_planeamiento_tecnico_redactor-explode
 features[feeds_tamper][] = corpses_csv-proyecto_urbanistico_planeamiento_tecnico_redactor-explode
 project path = profiles/c_inmobiliarios/modules/features/content

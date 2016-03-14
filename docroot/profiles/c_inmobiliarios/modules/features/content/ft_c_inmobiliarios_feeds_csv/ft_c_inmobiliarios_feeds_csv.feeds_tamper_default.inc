@@ -141,6 +141,22 @@ function ft_c_inmobiliarios_feeds_csv_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'corpses_csv-padre_adoptivo-explode';
+  $feeds_tamper->importer = 'corpses_csv';
+  $feeds_tamper->source = 'padre_adoptivo';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',',
+    'limit' => '',
+    'real_separator' => ',',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Explode';
+  $export['corpses_csv-padre_adoptivo-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'corpses_csv-plan_parcial_planeamiento_tecnico_redactor-explode';
   $feeds_tamper->importer = 'corpses_csv';
   $feeds_tamper->source = 'plan_parcial_planeamiento_tecnico_redactor';
