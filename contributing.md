@@ -121,5 +121,5 @@ Seguir unas normas (Estándares) es crucial cuando se traba en equipo. En este p
 
 * Mantener la [estructura de archivos y carpetas](#estructura-de-archivos-y-carpetas) especificada anteriormente.
 * Git:
- * Nomenclatura de ramas: segiremos el patrón `##_nombre`, donde `##` es el número de la issue a la que nos referimos y nombre puede ser cualquier explicación. A modo de ejemplo podríamos crear una ramma llamada `24_piwik`, ya que la [issue #24](https://github.com/cadaveresinmob/c_inmobiliarios/issues/24) es la que hace referencia a la necesidad de instalar un sistema de estadísticas.
- * Mensajes de los commits: En inglés y termiados en un punto. Siempre que nos refiramos a una issue, los nombres de los commits deberían seguir el patrón Task #<issue> - <mensaje>. De esta forma la issue mostrará los commits, y el commit enlazará a la issue.
+ * **Nomenclatura de ramas**: segiremos el patrón `##_nombre`, donde `##` es el número de la issue a la que nos referimos y nombre puede ser cualquier explicación. A modo de ejemplo podríamos crear una ramma llamada `24_piwik`, ya que la [issue #24](https://github.com/cadaveresinmob/c_inmobiliarios/issues/24) es la que hace referencia a la necesidad de instalar un sistema de estadísticas.
+ * **Mensajes de los commits**: En inglés y termiados en un punto. Siempre que nos refiramos a una issue, los nombres de los commits deberían seguir el patrón `Task #<issue> - <mensaje>`. De esta forma la issue mostrará los commits, y el commit enlazará a la issue.
