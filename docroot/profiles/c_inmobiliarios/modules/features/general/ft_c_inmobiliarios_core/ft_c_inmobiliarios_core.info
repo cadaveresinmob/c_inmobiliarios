@@ -24,6 +24,7 @@ dependencies[] = locale
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = path
+dependencies[] = piwik
 dependencies[] = search
 dependencies[] = strongarm
 dependencies[] = system
