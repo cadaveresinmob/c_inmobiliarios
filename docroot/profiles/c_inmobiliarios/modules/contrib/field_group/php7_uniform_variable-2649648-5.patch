@@ -1,0 +1,27 @@
+From 594c323d3f1d721d5fa480db5d12a7ef6439e212 Mon Sep 17 00:00:00 2001
+From: William Hearn <sylus1984@gmail.com>
+Date: Wed, 13 Jan 2016 11:07:37 -0500
+Subject: [PATCH] Issue #2649648: PHP7 - Uniform Variable Syntax updates are
+ causing exported field_groups to not have names
+
+Signed-off-by: William Hearn <sylus1984@gmail.com>
+---
+ field_group.module | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/field_group.module b/field_group.module
+index 412825f..4061519 100644
+--- a/field_group.module
++++ b/field_group.module
+@@ -2258,7 +2258,7 @@ function field_group_field_group_to_hook_code($data, $module) {
+   $code .= "  \${$export['identifier']}s = array();\n\n";
+   foreach ($objects as $object) {
+     $code .= ctools_export_object('field_group', $object, '  ');
+-    $code .= "  \${$export['identifier']}s['" . check_plain($object->$export['key']) . "'] = \${$export['identifier']};\n\n";
++    $code .= "  \${$export['identifier']}s['" . check_plain($object->{$export['key']}) . "'] = \${$export['identifier']};\n\n";
+     if (!empty($object->data['label'])) {
+       $translatables[] =  $object->data['label'];
+     }
+-- 
+2.3.8 (Apple Git-58)
+
