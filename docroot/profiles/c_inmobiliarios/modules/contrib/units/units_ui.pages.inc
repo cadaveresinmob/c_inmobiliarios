@@ -83,7 +83,7 @@ function units_measure_form_submit($form, &$form_state) {
   drupal_set_message(t('Measure %name has been successfully saved.', array('%name' => entity_label('units_measure', $entity))));
 
   // Taking user back to the overview page.
-  $form_state['redirect'] = array('admin/structure/units-measure');
+  $form_state['redirect'] = array(units_ui_overview_uri($entity));
 }
 
 /**
@@ -98,7 +98,7 @@ function units_measure_form_delete_submit($form, &$form_state) {
   drupal_set_message(t('Measure %name has been successfully deleted.', array('%name' => entity_label('units_measure', $entity))));
 
   // Taking user back to the overview page.
-  $form_state['redirect'] = array('admin/structure/units-measure');
+  $form_state['redirect'] = array(units_ui_overview_uri($entity));
 }
 
 /**
@@ -183,7 +183,7 @@ function units_unit_form_submit($form, &$form_state) {
   drupal_set_message(t('Unit %name has been successfully saved.', array('%name' => entity_label('units_unit', $entity))));
 
   // Taking user back to the overview page.
-  $form_state['redirect'] = array('admin/structure/units-measure/' . field_extract_bundle('units_unit', $entity) . '/units-unit');
+  $form_state['redirect'] = array(units_ui_overview_uri($entity));
 }
 
 /**
@@ -198,7 +198,7 @@ function units_unit_form_delete_submit($form, &$form_state) {
   drupal_set_message(t('Unit %name has been successfully deleted.', array('%name' => entity_label('units_unit', $entity))));
 
   // Taking user back to the overview page.
-  $form_state['redirect'] = array('admin/structure/units-measure/' . field_extract_bundle('units_unit', $entity) . '/units-unit');
+  $form_state['redirect'] = array(units_ui_overview_uri($entity));
 }
 
 /**
@@ -215,4 +215,30 @@ function units_unit_form_delete_submit($form, &$form_state) {
  */
 function units_ui_entity_ui_get_bundle_add_form($entity_type, $bundle_entity) {
   return entity_ui_get_bundle_add_form($entity_type, field_extract_bundle($entity_type, $bundle_entity));
+}
+
+/**
+ * Retrieve admin overview URI for a provided entity.
+ *
+ * @param Entity $entity
+ *   Entity whose overview URI should be determined
+ *
+ * @return string
+ *   Overview URI of the provided entity
+ */
+function units_ui_overview_uri(Entity $entity) {
+  $entity_info = entity_get_info($entity->entityType());
+  if (isset($entity_info['admin ui']['path'])) {
+    $uri = $entity_info['admin ui']['path'];
+    if (isset($entity_info['admin ui']['path bundle argument position'])) {
+      $uri = explode('/', $uri);
+      $bundle = entity_extract_ids($entity->entityType(), $entity);
+      $uri[$entity_info['admin ui']['path bundle argument position']] = $bundle[2];
+      $uri = implode('/', $uri);
+    }
+    return $uri;
+  }
+  else {
+    return '<front>';
+  }
 }

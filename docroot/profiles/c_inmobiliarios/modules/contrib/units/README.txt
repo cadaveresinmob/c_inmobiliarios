@@ -16,7 +16,7 @@ The Units module requires the following modules:
 Install as usual, units.module brings in ability to manage Unit and Measure
 entities from code. If you want to have user interface on top of it, where you
 will be able to manually alter/edit/create/delete entities, please, additionally
-install units_ui.module
+enable units_ui.module
 
 -- CONFIGURATION --
 

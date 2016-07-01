@@ -1,12 +1,10 @@
-name = Units
-description = Provide API for managing and converting units of measurement.
+name = Units Currency
+description = Integrate Units with Currency module.
 package = Units
 core = 7.x
 
-dependencies[] = entity
-dependencies[] = ctools
-
-files[] = units.test
+dependencies[] = units
+dependencies[] = currency
 
 ; Information added by Drupal.org packaging script on 2016-03-11
 version = "7.x-1.0-rc1"

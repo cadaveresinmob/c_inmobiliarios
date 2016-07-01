@@ -1,0 +1,230 @@
+<?php
+
+/**
+ * @file
+ * Tests for Units module.
+ */
+
+class UnitsWebTestCase extends DrupalWebTestCase {
+
+  /**
+   * GetInfo method.
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'CRUD Units',
+      'description' => 'Ensure that the CRUD operations and conversions work correctly in Units module.',
+      'group' => 'Units',
+    );
+  }
+
+  /**
+   * Set up method.
+   */
+  public function setUp($modules = array()) {
+    $modules[] = 'units';
+    parent::setUp($modules);
+  }
+
+  /**
+   * Conduct testing of CRUD operations.
+   *
+   * To be specific, the following gets tested:
+   * - loading measure by its ID
+   * - loading measure by its machine name
+   * - saving measure (upon update of machine name, underlying units measure
+   *   must be updated)
+   * - deleting measure (underlying units must be deleted)
+   * - loading unit by its ID
+   * - loading unit by its machine name
+   * - loading multiple units by their measure
+   * - saving unit
+   * - deleting unit
+   */
+  public function testCrud() {
+    $measure = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => 'test_measure',
+      'converter' => 'linear',
+    ), 'units_measure');
+    $measure->save();
+
+    $load = units_measure_load($measure->mid);
+    $this->assertEqualMeasure($load, $measure, 'Successfully loaded measure by its ID.');
+
+    $load = units_measure_machine_name_load($measure->measure);
+    $this->assertEqualMeasure($load, $measure, 'Successfully loaded measure by its machine name.');
+
+    $unit = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $measure->measure,
+      'machine_name' => 'test_unit',
+      'symbol' => $this->randomName(2),
+      'factor' => 1,
+    ), 'units_unit');
+    $unit->save();
+
+    $measure->label = $this->randomName();
+    $measure->measure = 'updated_test_measure';
+    $measure->save();
+
+    $load = units_measure_machine_name_load($measure->measure);
+    $this->assertEqualMeasure($load, $measure, 'Successfully updated measure.');
+    $load = units_unit_load($unit->umid);
+    $this->assertEqual($load->measure, $measure->measure, 'Updating machine name of a measure, updates the measure of all underlying units.');
+    units_measure_delete($measure);
+    $select = db_select('units_measure');
+    $select->addExpression('COUNT(1)', 'count');
+    $this->assertEqual($select->execute()->fetchField(), 0, 'Successfully removed measure.');
+    $select = db_select('units_unit');
+    $select->addExpression('COUNT(1)', 'count');
+    $this->assertEqual($select->execute()->fetchField(), 0, 'Removing measure removes all underlying units.');
+
+    $measure = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => 'test_measure',
+      'converter' => 'linear',
+    ), 'units_measure');
+    $measure->save();
+    $unit1 = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $measure->measure,
+      'machine_name' => 'test_unit1',
+      'symbol' => $this->randomName(2),
+      'factor' => 1,
+    ), 'units_unit');
+    $unit1->save();
+
+    $load = units_unit_load($unit1->umid);
+    $this->assertEqualUnit($load, $unit1, 'Successfully loaded unit by its ID.');
+
+    $load = units_unit_machine_name_load($unit1->machine_name);
+    $this->assertEqualUnit($load, $unit1, 'Successfully loaded unit by its machine name.');
+
+    $unit2 = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $measure->measure,
+      'machine_name' => 'test_unit2',
+      'symbol' => $this->randomName(2),
+      'factor' => 100,
+    ), 'units_unit');
+    $unit2->save();
+
+    $load = units_unit_by_measure_load_multiple($measure);
+    $this->assertEqualUnit(array_shift($load), $unit1, 'Successfully loaded units by their measure.');
+    $this->assertEqualUnit(array_shift($load), $unit2, 'Successfully loaded units by their measure.');
+
+    $unit1->label = $this->randomName();
+    $unit1->symbol = $this->randomName(3);
+    $unit1->factor = 2;
+    $unit1->machine_name = 'updated_test_unit1';
+    $unit1->save();
+
+    $load = units_unit_load($unit1->umid);
+    $this->assertEqualUnit($load, $unit1, 'Successfully updated unit.');
+
+    units_unit_delete($unit1);
+    $select = db_select('units_unit');
+    $select->addExpression('COUNT(1)', 'count');
+    $select->condition('umid', $unit1->umid);
+    $this->assertEqual($select->execute()->fetchField(), 0, 'Successfully removed unit.');
+  }
+
+  /**
+   * Testing unit conversion correctness.
+   *
+   * To be specific, the following gets tested:
+   * - converting within the same unit yields the same amount
+   * - converting an arbitrary number happens according to the logic of
+   *   conversion
+   * - if $from and $to are from different measures, FALSE must be returned
+   * - if non-existing $from is provided, FALSE must be returned
+   * - if non-existing $to is provided, FALSE must be returned
+   */
+  public function testConvert() {
+    $measure = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => 'test_measure',
+      'converter' => 'linear',
+    ), 'units_measure');
+    $measure->save();
+
+    $unit_from = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $measure->measure,
+      'machine_name' => 'test_unit1',
+      'symbol' => $this->randomName(2),
+      'factor' => 1,
+    ), 'units_unit');
+    $unit_from->save();
+
+    $unit_to = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $measure->measure,
+      'machine_name' => 'test_unit2',
+      'symbol' => $this->randomName(2),
+      'factor' => 100,
+    ), 'units_unit');
+    $unit_to->save();
+
+    $quantity = rand(1, 1000);
+    $this->assertEqual($quantity, units_convert($quantity, $unit_from->machine_name, $unit_from->machine_name), 'Converting within the same unit yields the same amount.');
+    $this->assertEqual($quantity * $unit_from->factor / $unit_to->factor, units_convert($quantity, $unit_from->machine_name, $unit_to->machine_name), 'Converting an arbitrary amount happens according to the logic of conversion.');
+
+    $another_measure = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => 'another_test_measure',
+      'converter' => 'linear',
+    ), 'units_measure');
+    $another_measure->save();
+    $another_unit_to = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $another_measure->measure,
+      'machine_name' => 'test_unit3',
+      'symbol' => $this->randomName(2),
+      'factor' => 100,
+    ), 'units_unit');
+    $another_unit_to->save();
+    $this->assertIdentical(FALSE, units_convert($quantity, $unit_from->machine_name, $another_unit_to->machine_name), 'Converting from a unit from one measure into a unit from another measure yields FALSE.');
+
+    $another_unit = new Entity(array(
+      'label' => $this->randomName(),
+      'measure' => $measure->measure,
+      'machine_name' => 'test_unit4',
+      'symbol' => $this->randomName(2),
+      'factor' => 100,
+    ), 'units_unit');
+    $this->assertIdentical(FALSE, units_convert($quantity, $unit_from->machine_name, $another_unit->machine_name), 'Converting into a non-existing unit yields FALSE.');
+    $this->assertIdentical(FALSE, units_convert($quantity, $another_unit->machine_name, $unit_to->machine_name), 'Converting from a non-existing unit yields FALSE.');
+  }
+
+  /**
+   * Compare the provided measure to a standard one.
+   *
+   * @param Entity $measure
+   *   Measure that should be compared against standard
+   * @param Entity $standard
+   *   Measure that is the standard one in the comparison
+   * @param string $message
+   *   Assert message to display on the UI of the test result
+   */
+  protected function assertEqualMeasure($measure, $standard, $message) {
+    $success = $standard->mid == $measure->mid && $standard->measure == $measure->measure && $standard->converter == $measure->converter;
+    $this->assertTrue($success, $message, 'Units');
+  }
+
+  /**
+   * Compare the provided unit to a standard one.
+   *
+   * @param Entity $unit
+   *   Unit that should be compared against standard
+   * @param Entity $standard
+   *   Unit that is the standard one in the comparison
+   * @param string $message
+   *   Assert message to display on the UI of the test result
+   */
+  protected function assertEqualUnit($unit, $standard, $message) {
+    $success = $standard->umid == $unit->umid && $standard->machine_name == $unit->machine_name && $standard->measure == $unit->measure && $standard->label == $unit->label && $standard->factor == $unit->factor;
+    $this->assertTrue($success, $message, 'Units');
+  }
+}

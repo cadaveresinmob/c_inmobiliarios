@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Tests for Units default module.
+ */
+
+class UnitsDefaultWebTestCase extends DrupalWebTestCase {
+
+  /**
+   * Account on behalf of which testing should occur.
+   *
+   * @var object
+   */
+  protected $admin;
+
+  /**
+   * GetInfo method.
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Default units',
+      'description' => 'Ensure that the default units are property added and removed.',
+      'group' => 'Units',
+    );
+  }
+
+  /**
+   * Set up method.
+   */
+  public function setUp($modules = array()) {
+    $modules[] = 'units_default';
+    parent::setUp($modules);
+
+    $this->admin = $this->drupalCreateUser(array('administer default units'));
+    $this->drupalLogin($this->admin);
+  }
+
+  /**
+   * Conduct testing of enabling/disabling default units.
+   */
+  public function testDefaultEntities() {
+    $measure = 'length';
+    $unit = 'meter';
+    $this->drupalPost('admin/structure/units-measure/default', array(
+      'units_default_enabled[' . $measure . '][measure]' => TRUE,
+      'units_default_enabled[' . $measure . '][units][' . $unit . ']' => TRUE,
+    ), t('Save configuration'));
+
+    $this->assertEqual(units_measure_machine_name_load($measure)->measure, $measure, 'Enabling a default measure actually creates it in the database.');
+    $this->assertEqual(units_unit_machine_name_load($unit)->machine_name, $unit, 'Enabling a default unit actually creates it in the database.');
+
+    $this->drupalPost('admin/structure/units-measure/default', array(
+      'units_default_enabled[' . $measure . '][measure]' => FALSE,
+    ), t('Save configuration'));
+    $this->assertIdentical(units_measure_machine_name_load($measure), FALSE, 'Disabling a default measure actually deletes it from the database.');
+    $this->assertIdentical(units_unit_machine_name_load($unit), FALSE, 'Disabling a default unit actually deletes it from the database.');
+  }
+}
