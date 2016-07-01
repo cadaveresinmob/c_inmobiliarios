@@ -232,13 +232,6 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: 'create blog_post content'.
-  $permissions['create blog_post content'] = array(
-    'name' => 'create blog_post content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create url aliases'.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
@@ -246,13 +239,6 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'path',
-  );
-
-  // Exported permission: 'delete any blog_post content'.
-  $permissions['delete any blog_post content'] = array(
-    'name' => 'delete any blog_post content',
-    'roles' => array(),
-    'module' => 'node',
   );
 
   // Exported permission: 'delete backup files'.
@@ -264,13 +250,6 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'module' => 'backup_migrate',
   );
 
-  // Exported permission: 'delete own blog_post content'.
-  $permissions['delete own blog_post content'] = array(
-    'name' => 'delete own blog_post content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete revisions'.
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
@@ -280,119 +259,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     ),
     'module' => 'node',
   );
-
-  // Exported permission: 'delete terms in blog_category'.
-  $permissions['delete terms in blog_category'] = array(
-    'name' => 'delete terms in blog_category',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_building_type'.
-  $permissions['delete terms in corpse_building_type'] = array(
-    'name' => 'delete terms in corpse_building_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_category'.
-  $permissions['delete terms in corpse_category'] = array(
-    'name' => 'delete terms in corpse_category',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_contractor'.
-  $permissions['delete terms in corpse_contractor'] = array(
-    'name' => 'delete terms in corpse_contractor',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_court'.
-  $permissions['delete terms in corpse_court'] = array(
-    'name' => 'delete terms in corpse_court',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_politician'.
-  $permissions['delete terms in corpse_politician'] = array(
-    'name' => 'delete terms in corpse_politician',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_promoter'.
-  $permissions['delete terms in corpse_promoter'] = array(
-    'name' => 'delete terms in corpse_promoter',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_source'.
-  $permissions['delete terms in corpse_source'] = array(
-    'name' => 'delete terms in corpse_source',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_status'.
-  $permissions['delete terms in corpse_status'] = array(
-    'name' => 'delete terms in corpse_status',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_technician'.
-  $permissions['delete terms in corpse_technician'] = array(
-    'name' => 'delete terms in corpse_technician',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_type'.
-  $permissions['delete terms in corpse_type'] = array(
-    'name' => 'delete terms in corpse_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in corpse_use'.
-  $permissions['delete terms in corpse_use'] = array(
-    'name' => 'delete terms in corpse_use',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in financial_entities'.
-  $permissions['delete terms in financial_entities'] = array(
-    'name' => 'delete terms in financial_entities',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'delete terms in tags'.
-  $permissions['delete terms in tags'] = array(
-    'name' => 'delete terms in tags',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit any blog_post content'.
-  $permissions['edit any blog_post content'] = array(
-    'name' => 'edit any blog_post content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own blog_post content'.
-  $permissions['edit own blog_post content'] = array(
-    'name' => 'edit own blog_post content',
-    'roles' => array(),
-    'module' => 'node',
-  );
-
+  
   // Exported permission: 'edit own comments'.
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
@@ -402,105 +269,7 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     ),
     'module' => 'comment',
   );
-
-  // Exported permission: 'edit terms in blog_category'.
-  $permissions['edit terms in blog_category'] = array(
-    'name' => 'edit terms in blog_category',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_building_type'.
-  $permissions['edit terms in corpse_building_type'] = array(
-    'name' => 'edit terms in corpse_building_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_category'.
-  $permissions['edit terms in corpse_category'] = array(
-    'name' => 'edit terms in corpse_category',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_contractor'.
-  $permissions['edit terms in corpse_contractor'] = array(
-    'name' => 'edit terms in corpse_contractor',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_court'.
-  $permissions['edit terms in corpse_court'] = array(
-    'name' => 'edit terms in corpse_court',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_politician'.
-  $permissions['edit terms in corpse_politician'] = array(
-    'name' => 'edit terms in corpse_politician',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_promoter'.
-  $permissions['edit terms in corpse_promoter'] = array(
-    'name' => 'edit terms in corpse_promoter',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_source'.
-  $permissions['edit terms in corpse_source'] = array(
-    'name' => 'edit terms in corpse_source',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_status'.
-  $permissions['edit terms in corpse_status'] = array(
-    'name' => 'edit terms in corpse_status',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_technician'.
-  $permissions['edit terms in corpse_technician'] = array(
-    'name' => 'edit terms in corpse_technician',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_type'.
-  $permissions['edit terms in corpse_type'] = array(
-    'name' => 'edit terms in corpse_type',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in corpse_use'.
-  $permissions['edit terms in corpse_use'] = array(
-    'name' => 'edit terms in corpse_use',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in financial_entities'.
-  $permissions['edit terms in financial_entities'] = array(
-    'name' => 'edit terms in financial_entities',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'edit terms in tags'.
-  $permissions['edit terms in tags'] = array(
-    'name' => 'edit terms in tags',
-    'roles' => array(),
-    'module' => 'taxonomy',
-  );
-
+  
   // Exported permission: 'perform backup'.
   $permissions['perform backup'] = array(
     'name' => 'perform backup',
