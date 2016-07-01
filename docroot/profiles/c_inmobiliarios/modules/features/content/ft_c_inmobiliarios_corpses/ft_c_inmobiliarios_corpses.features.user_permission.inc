@@ -145,6 +145,13 @@ function ft_c_inmobiliarios_corpses_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit terms in financial_entities'.
+  $permissions['edit terms in financial_entities'] = array(
+    'name' => 'edit terms in financial_entities',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'edit terms in corpse_building_type'.
   $permissions['edit terms in corpse_building_type'] = array(
     'name' => 'edit terms in corpse_building_type',
