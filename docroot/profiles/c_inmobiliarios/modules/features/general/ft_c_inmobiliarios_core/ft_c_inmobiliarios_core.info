@@ -121,5 +121,6 @@ features[variable][] = locale_language_providers_weight_language
 features[variable][] = node_admin_theme
 features[variable][] = site_name
 features[variable][] = site_slogan
+features[variable][] = theme_c_inmobiliarios_bootstrap_settings
 features[variable][] = theme_default
 project path = profiles/c_inmobiliarios/modules/features/general
