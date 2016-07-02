@@ -346,7 +346,7 @@ function ft_c_inmobiliarios_core_strongarm() {
     'default_favicon' => 0,
     'favicon_path' => '',
     'favicon_upload' => '',
-    'bootstrap__active_tab' => 'edit-javascript',
+    'bootstrap__active_tab' => 'edit-advanced',
     'bootstrap_fluid_container' => 0,
     'bootstrap_button_size' => '',
     'bootstrap_button_colorize' => 1,
@@ -417,7 +417,7 @@ function ft_c_inmobiliarios_core_strongarm() {
     'bootstrap_cdn_custom_js' => 'https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.js',
     'bootstrap_cdn_custom_js_min' => 'https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js',
     'bootstrap_cdn_jsdelivr_version' => '3.3.5',
-    'bootstrap_cdn_jsdelivr_theme' => 'sandstone',
+    'bootstrap_cdn_jsdelivr_theme' => 'yeti',
   );
   $export['theme_c_inmobiliarios_bootstrap_settings'] = $strongarm;
 
