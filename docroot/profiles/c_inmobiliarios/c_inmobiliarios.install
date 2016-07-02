@@ -96,18 +96,18 @@ function c_inmobiliarios_install() {
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'seven')
+    ->condition('name', 'adminimal')
     ->execute();
-  variable_set('admin_theme', 'seven');
+  variable_set('admin_theme', 'adminimal');
   variable_set('node_admin_theme', '1');
 
   // Set default theme.
   db_update('system')
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
-    ->condition('name', 'c_inmobiliarios_twentyfifteen')
+    ->condition('name', 'c_inmobiliarios_bootstrap')
     ->execute();
-  variable_set('theme_default','bartik');
+  variable_set('theme_default','c_inmobiliarios_bootstrap');
 
   // Enable the default modules and features.
   c_inmobiliarios_enable_default_modules();
