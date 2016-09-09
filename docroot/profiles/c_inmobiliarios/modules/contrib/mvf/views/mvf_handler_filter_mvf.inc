@@ -46,7 +46,7 @@ class mvf_handler_filter_mvf extends views_handler_filter_numeric {
     // make sense in case of MVF.
     unset($operators['regular_expression']);
 
-    // Additionally we want to supply mete info, which operator uses which
+    // Additionally we want to supply meta info, which operator uses which
     // sub arrays of filter input values.
     foreach ($operators as $k => $v) {
       $required_subvalues = array();
