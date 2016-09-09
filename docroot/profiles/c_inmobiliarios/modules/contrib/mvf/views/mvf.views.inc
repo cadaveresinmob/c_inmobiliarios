@@ -96,7 +96,7 @@ function _mvf_views_array_filter_zero_recursive($var) {
  * Make 'label' sub element "colaborate" with Ctools #dependency property.
  * Supposedly $element['label'] is of type 'item', and Ctools dependency in case
  * of such element tries to hide element $('#' + id + '-wrapper').hide();
- * Apparently wrapper around form element #type => 'item' does not exist, so
+ * Apparently wrapper around form elemnt #type => 'item' does not exist, so
  * we manually wrap it with a div-wrapper.
  */
 function mvf_views_label_pre_render($element) {

@@ -32,8 +32,6 @@ $plugin = array(
  * @param array $settings
  *   Array of currently stored settings in the provided $instance, you are
  *   encouraged to use it when deciding what output unit to suggest
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  *
  * @return int
  *   ID of a 'units_unit' entity, that you suggest as output unit. Two
@@ -43,6 +41,6 @@ $plugin = array(
  *   - MVF_UNIT_UNKNOWN: means you cannot make any good suggestion for output
  *     unit
  */
-function mvf_unit_suggester_original_unit($items, $field, $instance, $entity, $entity_type, $settings = array(), $plugin) {
+function mvf_unit_suggester_original_unit($items, $field, $instance, $entity, $entity_type, $settings = array()) {
   return MVF_UNIT_ORIGINAL;
 }

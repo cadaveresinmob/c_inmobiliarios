@@ -18,9 +18,10 @@ $plugin = array(
 /**
  * Notification for unit suggester that it was enabled in some formatter.
  *
- * Whenever some unit suggester is enabled in any instance/formatter this
- * function is invoked in the corresponding unit suggester plugin in order to
- * allow the unit suggester to react and do some necessary initialization tasks.
+ * Whenever some unit suggester is enabled in any formatter for any instance
+ * of a field this function is invoked in the corresponding unit suggester
+ * plugin in order to allow the unit suggester to react and do some necessary
+ * initialization tasks.
  *
  * @param object $measure
  *   Fully loaded 'units_measure' entity, on which is set up the MVF field
@@ -29,15 +30,12 @@ $plugin = array(
  * @param array $instance
  *   Field API instance definition array of MVF field
  * @param string $view_mode
- *   View mode (key in $instance['display'] array) in which your unit suggester
- *   was enabled. It may be NULL, if your unit suggester is enabled on the
- *   instance level
+ *   View mode (key in $instance['display'] array) in which this unit suggester
+ *   was enabled
  * @param array $settings
  *   Array of currently stored settings in the provided $instance
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  */
-function mvf_unit_suggester_per_user_enabled($measure, $field, $instance, $view_mode, $settings = array(), $plugin) {
+function mvf_unit_suggester_per_user_enabled($measure, $field, $instance, $view_mode, $settings = array()) {
   // Making sure corresponding unit field is created.
   if (!mvf_per_user_unit_field_load($field)) {
     try {
@@ -78,9 +76,10 @@ function mvf_unit_suggester_per_user_enabled($measure, $field, $instance, $view_
 /**
  * Notification for unit suggester that it was disabled in some formatter.
  *
- * Whenever some unit suggester is disabled in any instance/formatter this
- * function is invoked in the corresponding unit suggester plugin in order to
- * allow the unit suggester to react and do some necessary destruction tasks.
+ * Whenever some unit suggester is disabled in any formatter for any instance
+ * of a field this function is invoked in the corresponding unit suggester
+ * plugin in order to allow the unit suggester to react and do some necessary
+ * destruction tasks.
  *
  * @param object $measure
  *   Fully loaded 'units_measure' entity, on which is set up the MVF field
@@ -89,32 +88,25 @@ function mvf_unit_suggester_per_user_enabled($measure, $field, $instance, $view_
  * @param array $instance
  *   Field API instance definition array of MVF field
  * @param string $view_mode
- *   View mode (key in $instance['display'] array) in which your unit suggester
- *   was disabled. It may be NULL, if your unit suggester is disabled on the
- *   instance level
+ *   View mode (key in $instance['display'] array) in which this unit suggester
+ *   was enabled
  * @param array $settings
  *   Array of currently stored settings in the provided $instance
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  */
-function mvf_unit_suggester_per_user_disabled($measure, $field, $instance, $view_mode, $settings = array(), $plugin) {
+function mvf_unit_suggester_per_user_disabled($measure, $field, $instance, $view_mode, $settings = array()) {
   // Removing corresponding unit field if this is the last MVF field, where per
   // user unit suggester was enabled.
   $field_map = field_info_field_map();
-  if (isset($field_map[$field['field_name']])) {
-    $field_info = $field_map[$field['field_name']];
-    foreach ($field_info['bundles'] as $entity_type => $bundles) {
-      foreach ($bundles as $bundle) {
-        $other_instance = field_info_instance($entity_type, $field['field_name'], $bundle);
-        $other_view_modes = array_keys($instance['display']);
-        $other_view_modes[] = NULL;
-        foreach ($other_view_modes as $other_view_mode) {
-          $tmp = mvf_unit_suggester_info($plugin, $field, $other_instance, $other_view_mode);
-          if ($tmp['enable']) {
-            // At least for one display per user output is still enabled, so we
-            // should not delete the corresponding unit field.
-            return;
-          }
+  $field_info = $field_map[$field['field_name']];
+  foreach ($field_info['bundles'] as $entity_type => $bundles) {
+    foreach ($bundles as $bundle) {
+      $instance = field_info_instance($entity_type, $field['field_name'], $bundle);
+      foreach ($instance['display'] as $instance_display) {
+        $instance_settings = mvf_unit_suggesters_settings_extract($instance_display, mvf_get_unit_suggester('per_user'));
+        if ($instance_settings['enable']) {
+          // At least for one display per user output is still enabled, so we
+          // should not delete the corresponding unit field.
+          return;
         }
       }
     }
@@ -139,14 +131,12 @@ function mvf_unit_suggester_per_user_disabled($measure, $field, $instance, $view
  *   Array of currently stored settings in the provided $instance, you are
  *   encouraged to use it as source of #default_value for the form elements
  *   you are defining in this form
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  *
  * @return array
  *   Field API form elements definition representing additional settings that
  *   this unit suggester needs for its functionality
  */
-function mvf_unit_suggester_per_user_form($measure, $field, $instance, $settings = array(), $plugin) {
+function mvf_unit_suggester_per_user_form($measure, $field, $instance, $settings = array()) {
   $form = array();
 
   $form['info'] = array(
@@ -173,8 +163,6 @@ function mvf_unit_suggester_per_user_form($measure, $field, $instance, $settings
  * @param array $settings
  *   Array of currently stored settings in the provided $instance, you are
  *   encouraged to use it when deciding what output unit to suggest
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  *
  * @return int
  *   ID of a 'units_unit' entity, that you suggest as output unit. Two
@@ -184,7 +172,7 @@ function mvf_unit_suggester_per_user_form($measure, $field, $instance, $settings
  *   - MVF_UNIT_UNKNOWN: means you cannot make any good suggestion for output
  *     unit
  */
-function mvf_unit_suggester_per_user_unit($items, $field, $instance, $entity, $entity_type, $settings = array(), $plugin) {
+function mvf_unit_suggester_per_user_unit($items, $field, $instance, $entity, $entity_type, $settings = array()) {
   if ($GLOBALS['user']->uid == 0) {
     return MVF_UNIT_UNKNOWN;
   }

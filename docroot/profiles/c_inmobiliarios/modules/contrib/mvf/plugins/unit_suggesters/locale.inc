@@ -28,14 +28,12 @@ $plugin = array(
  *   Array of currently stored settings in the provided $instance, you are
  *   encouraged to use it as source of #default_value for the form elements
  *   you are defining in this form
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  *
  * @return array
  *   Field API form elements definition representing additional settings that
  *   this unit suggester needs for its functionality
  */
-function mvf_unit_suggester_locale_form($measure, $field, $instance, $settings = array(), $plugin) {
+function mvf_unit_suggester_locale_form($measure, $field, $instance, $settings = array()) {
   $form = array();
 
   $options = array(
@@ -75,8 +73,6 @@ function mvf_unit_suggester_locale_form($measure, $field, $instance, $settings =
  * @param array $settings
  *   Array of currently stored settings in the provided $instance, you are
  *   encouraged to use it when deciding what output unit to suggest
- * @param array $plugin
- *   cTools plugin definition array of your unit suggester plugin
  *
  * @return int
  *   ID of a 'units_unit' entity, that you suggest as output unit. Two
@@ -86,7 +82,7 @@ function mvf_unit_suggester_locale_form($measure, $field, $instance, $settings =
  *   - MVF_UNIT_UNKNOWN: means you cannot make any good suggestion for output
  *     unit
  */
-function mvf_unit_suggester_locale_unit($items, $field, $instance, $entity, $entity_type, $settings = array(), $plugin) {
+function mvf_unit_suggester_locale_unit($items, $field, $instance, $entity, $entity_type, $settings = array()) {
   global $language;
   return isset($settings[$language->language]) ? $settings[$language->language] : MVF_UNIT_UNKNOWN;
 }
