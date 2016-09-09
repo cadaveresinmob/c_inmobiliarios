@@ -18,7 +18,8 @@ class UnitsMeasureUIController extends UnitsAbstractUIController {
 
   protected function overviewTableRow($conditions, $id, $entity, $additional_cols = array()) {
     // Adding extra cell for managing units of this measure.
-    $additional_cols[] = l('manage units', 'admin/structure/units-measure/' . $entity->measure . '/units-unit');
+    $units_entity_info = entity_get_info('units_unit');
+    $additional_cols[] = l('manage units', str_replace('%units_measure_machine_name', $entity->measure, $units_entity_info['admin ui']['path']));
 
     $row = parent::overviewTableRow($conditions, $id, $entity, $additional_cols);
 

@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall and update hooks of Units default module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function units_default_uninstall() {
+  $vars = db_select('variable', 'v')
+    ->fields('v', array('name'))
+    ->condition('name', db_like('units_default') . '%', 'LIKE')
+    ->execute()
+    ->fetchCol();
+  foreach ($vars as $var) {
+    variable_del($var);
+  }
+}

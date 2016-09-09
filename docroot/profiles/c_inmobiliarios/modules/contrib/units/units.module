@@ -205,6 +205,20 @@ function units_units_measure_delete($entity) {
 }
 
 /**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function units_units_measure_update($entity) {
+  if ($entity->measure != $entity->original->measure) {
+    db_update('units_unit')
+      ->condition('measure', $entity->original->measure)
+      ->fields(array(
+        'measure' => $entity->measure,
+      ))
+      ->execute();
+  }
+}
+
+/**
  * Load an entity of entity type 'units_unit' by its ID.
  */
 function units_unit_load($umid, $reset = FALSE) {
