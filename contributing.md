@@ -81,11 +81,13 @@ Tal y como se describe en [esta página de la web oficial](http://cadaveresinmob
 
 Puedes ayudarnos a que la web sea mejor de las siguientes maneras:
 
-* **Testeando** utilizando la web normalmente, y detectando errores o aspectos mejorables.
-* **Documentando** el funcionamiento de la web para facilitar el trabajo a los recien llegados.
-* **Traduciendo** la interfaz
+* **[Testeando](#testear)** utilizando la web normalmente, y detectando errores o aspectos mejorables.
+* **[Documentando](#documentar)** el funcionamiento de la web para facilitar el trabajo a los recien llegados.
+* **[Traduciendo](traducir)** la interfaz
 * **Revisando** código
 * Desarrollando código
+
+Una buena manera de empezar es visitando la [lista de issues](https://github.com/cadaveresinmob/c_inmobiliarios/issues) del repositorio de github y buscar aquellas que están etiquetadas como [Help wanted](https://github.com/cadaveresinmob/c_inmobiliarios/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 
 ### Toma de decisiones
 
@@ -116,11 +118,12 @@ Explicar en qué consiste esta tarea y qué requisitos necesita (nada de program
 A tener en cuenta:
 
 * Toda la documentación relativa al proyecto estará almacenada en la [wiki de github](https://github.com/cadaveresinmob/c_inmobiliarios/wiki). De esta forma es independiente al desarrollo de la web y simplifica el proceso de creación de documentación para todo aquél que no tenga conocimientos de programación.
-  * La única excepción a la documentación es este mismo archivo `contributin.md` por los motivos expuestos [en esta issue](https://github.com/cadaveresinmob/c_inmobiliarios/issues/36).
+  * La única excepción a la documentación es este mismo archivo `contributing.md` por los motivos expuestos [en esta issue](https://github.com/cadaveresinmob/c_inmobiliarios/issues/36).
 
 
 Ejemplos de tareas a desarrollar:
 
+1. Buscar issues con la [etiqueta "Documentation"](https://github.com/cadaveresinmob/c_inmobiliarios/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation)
 1. Iniciar el [Manual para la base de datos](https://github.com/cadaveresinmob/c_inmobiliarios/wiki/Manual-para-la-base-de-datos) explicando en qué consisten todos los campos (¡Tenemos 71! y algunos no son fáciles de entender) y qué tipos de datos admiten.
 1. Documentar el [proceso de creación y edición de las fichas de cadáveres inmobiliarios](https://github.com/cadaveresinmob/c_inmobiliarios/wiki/Ficha-de-cad%C3%A1veres-inmobiliarios) (ahora es tan solo un borrador)
 1. Mejorar esta misma guía (ver [issue #36](https://github.com/cadaveresinmob/c_inmobiliarios/issues/35))
