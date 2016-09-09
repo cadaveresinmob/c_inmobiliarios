@@ -19,7 +19,7 @@ class FeedsTamperEfqFinderTestCase extends FeedsTamperWebTestHelper {
   }
 
   public function setUp() {
-    parent::setUp(array('feeds_tamper_ui'), array('administer feeds_tamper'));
+    parent::setUp(array('feeds_tamper_ui'), array('administer feeds_tamper', 'administer fields'));
 
     // Create vocabulary.
     $edit = array(
