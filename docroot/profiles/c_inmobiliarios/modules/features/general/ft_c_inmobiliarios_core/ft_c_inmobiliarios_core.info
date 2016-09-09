@@ -98,6 +98,7 @@ features[variable][] = chosen_placeholder_text_multiple
 features[variable][] = chosen_placeholder_text_single
 features[variable][] = chosen_search_contains
 features[variable][] = chosen_use_theme
+features[variable][] = file_private_path
 features[variable][] = honeypot_element_name
 features[variable][] = honeypot_form_blog_post_node_form
 features[variable][] = honeypot_form_comment_node_blog_post_form
