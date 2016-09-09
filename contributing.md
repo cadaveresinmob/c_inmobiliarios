@@ -1,5 +1,5 @@
 # Contribuyendo a Cadáveres inmobiliarios
- 
+
 Si estás leyendo este documento es que te estás planteando colaborar de forma activa con Cadáveres inmobiliarios, así que antes que nada ¡Muchas gracias por echarnos una mano! :tada:
 
 ### Contenido del documento
@@ -11,6 +11,8 @@ Si estás leyendo este documento es que te estás planteando colaborar de forma 
 * [Formas de participar](#formas-de-participar)
  * [Toma de decisiones](#toma-de-decisiones)
  * [Testeando](#testear)
+ * [Documentando](#documentar)
+ * [Traduciendo](#traducir)
 * [Directrices para participar](#directrices-para-participar)
 
 ## Información sobre el proyecto
@@ -23,7 +25,7 @@ Tienes más información en la página oficial:
 
 * [Sobre cadáveres inmobiliarios](http://cadaveresinmobiliarios.org/sobre/)
 * [Objetivos](http://cadaveresinmobiliarios.org/objetivos-de-cada-colectivo-o-individuo/)
- 
+
 
 ## Información técnica
 
@@ -32,7 +34,7 @@ Tienes más información en la página oficial:
 A nivel técnico, la web es una [distribución de drupal](https://www.drupal.org/documentation/build/distributions) en su [versión 7](http://drupal.org) que incluye todo lo necesario para ser instalada y funcionar. Actualmente cumple con los siguientes requisitos:
 
 * Interfaz de edición de la base de datos de cadáveres inmobiliarios, tanto para añadir nuevos datos como para modificar los existentes
-* Localización y visualización básica de datos, en función de algunos criterios predefindos 
+* Localización y visualización básica de datos, en función de algunos criterios predefindos
 * API: expone los datos de la base de datos para que puedan ser utilizados por terceras partes
 
 #### Estructura de archivos y carpetas
@@ -56,7 +58,7 @@ Además de estas carpetas resulta especialmente importante la carpeta `docroot/p
     * `custom`: para los themes desarrollados a medida o para subthemes que personalicen aspectos de los themes contribuidos
   * `libraries`: para las bibliotecas necesarias para el funcionamiento del sitio (ej: leaflet para el mapa)
 
-Muy importante: únicamente deberemos trabajar con el contenido de la carpeta `docroot/profiles/c_inmobiliarios`. El resto de archivos no se alterarán (salvo posibles situaciones excepcionales que deberemos justificar) y se utilizar los archivos por defecto de drupal. 
+Muy importante: únicamente deberemos trabajar con el contenido de la carpeta `docroot/profiles/c_inmobiliarios`. El resto de archivos no se alterarán (salvo posibles situaciones excepcionales que deberemos justificar) y se utilizar los archivos por defecto de drupal.
 
 ### Sobre git y github
 
@@ -96,12 +98,34 @@ El proceso de testeo sería el siguiente:
 1. Accede a la web de pruebas: http://new.cadaveresinmobiliarios.org
 1. Utiliza la web normalmente o como crees que la podría utilizar otra persona. Si detectas algún problema o aspecto mejorable pasa al punto siguiente.
 1. Abrir una issue en github (leer las [directrices](#crear-issues)) teniendo en cuenta que:
-  * si es un problema: 
+  * si es un problema:
     * explica lo más detalladamente posible lo que estabas haciendo, lo que debería haber pasado y lo que ha pasado realmente.
     * añádele la etiqueta `bug`
   * si es una propuesta de mejora
     * justifica la necesidad y describe lo más detalladamente posible la propuesta.
     * añádele la etiqueta `enhancement`
+
+### Traducir
+
+Explicar cómo funciona el proceso de traducción.
+
+### Documentar
+
+Explicar en qué consiste esta tarea y qué requisitos necesita (nada de programación, usar la web como un usuario más y tener cuenta en github)
+
+A tener en cuenta:
+
+* Toda la documentación relativa al proyecto estará almacenada en la [wiki de github](https://github.com/cadaveresinmob/c_inmobiliarios/wiki). De esta forma es independiente al desarrollo de la web y simplifica el proceso de creación de documentación para todo aquél que no tenga conocimientos de programación.
+  * La única excepción a la documentación es este mismo archivo `contributin.md` por los motivos expuestos [en esta issue](https://github.com/cadaveresinmob/c_inmobiliarios/issues/36).
+
+
+Ejemplos de tareas a desarrollar:
+
+1. Iniciar el [Manual para la base de datos](https://github.com/cadaveresinmob/c_inmobiliarios/wiki/Manual-para-la-base-de-datos) explicando en qué consisten todos los campos (¡Tenemos 71! y algunos no son fáciles de entender) y qué tipos de datos admiten.
+1. Documentar el [proceso de creación y edición de las fichas de cadáveres inmobiliarios](https://github.com/cadaveresinmob/c_inmobiliarios/wiki/Ficha-de-cad%C3%A1veres-inmobiliarios) (ahora es tan solo un borrador)
+1. Mejorar esta misma guía (ver [issue #36](https://github.com/cadaveresinmob/c_inmobiliarios/issues/35))
+1. Poner en orden la wiki de documentación
+
 
 ## Directrices para participar
 
@@ -111,7 +135,7 @@ Lo que se detalla a continuación no son leyes grabadas a fuego, son más bien r
 
 Explicar cómo funciona y particularidades de etiquetas, milestones...
 
-### Pull requests 
+### Pull requests
 
 (Explicar que se prefieren los pull requests y explicar cómo funcionan)
 
