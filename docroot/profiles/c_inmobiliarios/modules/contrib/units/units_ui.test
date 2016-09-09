@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Tests for Units UI module.
+ */
+
+class UnitsUIWebTestCase extends DrupalWebTestCase {
+
+  /**
+   * User object with full access.
+   *
+   * @var object
+   */
+  protected $admin;
+
+  /**
+   * GetInfo method.
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Units UI',
+      'description' => 'Ensure that the Units UI module works correctly.',
+      'group' => 'Units',
+    );
+  }
+
+  /**
+   * Set up method.
+   */
+  public function setUp($modules = array()) {
+    $modules[] = 'units_ui';
+    parent::setUp($modules);
+
+    $this->admin = $this->drupalCreateUser(array(
+      'administer measures',
+      'administer units',
+    ));
+  }
+
+  /**
+   * Conduct testing of access rights.
+   */
+  public function testAccess() {
+    $this->assertIdentical(entity_access('view', 'units_measure', NULL, drupal_anonymous_user()), TRUE, 'Anybody can view measures.');
+    $this->assertIdentical(entity_access('view', 'units_unit', NULL, drupal_anonymous_user()), TRUE, 'Anybody can view units.');
+
+    $this->assertIdentical(entity_access('update', 'units_measure', NULL, drupal_anonymous_user()), FALSE, 'Updating measures is negated when user has no corresponding permission.');
+    $this->assertIdentical(entity_access('update', 'units_measure', NULL, $this->admin), TRUE, 'Updating measures is granted when user has corresponding permission.');
+    $this->assertIdentical(entity_access('update', 'units_unit', NULL, drupal_anonymous_user()), FALSE, 'Updating units is negated when user has no corresponding permission.');
+    $this->assertIdentical(entity_access('update', 'units_unit', NULL, $this->admin), TRUE, 'Updating units is granted when user has corresponding permission.');
+
+    $this->assertIdentical(entity_access('create', 'units_measure', NULL, drupal_anonymous_user()), FALSE, 'Creating measures is negated when user has no corresponding permission.');
+    $this->assertIdentical(entity_access('create', 'units_measure', NULL, $this->admin), TRUE, 'Creating measures is granted when user has corresponding permission.');
+    $this->assertIdentical(entity_access('create', 'units_unit', NULL, drupal_anonymous_user()), FALSE, 'Creating units is negated when user has no corresponding permission.');
+    $this->assertIdentical(entity_access('create', 'units_unit', NULL, $this->admin), TRUE, 'Creating units is granted when user has corresponding permission.');
+
+    $this->assertIdentical(entity_access('delete', 'units_measure', NULL, drupal_anonymous_user()), FALSE, 'Deleting measures is negated when user has no corresponding permission.');
+    $this->assertIdentical(entity_access('delete', 'units_measure', NULL, $this->admin), TRUE, 'Deleting measures is granted when user has corresponding permission.');
+    $this->assertIdentical(entity_access('delete', 'units_unit', NULL, drupal_anonymous_user()), FALSE, 'Deleting units is negated when user has no corresponding permission.');
+    $this->assertIdentical(entity_access('delete', 'units_unit', NULL, $this->admin), TRUE, 'Deleting units is granted when user has corresponding permission.');
+  }
+}

@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Integrate Units with Currency module.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function units_currency_ctools_plugin_directory($owner, $plugin_type) {
+  switch ($owner) {
+    case 'units':
+      switch ($plugin_type) {
+        case 'converters':
+          return 'plugins/' . $plugin_type;
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_default_units_measure().
+ */
+function units_currency_default_units_measure() {
+  $items = array();
+
+  $controller = entity_get_controller('units_measure');
+
+  $items['currency'] = $controller->create(array(
+    'measure' => 'currency',
+    'label' => 'Currency',
+    'description' => '',
+    'converter' => 'currency',
+  ));
+
+  return $items;
+}
+
+/**
+ * Implements hook_default_units_unit().
+ */
+function units_currency_default_units_unit() {
+  $items = array();
+
+  $controller = entity_get_controller('units_unit');
+
+  foreach (currency_load_all() as $currency) {
+    if (!isset($currency->disabled) || !$currency->disabled) {
+      $items[$currency->ISO4217Code] = $controller->create(array(
+        'measure' => 'currency',
+        'machine_name' => $currency->ISO4217Code,
+        'label' => $currency->title,
+        'symbol' => $currency->sign,
+        'description' => '',
+        'factor' => NULL,
+      ));
+    }
+  }
+
+  return $items;
+}

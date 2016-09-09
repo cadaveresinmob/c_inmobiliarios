@@ -22,6 +22,15 @@ function units_ui_permission() {
 }
 
 /**
+ * Implements hook_admin_paths().
+ */
+function units_ui_admin_paths() {
+  return array(
+    'units-ui/*' => TRUE,
+  );
+}
+
+/**
  * Implements hook_entity_info_alter().
  *
  * Add UI controller info to entity types 'units_measure' and 'units_unit' and
@@ -30,10 +39,10 @@ function units_ui_permission() {
  */
 function units_ui_entity_info_alter(&$entity_info) {
   $entity_info['units_unit']['admin ui'] = array(
-    'path' => 'admin/structure/units-measure/%units_measure_machine_name/units-unit',
+    'path' => 'units-ui/%units_measure_machine_name',
     // This number denotes what position in path the bundle argument is
     // located at.
-    'path bundle argument position' => 3,
+    'path bundle argument position' => 1,
     'file' => 'units_ui.pages.inc',
     'controller class' => 'UnitsUnitUIController',
   );
@@ -46,6 +55,16 @@ function units_ui_entity_info_alter(&$entity_info) {
       'bundle argument' => 4,
     );
   }
+  $entity_info['units_unit']['translation'] = array(
+    'entity_translation' => array(
+      'class' => 'UnitsEntityTranslationHandler',
+      'base path' => $entity_info['units_unit']['admin ui']['path'] . '/manage/%units_unit_machine_name',
+      'path wildcard' => '%units_unit_machine_name',
+      // This is a custom property from Units UI module that will be used in
+      // its UnitsEntityTranslationHandler class.
+      'bundle argument' => 1,
+    ),
+  );
 
   $entity_info['units_measure']['admin ui'] = array(
     'path' => 'admin/structure/units-measure',
@@ -53,6 +72,35 @@ function units_ui_entity_info_alter(&$entity_info) {
     'controller class' => 'UnitsMeasureUIController',
   );
   $entity_info['units_measure']['access callback'] = 'units_ui_entity_access';
+}
+
+/**
+ * Implements hook_menu_breadcrumb_alter().
+ */
+function units_ui_menu_breadcrumb_alter(&$active_trail, $item) {
+  // We want to embed the link to unit measures overview page on all pages that
+  // are related to managements of units.
+  $prefix = 'units-ui/';
+
+  $tail = array();
+  $active_trail = array_reverse($active_trail);
+  foreach ($active_trail as $k => $trail) {
+    if (drupal_substr($trail['href'], 0, drupal_strlen($prefix)) == $prefix) {
+      $tail[] = $trail;
+      unset($active_trail[$k]);
+    }
+    else {
+      break;
+    }
+  }
+  $active_trail = array_reverse($active_trail);
+
+  if (drupal_substr($item['path'], 0, drupal_strlen($prefix)) == $prefix) {
+    $measure_entity_info = entity_get_info('units_measure');
+    $active_trail[] = menu_get_item($measure_entity_info['admin ui']['path']);
+  }
+
+  $active_trail = array_merge($active_trail, array_reverse($tail));
 }
 
 /**

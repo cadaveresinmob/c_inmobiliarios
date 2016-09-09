@@ -1,0 +1,843 @@
+<?php
+
+/**
+ * @file
+ * Create common units and measures such as length, volume, weight, etc.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function units_default_menu() {
+  $items = array();
+
+  $items['admin/structure/units-measure/default'] = array(
+    'title' => 'Administer default units',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('units_default_form'),
+    'access arguments' => array('administer default units'),
+    'file' => 'units_default.pages.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function units_default_permission() {
+  return array(
+    'administer default units' => array(
+      'title' => t('Administer default units'),
+      'description' => t('Enable and disable default units and measures.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_default_units_measure().
+ */
+function units_default_default_units_measure() {
+  $settings = units_default_enabled();
+
+  $items = array_intersect_key(_units_default_default_units_measure(), $settings);
+
+  return $items;
+}
+
+/**
+ * Implements hook_default_units_unit().
+ */
+function units_default_default_units_unit() {
+  $settings = units_default_enabled();
+
+  $enabled_units = array();
+  foreach ($settings as $v) {
+    $enabled_units += $v['units'];
+  }
+
+  $items = array_intersect_key(_units_default_default_units_unit(), $enabled_units);
+
+  return $items;
+}
+
+/**
+ * Generate all default unit measures this module can provide.
+ */
+function _units_default_default_units_measure() {
+  $items = array();
+
+  $controller = entity_get_controller('units_measure');
+
+  $items['length'] = $controller->create(array(
+    'measure' => 'length',
+    'label' => 'Length',
+    'description' => '',
+    'converter' => 'linear',
+  ));
+
+  $items['volume'] = $controller->create(array(
+    'measure' => 'volume',
+    'label' => 'Volume',
+    'description' => '',
+    'converter' => 'linear',
+  ));
+
+  $items['weight'] = $controller->create(array(
+    'measure' => 'weight',
+    'label' => 'Weight',
+    'description' => '',
+    'converter' => 'linear',
+  ));
+
+  $items['area'] = $controller->create(array(
+    'measure' => 'area',
+    'label' => 'Area',
+    'description' => '',
+    'converter' => 'linear',
+  ));
+
+  $items['pressure'] = $controller->create(array(
+    'measure' => 'pressure',
+    'label' => 'Pressure',
+    'description' => '',
+    'converter' => 'linear',
+  ));
+
+  $items['time'] = $controller->create(array(
+    'measure' => 'time',
+    'label' => 'Time',
+    'description' => '',
+    'converter' => 'linear',
+  ));
+
+  $items['temperature'] = $controller->create(array(
+    'measure' => 'temperature',
+    'label' => 'Temperature',
+    'description' => '',
+    'converter' => 'temperature',
+  ));
+
+  return $items;
+}
+
+/**
+ * Generate all default units this module can provide.
+ */
+function _units_default_default_units_unit() {
+  $items = array();
+
+  $controller = entity_get_controller('units_unit');
+
+  $items['millimeter'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'millimeter',
+    'label' => 'millimeter',
+    'symbol' => 'mm',
+    'description' => '',
+    'factor' => 0.001,
+  ));
+
+  $items['centimeter'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'centimeter',
+    'label' => 'centimeter',
+    'symbol' => 'cm',
+    'description' => '',
+    'factor' => 0.01,
+  ));
+
+  $items['decimeter'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'decimeter',
+    'label' => 'decimeter',
+    'symbol' => 'dm',
+    'description' => '',
+    'factor' => 0.1,
+  ));
+
+  $items['meter'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'meter',
+    'label' => 'meter',
+    'symbol' => 'm',
+    'description' => '',
+    'factor' => 1,
+  ));
+
+  $items['kilometer'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'kilometer',
+    'label' => 'kilometer',
+    'symbol' => 'km',
+    'description' => '',
+    'factor' => 1000,
+  ));
+
+  $items['foot'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'foot',
+    'label' => 'foot',
+    'symbol' => 'ft',
+    'description' => '',
+    'factor' => 0.3048,
+  ));
+
+  $items['inch'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'inch',
+    'label' => 'inch',
+    'symbol' => 'in',
+    'description' => '',
+    'factor' => 0.0254,
+  ));
+
+  $items['mile'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'mile',
+    'label' => 'mile',
+    'symbol' => 'mi',
+    'description' => '',
+    'factor' => 1609.344,
+  ));
+
+  $items['yard'] = $controller->create(array(
+    'measure' => 'length',
+    'machine_name' => 'yard',
+    'label' => 'yard',
+    'symbol' => 'yd',
+    'description' => '',
+    'factor' => 0.9144,
+  ));
+
+  $items['cubic_foot'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'cubic_foot',
+    'label' => 'cubic foot',
+    'symbol' => 'ft3',
+    'description' => '',
+    'factor' => 0.028316846,
+  ));
+
+  $items['cubic_inch'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'cubic_inch',
+    'label' => 'cubic inch',
+    'symbol' => 'in3',
+    'description' => '',
+    'factor' => 1.63871e-5,
+  ));
+
+  $items['cubic_mile'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'cubic_mile',
+    'label' => 'cubic mile',
+    'symbol' => 'mi3',
+    'description' => '',
+    'factor' => 4.168182e+09,
+  ));
+
+  $items['cubic_yard'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'cubic_yard',
+    'label' => 'cubic yard',
+    'symbol' => 'yd3',
+    'description' => '',
+    'factor' => 0.7645549,
+  ));
+
+  $items['cup'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'cup',
+    'label' => 'cup',
+    'symbol' => 'cup',
+    'description' => '',
+    'factor' => 2.365882e-04,
+  ));
+
+  $items['imperial_gallon'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'imperial_gallon',
+    'label' => 'imperial gallon',
+    'symbol' => 'gal',
+    'description' => '',
+    'factor' => 4.54609e-03,
+  ));
+
+  $items['us_gallon'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'us_gallon',
+    'label' => 'US gallon',
+    'symbol' => 'gal',
+    'description' => '',
+    'factor' => 3.785412e-03,
+  ));
+
+  $items['milliliter'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'milliliter',
+    'label' => 'milliliter',
+    'symbol' => 'mL',
+    'description' => '',
+    'factor' => 0.000001,
+  ));
+
+  $items['liter'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'liter',
+    'label' => 'liter',
+    'symbol' => 'L',
+    'description' => '',
+    'factor' => 0.001,
+  ));
+
+  $items['imperial_fluid_ounce'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'imperial_fluid_ounce',
+    'label' => 'imperial fluid ounce',
+    'symbol' => 'fl oz',
+    'description' => '',
+    'factor' => 2.841306e-05,
+  ));
+
+  $items['us_fluid_ounce'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'us_fluid_ounce',
+    'label' => 'US fluid ounce',
+    'symbol' => 'fl oz',
+    'description' => '',
+    'factor' => 2.957353e-05,
+  ));
+
+  $items['imperial_pint'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'imperial_pint',
+    'label' => 'imperial pint',
+    'symbol' => 'pt',
+    'description' => '',
+    'factor' => 5.6826125e-04,
+  ));
+
+  $items['us_liquid_pint'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'us_liquid_pint',
+    'label' => 'US pint (liquid)',
+    'symbol' => 'pt',
+    'description' => '',
+    'factor' => 4.731765e-04,
+  ));
+
+  $items['us_dry_pint'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'us_dry_pint',
+    'label' => 'US pint (dry)',
+    'symbol' => 'pt',
+    'description' => '',
+    'factor' => 5.506105e-04,
+  ));
+
+  $items['imperial_quart'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'imperial_quart',
+    'label' => 'imperial quart',
+    'symbol' => 'qt',
+    'description' => '',
+    'factor' => 1.13652297e-03,
+  ));
+
+  $items['us_liquid_quart'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'us_liquid_quart',
+    'label' => 'US quart (liquid)',
+    'symbol' => 'qt',
+    'description' => '',
+    'factor' => 9.463529e-04,
+  ));
+
+  $items['us_dry_quart'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'us_dry_quart',
+    'label' => 'US quart (dry)',
+    'symbol' => 'qt',
+    'description' => '',
+    'factor' => 1.101221e-03,
+  ));
+
+  $items['tablespoon'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'tablespoon',
+    'label' => 'tablespoon',
+    'symbol' => 'tbsp',
+    'description' => '',
+    'factor' => 1.478676e-05,
+  ));
+
+  $items['teaspoon'] = $controller->create(array(
+    'measure' => 'volume',
+    'machine_name' => 'teaspoon',
+    'label' => 'teaspoon',
+    'symbol' => 'tspn',
+    'description' => '',
+    'factor' => 4.928922E-06,
+  ));
+
+  $items['milligram'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'milligram',
+    'label' => 'milligram',
+    'symbol' => 'mg',
+    'description' => '',
+    'factor' => 0.000001,
+  ));
+
+  $items['gram'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'gram',
+    'label' => 'gram',
+    'symbol' => 'g',
+    'description' => '',
+    'factor' => 0.001,
+  ));
+
+  $items['kilogram'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'kilogram',
+    'label' => 'kilogram',
+    'symbol' => 'kg',
+    'description' => '',
+    'factor' => 1,
+  ));
+
+  $items['carat'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'carat',
+    'label' => 'carat',
+    'symbol' => 'CD',
+    'description' => '',
+    'factor' => 2.0e-4,
+  ));
+
+  $items['grain'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'grain',
+    'label' => 'grain',
+    'symbol' => 'gr',
+    'description' => '',
+    'factor' => 6.479891e-05,
+  ));
+
+  $items['ounce'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'ounce',
+    'label' => 'ounce',
+    'symbol' => 'oz',
+    'description' => '',
+    'factor' => 2.834952e-02,
+  ));
+
+  $items['pennyweight'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'pennyweight',
+    'label' => 'pennyweight',
+    'symbol' => 'dwt',
+    'description' => '',
+    'factor' => 1.555174e-03,
+  ));
+
+  $items['pound'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'pound',
+    'label' => 'pound',
+    'symbol' => 'lb',
+    'description' => '',
+    'factor' => 4.535924e-01,
+  ));
+
+  $items['stone'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'stone',
+    'label' => 'stone',
+    'symbol' => 'st',
+    'description' => '',
+    'factor' => 6.35029318,
+  ));
+
+  $items['slug'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'slug',
+    'label' => 'slug',
+    'symbol' => 'slug',
+    'description' => '',
+    'factor' => 1.459390e+1,
+  ));
+
+  $items['metric_ton'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'metric_ton',
+    'label' => 'metric ton',
+    'symbol' => 't',
+    'description' => '',
+    'factor' => 1.0e+3,
+  ));
+
+  $items['long_ton'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'long_ton',
+    'label' => 'long ton',
+    'symbol' => 't',
+    'description' => '',
+    'factor' => 1.016047e+3,
+  ));
+
+  $items['short_ton'] = $controller->create(array(
+    'measure' => 'weight',
+    'machine_name' => 'short_ton',
+    'label' => 'short ton',
+    'symbol' => 't',
+    'description' => '',
+    'factor' => 9.071847e+02,
+  ));
+
+  $items['acre'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'acre',
+    'label' => 'acre',
+    'symbol' => 'acre',
+    'description' => '',
+    'factor' => 4.046873e+3,
+  ));
+
+  $items['are'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'are',
+    'label' => 'are',
+    'symbol' => 'a',
+    'description' => '',
+    'factor' => 1.0e+2,
+  ));
+
+  $items['hectare'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'hectare',
+    'label' => 'hectare',
+    'symbol' => 'ha',
+    'description' => '',
+    'factor' => 1.0e+4,
+  ));
+
+  $items['square_foot'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'square_foot',
+    'label' => 'square foot',
+    'symbol' => 'ft2',
+    'description' => '',
+    'factor' => 9.290304e-2,
+  ));
+
+  $items['square_meter'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'square_meter',
+    'label' => 'square meter',
+    'symbol' => 'm2',
+    'description' => '',
+    'factor' => 1,
+  ));
+
+  $items['square_kilometer'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'square_kilometer',
+    'label' => 'square kilometer',
+    'symbol' => 'km2',
+    'description' => '',
+    'factor' => 1.0e+6,
+  ));
+
+  $items['square_inch'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'square_inch',
+    'label' => 'square inch',
+    'symbol' => 'in2',
+    'description' => '',
+    'factor' => 6.4516e-4,
+  ));
+
+  $items['square_yard'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'square_yard',
+    'label' => 'square yard',
+    'symbol' => 'yd2',
+    'description' => '',
+    'factor' => 8.361274e-1,
+  ));
+
+  $items['aankadam'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'aankadam',
+    'label' => 'aankadam',
+    'symbol' => 'aankadam',
+    'description' => '',
+    'factor' => 6.69,
+  ));
+
+  $items['perch'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'perch',
+    'label' => 'perch',
+    'symbol' => 'perch',
+    'description' => '',
+    'factor' => 25.29,
+  ));
+
+  $items['cent'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'cent',
+    'label' => 'cent',
+    'symbol' => 'cent',
+    'description' => '',
+    'factor' => 40.47,
+  ));
+
+  $items['chatak'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'chatak',
+    'label' => 'chatak',
+    'symbol' => 'chatak',
+    'description' => '',
+    'factor' => 41.81,
+  ));
+
+  $items['kottah'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'kottah',
+    'label' => 'kottah (B)',
+    'symbol' => 'kottah (B)',
+    'description' => '',
+    'factor' => 66.89,
+  ));
+
+  $items['guntha'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'guntha',
+    'label' => 'guntha',
+    'symbol' => 'guntha',
+    'description' => '',
+    'factor' => 101.17,
+  ));
+
+  $items['ground'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'ground',
+    'label' => 'ground',
+    'symbol' => 'ground',
+    'description' => '',
+    'factor' => 222.97,
+  ));
+
+  $items['marla'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'marla',
+    'label' => 'marla',
+    'symbol' => 'marla',
+    'description' => '',
+    'factor' => 501.68,
+  ));
+
+  $items['rood'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'rood',
+    'label' => 'rood',
+    'symbol' => 'rood',
+    'description' => '',
+    'factor' => 1011.71,
+  ));
+
+  $items['bigha_i'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'bigha_i',
+    'label' => 'bigha I',
+    'symbol' => 'bigha I',
+    'description' => '',
+    'factor' => 1618.74,
+  ));
+
+  $items['bigha_ii'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'bigha_ii',
+    'label' => 'bigha II',
+    'symbol' => 'bigha II',
+    'description' => '',
+    'factor' => 2529.29,
+  ));
+
+  $items['kanal'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'kanal',
+    'label' => 'kanal',
+    'symbol' => 'kanal',
+    'description' => '',
+    'factor' => 10033.53,
+  ));
+
+  $items['biswa_i'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'biswa_i',
+    'label' => 'biswa I',
+    'symbol' => 'biswa I',
+    'description' => '',
+    'factor' => 32374.85,
+  ));
+
+  $items['biswa_ii'] = $controller->create(array(
+    'measure' => 'area',
+    'machine_name' => 'biswa_ii',
+    'label' => 'biswa II',
+    'symbol' => 'biswa II',
+    'description' => '',
+    'factor' => 50585.71,
+  ));
+
+  $items['pascal'] = $controller->create(array(
+    'measure' => 'pressure',
+    'machine_name' => 'pascal',
+    'label' => 'pascal',
+    'symbol' => 'pa',
+    'description' => '',
+    'factor' => 1,
+  ));
+
+  $items['torr'] = $controller->create(array(
+    'measure' => 'pressure',
+    'machine_name' => 'torr',
+    'label' => 'torr',
+    'symbol' => 'Torr',
+    'description' => '',
+    'factor' => 1.333224e+2,
+  ));
+
+  $items['bar'] = $controller->create(array(
+    'measure' => 'pressure',
+    'machine_name' => 'bar',
+    'label' => 'bar',
+    'symbol' => 'bar',
+    'description' => '',
+    'factor' => 1.0e+5,
+  ));
+
+  $items['millibar'] = $controller->create(array(
+    'measure' => 'pressure',
+    'machine_name' => 'millibar',
+    'label' => 'millibar',
+    'symbol' => 'mb',
+    'description' => '',
+    'factor' => 1.0e+2,
+  ));
+
+  $items['psi'] = $controller->create(array(
+    'measure' => 'pressure',
+    'machine_name' => 'psi',
+    'label' => 'psi',
+    'symbol' => 'lbf/in2',
+    'description' => '',
+    'factor' => 6.894757e+3,
+  ));
+
+  $items['year'] = $controller->create(array(
+    'measure' => 'time',
+    'machine_name' => 'year',
+    'label' => 'year',
+    'symbol' => 'yr',
+    'description' => '',
+    'factor' => 3.1536e+7,
+  ));
+
+  $items['day'] = $controller->create(array(
+    'measure' => 'time',
+    'machine_name' => 'day',
+    'label' => 'day',
+    'symbol' => 'd',
+    'description' => '',
+    'factor' => 8.64e+4,
+  ));
+
+  $items['hour'] = $controller->create(array(
+    'measure' => 'time',
+    'machine_name' => 'hour',
+    'label' => 'hour',
+    'symbol' => 'h',
+    'description' => '',
+    'factor' => 3.6e+3,
+  ));
+
+  $items['minute'] = $controller->create(array(
+    'measure' => 'time',
+    'machine_name' => 'minute',
+    'label' => 'minute',
+    'symbol' => 'min',
+    'description' => '',
+    'factor' => 60,
+  ));
+
+  $items['second'] = $controller->create(array(
+    'measure' => 'time',
+    'machine_name' => 'second',
+    'label' => 'second',
+    'symbol' => 's',
+    'description' => '',
+    'factor' => 1,
+  ));
+
+  $items['celsius'] = $controller->create(array(
+    'measure' => 'temperature',
+    'machine_name' => 'celsius',
+    'label' => 'celsius',
+    'symbol' => "\xC2\xB0C",
+    'description' => '',
+    'factor' => NULL,
+  ));
+
+  $items['fahrenheit'] = $controller->create(array(
+    'measure' => 'temperature',
+    'machine_name' => 'fahrenheit',
+    'label' => 'fahrenheit',
+    'symbol' => "\xC2\xB0F",
+    'description' => '',
+    'factor' => NULL,
+  ));
+
+  $items['kelvin'] = $controller->create(array(
+    'measure' => 'temperature',
+    'machine_name' => 'kelvin',
+    'label' => 'kelvin',
+    'symbol' => 'K',
+    'description' => '',
+    'factor' => NULL,
+  ));
+
+  return $items;
+}
+
+/**
+ * Retrieve all enabled default units.
+ *
+ * @return array
+ *   Array of the information about all enabled default units. The array will
+ *   only include the enabled units. Keys of this array are machine names of
+ *   enabled measures, whereas values will be arrays with the following
+ *   structure:
+ *   - units: (array) Array of units enabled within this measure. Its keys and
+ *     values both will be machine names of enabled units
+ */
+function units_default_enabled() {
+  return variable_get('units_default_enabled', array(
+    'length' => array(
+      'measure' => 'length',
+      'units' => array(
+        'meter' => 'meter',
+        'foot' => 'foot',
+        'centimeter' => 'centimeter',
+        'inch' => 'inch',
+      ),
+    ),
+  ));
+}

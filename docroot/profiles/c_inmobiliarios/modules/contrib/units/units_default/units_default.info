@@ -1,12 +1,11 @@
-name = Units
-description = Provide API for managing and converting units of measurement.
+name = Common units and measures
+description = Create common units and measures such as length, volume, weight, etc.
 package = Units
 core = 7.x
 
-dependencies[] = entity
-dependencies[] = ctools
+dependencies[] = units
 
-files[] = units.test
+files[] = units_default.test
 
 ; Information added by Drupal.org packaging script on 2016-03-11
 version = "7.x-1.0-rc1"
