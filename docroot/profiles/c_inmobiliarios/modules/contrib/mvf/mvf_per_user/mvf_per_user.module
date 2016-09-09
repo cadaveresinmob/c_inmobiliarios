@@ -6,16 +6,6 @@
  */
 
 /**
- * Implements hook_field_delete_field().
- */
-function mvf_per_user_field_delete_field($field) {
-  // Cleaning up MVF per user corresponding field if it exists.
-  if ($mvf_field = mvf_per_user_unit_field_load($field)) {
-    field_delete_field($mvf_field['field_name']);
-  }
-}
-
-/**
  * Implements hook_ctools_plugin_directory().
  */
 function mvf_per_user_ctools_plugin_directory($owner, $plugin_type) {
