@@ -6,9 +6,9 @@ subfields:
 * value (numeric value of something - this part is outsourced to Number module)
 * unit (units in which the given value is measured - this part is outsourced to
 Entity Rereference module)
-Then in instance settings you can specify in what units you want to render the
-entered value (this part is outsourced to Units module). Joining these powerful
-modules allows to introduce Measured Value Field.
+Then in formatters of this field type you can specify in what units you want to
+render entered value (this part is outsourced to Units module). Joining these
+powerful modules allows to introduce Measured Value Field.
 
 -- REQUIREMENTS --
 

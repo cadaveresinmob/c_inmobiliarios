@@ -23,7 +23,7 @@ define('MVF_MODULE_VALUE', 'number');
 define('MVF_MODULE_UNIT', 'entityreference');
 
 /**
- * Constant denotes outputting the entered value in the originally entered unit
+ * Constant denotes formatting the entered value in the originally entered unit
  * measure.
  *
  * @var int
@@ -31,8 +31,8 @@ define('MVF_MODULE_UNIT', 'entityreference');
 define('MVF_UNIT_ORIGINAL', -1);
 
 /**
- * Constant should be used in Unit Suggesters, when desired output unit cannot
- * be determined.
+ * Constant should be used in Unit Suggesters, when desired output units cannot
+ * be determined during formatting.
  *
  * @var int
  */
@@ -124,7 +124,6 @@ function mvf_field_info() {
               mvf_subfield_to_column('value') => NULL,
               mvf_subfield_to_column('unit') => NULL,
             ),
-            'unit_suggesters_settings' => array(),
           ),
         ),
         'default_widget' => 'mvf_widget_default',
@@ -159,7 +158,7 @@ function mvf_property_info_callback(&$info, $entity_type, $field, $instance, $fi
 }
 
 /**
- * Defines info for the properties of the MVF field data structure.
+ * Defines info for the properties of the Mvf field data structure.
  */
 function mvf_data_property_info() {
   return array(
@@ -216,7 +215,8 @@ function mvf_field_formatter_info() {
     'unit' => array(),
     'value' => array(),
     'mvf' => array(
-      'unit_suggesters_settings' => array(),
+      'formatter_unit' => array(),
+      'formatter_unit_settings' => array(),
     ),
   );
   return array(
@@ -238,12 +238,12 @@ function mvf_field_formatter_info() {
 /**
  * Implements hook_element_info().
  *
+ * Define an element introduced by Measured Value Field - a value and a unit
+ * measure inputs.
  */
 function mvf_element_info() {
   $type = array();
 
-  // This one is a MVF widget - an element for entering value and unit
-  // measurement that corresponds to that value.
   $type['mvf_widget'] = array(
     '#input' => TRUE,
     '#delta' => 0,
@@ -257,17 +257,6 @@ function mvf_element_info() {
       'css' => array(drupal_get_path('module', 'mvf') . '/mvf.css'),
     ),
     '#theme_wrappers' => array('form_element'),
-  );
-
-  // Form element of unit suggester settings.
-  $type['mvf_unit_suggester'] = array(
-    '#input' => TRUE,
-    '#field' => array(),
-    '#instance' => array(),
-    '#view_mode' => NULL,
-    '#theme' => 'mvf_unit_suggesters_settings',
-    '#process' => array('_mvf_unit_suggester_process'),
-    '#theme_wrappers' => array('container'),
   );
 
   return $type;
@@ -474,6 +463,18 @@ function mvf_field_presave($entity_type, $entity, $field, $instance, $langcode, 
  * Implements hook_field_insert().
  */
 function mvf_field_insert($entity_type, $entity, $field, $instance, $langcode, &$items) {
+  // First of all clean the items if they contain a default value with only
+  // unit data defined. It could have gotten up to here because if empty data
+  // is saved, Field module would try to put there "default value". And this
+  // "default value" might only contain the unit and not the value.
+  foreach ($items as $delta => $item) {
+    unset($item['default_value_widget']);
+    $items[$delta] = $item;
+    if (mvf_field_is_empty($item, $field)) {
+      unset($items[$delta]);
+    }
+  }
+  $items = array_values($items);
   foreach ($field['settings']['meta_info'] as $subfield => $meta_info) {
     $mocked_field = mvf_field_mockup($field, $subfield);
     $mocked_instance = mvf_instance_mockup($field, $instance, $subfield);
@@ -578,13 +579,6 @@ function mvf_field_instance_settings_form($field, $instance) {
     '#instance' => $instance,
     '#entity_type' => $instance['entity_type'],
     '#default_value' => $instance['settings']['mvf']['max'],
-  );
-
-  $form['mvf']['unit_suggesters_settings'] = array(
-    '#type' => 'mvf_unit_suggester',
-    '#title' => t('Unit suggestion'),
-    '#field' => $field,
-    '#instance' => $instance,
   );
 
   return $form;
@@ -751,9 +745,8 @@ function mvf_field_formatter_settings_form($field, $instance, $view_mode, $form,
       foreach ($formatters as $formatter_type => $formatter) {
         $options[$formatter_type] = $formatter['label'];
       }
-      // Since we update values via #ajax, the chosen value in
-      // $superior_formatter can be overriden in $form_state by the current
-      // unsaved (yet) value.
+      // Since we update values via #ajax, the chosen value in $superior_formatter
+      // can be overriden in $form_state by the current unsaved (yet) value.
       if (isset($form_state['values']['fields'][$field['field_name']]['settings_edit_form']['settings'][$subfield]['formatter'])) {
         $formatter = $form_state['values']['fields'][$field['field_name']]['settings_edit_form']['settings'][$subfield]['formatter'];
       }
@@ -769,10 +762,9 @@ function mvf_field_formatter_settings_form($field, $instance, $view_mode, $form,
         $formatter = $meta_info['formatter'];
       }
 
-      // After we have let current $form_state values to override currently
-      // saved formatter for the subfield, we are now able to mock $field and
-      // $instance so that in the mocked results the overriden formatter will be
-      // reflected.
+      // After we have let current $form_state values to override currently saved
+      // formatter for the subfield, we are now able to mock $field and $instance
+      // so that in the mocked results the overriden formatter will be reflected.
       $instance['display'][$view_mode]['settings'][$subfield]['formatter'] = $formatter;
       $mocked_field = mvf_field_mockup($field, $subfield);
       $mocked_instance = mvf_instance_mockup($field, $instance, $subfield);
@@ -829,35 +821,44 @@ function mvf_field_formatter_settings_form($field, $instance, $view_mode, $form,
     }
   }
 
+  // Defining our own field formatting settings.
   $element['mvf'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Unit output'),
+    '#title' => t('Measured Value Field'),
     '#collapsible' => TRUE,
   );
 
-  $element['mvf']['override'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Override instance default unit suggestion?'),
-    '#default_value' => isset($superior_formatter['settings']['mvf']['override']) ? $superior_formatter['settings']['mvf']['override'] : FALSE,
-    '#attributes' => array('class' => array(
-      'mvf-formatter-settings-unit-suggestion-override',
-    )),
+  // Generating form elements, where Unit Suggesters can be enabled/disabled and
+  // re-ordered in their priority.
+  $element['mvf']['unit_suggesters_settings'] = array(
+    '#title' => t('Output Unit Suggesters'),
+    '#theme' => 'mvf_unit_suggesters_settings',
   );
 
-  $element['mvf']['unit_suggesters_settings'] = array(
-    '#type' => 'mvf_unit_suggester',
-    '#title' => t('Unit suggestion'),
-    '#field' => $field,
-    '#instance' => $instance,
-    '#view_mode' => $view_mode,
-    '#states' => array(
-      'visible' => array(
-        ':input.mvf-formatter-settings-unit-suggestion-override' => array(
-          'checked' => TRUE,
-        )
-      ),
-    ),
-  );
+  $measure = mvf_measure_extract($field);
+
+  $unit_suggesters_info = mvf_unit_suggesters_info($measure, $field, $instance, $instance['display'][$view_mode]);
+  foreach ($unit_suggesters_info as $info) {
+    $unit_suggester_settings_name = mvf_unit_suggesters_settings_name($info['plugin']);
+    // Letting unit suggester provide some configuration form elements of its
+    // own.
+    $function = ctools_plugin_get_function($info['plugin'], 'settings form callback');
+    if ($function) {
+      $element['mvf']['unit_suggesters_settings'][$unit_suggester_settings_name] = $function($measure, $field, $info, $info['settings']);
+    }
+
+    $element['mvf']['unit_suggesters_settings'][$unit_suggester_settings_name]['weight'] = array(
+      '#type' => 'weight',
+      '#title' => t('Weight'),
+      '#default_value' => $info['settings']['weight'],
+    );
+
+    $element['mvf']['unit_suggesters_settings'][$unit_suggester_settings_name]['enable'] = array(
+      '#type' => 'checkbox',
+      '#title' => $info['plugin']['title'],
+      '#default_value' => $info['settings']['enable'],
+    );
+  }
 
   return $element;
 }
@@ -893,7 +894,7 @@ function mvf_field_formatter_settings_summary($field, $instance, $view_mode) {
   $summary = implode('; ', $summary);
   if (empty($summary)) {
     // We have to output at least some string in order to make the "settings"
-    // button for format appear.
+    // button for format to appear.
     $summary = 'no format';
   }
 
@@ -905,6 +906,10 @@ function mvf_field_formatter_settings_summary($field, $instance, $view_mode) {
  */
 function mvf_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
+
+  // Adding CSS for default theming.
+  $element['#attached']['css'] = array();
+  $element['#attached']['css'][drupal_get_path('module', 'mvf') . '/mvf.css'] = array();
 
   // In order to successfully mock up instance for a sub field, we have to know
   // view mode that corresponds to the supplied $display. We could compare each
@@ -924,7 +929,7 @@ function mvf_field_formatter_view($entity_type, $entity, $field, $instance, $lan
         // We were requested to render the unit as symbol, so we do not delegate
         // rendering of unit to the sub formatter, we do it ourselves.
         $extra = array(
-          '#markup' => $item['entity']->symbol ? filter_xss_admin($item['entity']->symbol) : entity_label('units_unit', $item['entity']),
+          '#markup' => $item['entity']->symbol ? $item['entity']->symbol : entity_label('units_unit', $item['entity']),
         );
       }
       else {
@@ -961,13 +966,6 @@ function mvf_field_formatter_view($entity_type, $entity, $field, $instance, $lan
       }
     }
   }
-
-  // Only add CSS if there is item to prevent rendering empty field.
-  if (!empty($element)) {
-    $element['#attached']['css'] = array();
-    $element['#attached']['css'][drupal_get_path('module', 'mvf') . '/mvf.css'] = array();
-  }
-
   return $element;
 }
 
@@ -977,13 +975,26 @@ function mvf_field_formatter_view($entity_type, $entity, $field, $instance, $lan
 function mvf_field_formatter_prepare_view($entity_type, $entities, $field, $instances, $langcode, &$items, $displays) {
   $mocked_view_mode = 'mvf_mocked_view_mode';
 
+  $measure = mvf_measure_extract($field);
+
   // Before we proceed we have to convert all $items to necessary output unit
   // measure. Necessary output unit measure should be suggested by MVF Unit
-  // suggesters.
+  // suggesters. We will invoke a suggester by suggester iterating over them in
+  // the order, specified in our formatter, until some suggester tells us what
+  // output unit measure to use... Or until we run out of suggesters, in this
+  // case we'll fallback on MVF_UNIT_ORIGINAL.
   foreach ($entities as $entity_id => $entity) {
-    $instance = $instances[$entity_id];
-    $instance['display'][$mocked_view_mode] = $displays[$entity_id];
-    $output_unit = mvf_unit_suggest($items[$entity_id], $field, $instance, $entity, $mocked_view_mode);
+    $unit_suggesters = mvf_unit_suggesters_info($measure, $field, $instances[$entity_id], $displays[$entity_id]);
+    $output_unit = MVF_UNIT_UNKNOWN;
+    foreach ($unit_suggesters as $v) {
+      if ($v['settings']['enable'] && $function = ctools_plugin_get_function($v['plugin'], 'suggest unit callback')) {
+        $output_unit = $function($items[$entity_id], $field, $instances[$entity_id], $entity, $entity_type, $v['settings']);
+        if ($output_unit != MVF_UNIT_UNKNOWN) {
+          break;
+        }
+      }
+    }
+
     $items[$entity_id] = mvf_items_convert($field, $items[$entity_id], $output_unit);
   }
 
@@ -1010,11 +1021,25 @@ function mvf_field_formatter_prepare_view($entity_type, $entities, $field, $inst
  * Implements hook_field_is_empty().
  */
 function mvf_field_is_empty($item, $field) {
-  // If at least one sub field is empty, the entire field is considered empty.
-  $is_empty = FALSE;
-  foreach ($field['settings']['meta_info'] as $subfield => $meta_info) {
-    $mocked_field = mvf_field_mockup($field, $subfield);
-    $is_empty = $is_empty || (bool) module_invoke($mocked_field['module'], 'field_is_empty', $item, $mocked_field);
+  // The logic is the following. Normally if at least one sub field is empty,
+  // the entire field is considered empty. However, if it is value for default
+  // value of MVF, we consider it empty only if all the sub fields are empty.
+  if (isset($item['default_value_widget']) && $item['default_value_widget']) {
+    // Here we process default value widget.
+    $is_empty = TRUE;
+    foreach ($field['settings']['meta_info'] as $subfield => $meta_info) {
+      $mocked_field = mvf_field_mockup($field, $subfield);
+      $is_empty = $is_empty && (bool) module_invoke($mocked_field['module'], 'field_is_empty', $item, $mocked_field);
+    }
+  }
+  else {
+    // This is a normal value for a regular MVF widget. If at least one sub
+    // field is empty, the entire field is considered empty.
+    $is_empty = FALSE;
+    foreach ($field['settings']['meta_info'] as $subfield => $meta_info) {
+      $mocked_field = mvf_field_mockup($field, $subfield);
+      $is_empty = $is_empty || (bool) module_invoke($mocked_field['module'], 'field_is_empty', $item, $mocked_field);
+    }
   }
 
   return $is_empty;
@@ -1035,65 +1060,45 @@ function mvf_theme() {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alter Field UI Field Edit form so that it supports entering just default
+ * unit, and not necessary value of MVF.
+ */
+function mvf_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
+  if (in_array($form['#field']['type'], mvf_field_types())) {
+    // If this form operates on MVF field, we throw in additional validate
+    // callback for default value widget, which will enable support for entering
+    // just unit and no value.
+    $default_value_widget = &$form['instance']['default_value_widget'][$form['#field']['field_name']][LANGUAGE_NONE][0];
+    if (!isset($default_value_widget['#element_validate'])) {
+      $default_value_widget['#element_validate'] = array();
+    }
+    array_unshift($default_value_widget['#element_validate'], 'mvf_field_widget_form_default_value_validate');
+  }
+}
+
+/**
  * Implements hook_field_update_instance().
  */
 function mvf_field_update_instance($instance, $prior_instance) {
   $field_map = field_info_field_map();
   if (in_array($field_map[$instance['field_name']]['type'], mvf_field_types())) {
     // Notify each unit suggester if its status has changed.
-    $field = field_info_field($instance['field_name']);
-    $measure = mvf_measure_extract($field);
-    $unit_suggesters = mvf_get_unit_suggester();
+    foreach ($instance['display'] as $view_mode => $v) {
+      $statuses = isset($instance['display'][$view_mode]['settings']['mvf']['unit_suggesters_settings']) ? $instance['display'][$view_mode]['settings']['mvf']['unit_suggesters_settings'] : array();
+      $prior_statuses = isset($prior_instance['display'][$view_mode]['settings']['mvf']['unit_suggesters_settings']) ? $prior_instance['display'][$view_mode]['settings']['mvf']['unit_suggesters_settings'] : array();
+      foreach ($statuses as $unit_suggester => $v2) {
+        $unit_suggester_status = isset($statuses[$unit_suggester]['enable']) ? $statuses[$unit_suggester]['enable'] : FALSE;
+        $prior_unit_suggester_status = isset($prior_statuses[$unit_suggester]['enable']) ? $prior_statuses[$unit_suggester]['enable'] : FALSE;
+        if ($unit_suggester_status != $prior_unit_suggester_status) {
+          $field = field_info_field($instance['field_name']);
+          $measure = mvf_measure_extract($field);
 
-    $view_modes = array_unique(array_merge(array_keys($instance['display']), array_keys($prior_instance['display'])));
-    $view_modes[] = NULL;
-
-    foreach ($view_modes as $view_mode) {
-      foreach ($unit_suggesters as $unit_suggester) {
-        $statuses = array(
-          'prior' => array('instance' => $prior_instance, 'status' => FALSE),
-          'current' => array('instance' => $instance, 'status' => FALSE),
-        );
-        foreach ($statuses as $k => $v) {
-          if ($view_mode && !isset($v['instance']['display'][$view_mode])) {
-            $statuses[$k]['status'] = FALSE;
-          }
-          else {
-            $statuses[$k]['status'] = mvf_unit_suggester_info($unit_suggester, $field, $v['instance'], $view_mode);
-            $statuses[$k]['status'] = $statuses[$k]['status']['enable'];
-          }
-        }
-        if ($statuses['prior']['status'] != $statuses['current']['status']) {
-          $callback_name = $statuses['current']['status'] ? 'enabled callback' : 'disabled callback';
-          $function = ctools_plugin_get_function($unit_suggester, $callback_name);
+          $callback_name = $unit_suggester_status ? 'enabled callback' : 'disabled callback';
+          $function = ctools_plugin_get_function(mvf_get_unit_suggester($unit_suggester), $callback_name);
           if ($function) {
-            $settings = $statuses['current']['status'] ? mvf_unit_suggester_info($unit_suggester, $field, $statuses['current']['instance'], $view_mode) : mvf_unit_suggester_info($unit_suggester, $field, $statuses['prior']['instance'], $view_mode);
-            $function($measure, $field, $instance, $view_mode, $settings, $unit_suggester);
-          }
-        }
-      }
-    }
-  }
-}
-
-/**
- * Implements hook_field_delete_instance().
- */
-function mvf_field_delete_instance($instance) {
-  $field = field_read_fields(array('field_name' => $instance['field_name']), array('include_deleted' => TRUE));
-  $field = reset($field);
-  if (in_array($field['type'], mvf_field_types())) {
-    $measure = mvf_measure_extract($field);
-
-    $view_modes = array_keys($instance['display']);
-    $view_modes[] = NULL;
-    foreach ($view_modes as $view_mode) {
-      $unit_suggesters = mvf_unit_suggesters_info($field, $instance, $view_mode);
-      foreach ($unit_suggesters as $unit_suggester) {
-        if ($unit_suggester['settings']['enable']) {
-          $function = ctools_plugin_get_function($unit_suggester['plugin'], 'disabled callback');
-          if ($function) {
-            $function($measure, $field, $instance, $view_mode, $unit_suggester['settings'], $unit_suggester['plugin']);
+            $function($measure, $field, $instance, $view_mode, $statuses[$unit_suggester]);
           }
         }
       }
@@ -1134,6 +1139,19 @@ function mvf_ctools_plugin_directory($owner, $plugin_type) {
       }
       break;
   }
+}
+
+/**
+ * Form API validate callback for default value widget of MVF.
+ *
+ * Mark in submitted values that the values are for default value of some
+ * instance of MVF. Since it is default values, entering only unit without any
+ * value should be fine and the entered unit should be considered default unit
+ * for this instance of MVF.
+ */
+function mvf_field_widget_form_default_value_validate($element, &$form_state) {
+  $element['#value']['default_value_widget'] = TRUE;
+  form_set_value($element, $element['#value'], $form_state);
 }
 
 /**
@@ -1186,20 +1204,6 @@ function _mvf_widget_process($element, &$form_state, $form) {
       // the cardinality 1 for our sub fields.
       $mocked_delta = 0;
       $mocked_items = isset($items[$element['#delta']]) ? array($mocked_delta => $items[$element['#delta']]) : array();
-
-      switch ($subfield) {
-        case 'value':
-          break;
-
-        case 'unit':
-          if (empty($mocked_items)) {
-            $mocked_items[] = array(
-              mvf_subfield_to_column('unit') => mvf_unit_suggest($mocked_items, $field, $instance, $element['#entity'], NULL, array(MVF_UNIT_ORIGINAL)),
-            );
-          }
-          break;
-      }
-
 
       $tmp = array(
         '#entity_type' => $element['#entity_type'],
@@ -1601,15 +1605,14 @@ function theme_mvf_unit_suggesters_settings($vars) {
 /**
  * Collect information about available unit suggesters and their settings.
  *
+ * @param object $measure
+ *   Fully loaded 'units_measure' entity, on which is set up the MVF field
  * @param array $field
  *   Field API field definition array of MVF field
  * @param array $instance
  *   Field API instance definition array of MVF field
- * @param string $view_mode
- *   Optional name of the view mode. If you want to retrieve unit suggesters for
- *   a specific view mode of a MVF instance, then provide this view mode here.
- *   If it is omitted, a list of generally configured unit suggesters for this
- *   MVF instance will be returned
+ * @param array $display
+ *   Field API display definition array of MVF field from necessary view mode
  *
  * @return array
  *   Array of information about available unit suggesters and their settings for
@@ -1625,34 +1628,24 @@ function theme_mvf_unit_suggesters_settings($vars) {
  *     - weight: (int) Weight (priority) at which this unit suggester should be
  *       asked to suggest output unit for provided $field and $instance
  *     - ... Different unit suggesters might keep any additional settings here,
- *       which varies on per unit suggester basis
+ *       which vary on per unit suggester basis
  */
-function mvf_unit_suggesters_info($field, $instance, $view_mode = NULL) {
+function mvf_unit_suggesters_info($measure, $field, $instance, $display) {
   $unit_suggester_info = array();
   $plugins = mvf_get_unit_suggester();
-  $measure = mvf_measure_extract($field);
-
-  $unit_suggester_settings = $instance['settings']['mvf']['unit_suggesters_settings'];
-  if ($view_mode && isset($instance['display'][$view_mode]['settings']['mvf']['override']) && $instance['display'][$view_mode]['settings']['mvf']['override']) {
-    $unit_suggester_settings = $instance['display'][$view_mode]['settings']['mvf']['unit_suggesters_settings'];
-  }
 
   foreach ($plugins as $plugin) {
     if ($plugin['applicable callback'] !== TRUE) {
       $function = ctools_plugin_get_function($plugin, 'applicable callback');
-      $is_applicable = $function && $function($measure, $field, $instance, $plugin);
+      $is_applicable = $function && $function($measure, $field, $instance);
     }
     else {
       $is_applicable = TRUE;
     }
     if ($is_applicable) {
-      $settings = isset($unit_suggester_settings[mvf_unit_suggesters_settings_name($plugin)]) ? $unit_suggester_settings[mvf_unit_suggesters_settings_name($plugin)]: array(
-        'enable' => FALSE,
-        'weight' => 0,
-      );
       $unit_suggester_info[] = array(
         'plugin' => $plugin,
-        'settings' => $settings,
+        'settings' => mvf_unit_suggesters_settings_extract($display, $plugin),
       );
     }
   }
@@ -1664,45 +1657,7 @@ function mvf_unit_suggesters_info($field, $instance, $view_mode = NULL) {
 }
 
 /**
- * Collect information about a single unit suggester and its settings.
- *
- * @param array $plugin
- *   cTools plugin definition of the unit suggester that should be retrieved
- * @param array $field
- *   Field definition array of the MVF field from which to retrieve the
- *   information
- * @param array $instance
- *   Field instance definition array of the MVF instance from which to retrieve
- *   the information
- * @param string $view_mode
- *   Particular view mode for which to retrieve the information. You may omit
- *   this argument and the unit suggester info will be retrieved from general
- *   MVF instance settings
- *
- * @return array
- *   Array of information about the settings of the requested unit suggester. It
- *   will have the following structure:
- *   - enable: (bool) whether it is enabled
- *   - weight: (int) weight of the unit suggester compared to other unit
- *     suggesters
- *   - ... Different unit suggesters might keep any additional settings here,
- *     which varies on per unit suggester basis
- */
-function mvf_unit_suggester_info($plugin, $field, $instance, $view_mode = NULL) {
-  $plugin_name = mvf_unit_suggesters_settings_name($plugin);
-
-  $unit_suggester_settings = $instance['settings']['mvf']['unit_suggesters_settings'];
-  if ($view_mode && isset($instance['display'][$view_mode]['settings']['mvf']['override']) && $instance['display'][$view_mode]['settings']['mvf']['override']) {
-    $unit_suggester_settings = $instance['display'][$view_mode]['settings']['mvf']['unit_suggesters_settings'];
-  }
-  return isset($unit_suggester_settings[$plugin_name]) ? $unit_suggester_settings[$plugin_name] : array(
-    'enable' => FALSE,
-    'weight' => 0,
-  );
-}
-
-/**
- * Retrieve information about a cTools plugin of MVF unit suggester type.
+ * Retrieve information about a ctools plugin - MVF unit suggester.
  *
  * @param string $suggester
  *   Name of a particular unit suggester plugin to return. If skipped, an array
@@ -1716,6 +1671,21 @@ function mvf_unit_suggester_info($plugin, $field, $instance, $view_mode = NULL) 
 function mvf_get_unit_suggester($suggester = NULL) {
   ctools_include('plugins');
   return ctools_get_plugins('mvf', 'unit_suggesters', $suggester);
+}
+
+/**
+ * Extract settings for a specific unit suggester from a display.
+ *
+ * @param array $display
+ *   Field API display definition array, from which to extract settings
+ * @param array $unit_suggester
+ *   CTools unit_suggester plugin, whose settings should be extracted
+ *
+ * @return array
+ *   Array of settings for a specific unit suggester from a display
+ */
+function mvf_unit_suggesters_settings_extract($display, $unit_suggester) {
+  return isset($display['settings']['mvf']['unit_suggesters_settings'][mvf_unit_suggesters_settings_name($unit_suggester)]) ? $display['settings']['mvf']['unit_suggesters_settings'][mvf_unit_suggesters_settings_name($unit_suggester)] : NULL;
 }
 
 /**
@@ -1795,7 +1765,6 @@ function mvf_field_widget_unit_options_validate($element, &$form_state) {
  *   delivery callback, which is normally ajax_deliver()
  */
 function mvf_ajax($type, $entity_type, $bundle, $field_name, $subfield) {
-  // TODO: is it possible to implement it without custom AJAX menu path?
   list($form, $form_state) = ajax_get_form();
   drupal_process_form($form['#form_id'], $form, $form_state);
   switch ($type) {
@@ -1820,7 +1789,7 @@ function mvf_field_widget_validate_value_form_state_mockup_override($element, &$
   // Extracting field state from $form_state.
   $field_state = field_form_get_state($element['#field_parents'], $element['#field_name'], $element['#language'], $form_state);
   if (is_null($field_state)) {
-    // This validation callback is called probably from views filter. So we have
+    // This valdiation callback is called probably from views filter. So we have
     // to mimic $field_state on the fly.
     $field_state = array(
       'field' => field_info_field($element['#field_name']),
@@ -1984,74 +1953,4 @@ function mvf_entity_property_converted_get($data, array $options, $name, $type, 
   $to = $units[$info['mvf target unit']];
   $to = entity_id($to->entityType(), $to);
   return units_convert($data[mvf_subfield_to_column('value')], $from, $to);
-}
-
-/**
- * Request a suggested unit on a particular items of MVF field.
- *
- * @param array $items
- *   Array of items for which to get a suggested unit
- * @param array $field
- *   Field definition array of the field for which to get a suggested unit. This
- *   field must be of MVF types, of course
- * @param array $instance
- *   Field instance definition array that corresponds to $field
- * @param object $entity
- *   Fully loaded entity for which to get a suggested unit
- * @param string $view_mode
- *   If you want to retrieve unit suggestion on a specific view mode of the
- *   provided MVF field, then provide it here. You may skip this argument and
- *   then suggested unit will be based on general MVF instance settings
- * @param array $skip_suggestions
- *   In case you want to explicitly ignore some suggestions, provide them here
- *   and the function will not consider them. You can supply here specific IDs
- *   of 'units_unit' entities. However, the most useful elements of this array
- *   would be the constants MVF_UNIT_*
- *
- * @return int
- *   Suggested unit for the provided input arguments. It will be either ID of
- *   'units_unit' entity or any constant of MVF_UNIT_*
- */
-function mvf_unit_suggest($items, $field, $instance, $entity, $view_mode = NULL, $skip_suggestions = array()) {
-  $skip_suggestions[] = MVF_UNIT_UNKNOWN;
-  $unit_suggesters = mvf_unit_suggesters_info($field, $instance, $view_mode);
-  $output_unit = MVF_UNIT_UNKNOWN;
-  foreach ($unit_suggesters as $v) {
-    if ($v['settings']['enable'] && $function = ctools_plugin_get_function($v['plugin'], 'suggest unit callback')) {
-      $output_unit = $function($items, $field, $instance, $entity, $instance['entity_type'], $v['settings'], $v['plugin']);
-      if (!in_array($output_unit, $skip_suggestions)) {
-        break;
-      }
-    }
-  }
-  return $output_unit;
-}
-
-/**
- * Form API process function for 'mvf_unit_suggester' form element.
- */
-function _mvf_unit_suggester_process($element) {
-  $measure = mvf_measure_extract($element['#field']);
-  foreach (mvf_unit_suggesters_info($element['#field'], $element['#instance'], $element['#view_mode']) as $info) {
-    $unit_suggester_settings_name = mvf_unit_suggesters_settings_name($info['plugin']);
-    // Letting unit suggester provide some configuration form elements of its
-    // own.
-    $function = ctools_plugin_get_function($info['plugin'], 'settings form callback');
-    if ($function) {
-      $element[$unit_suggester_settings_name] = $function($measure, $element['#field'], $element['#instance'], $info['settings'], $info['plugin']);
-    }
-
-    $element[$unit_suggester_settings_name]['weight'] = array(
-      '#type' => 'weight',
-      '#title' => t('Weight'),
-      '#default_value' => $info['settings']['weight'],
-    );
-
-    $element[$unit_suggester_settings_name]['enable'] = array(
-      '#type' => 'checkbox',
-      '#title' => $info['plugin']['title'],
-      '#default_value' => $info['settings']['enable'],
-    );
-  }
-  return $element;
 }
