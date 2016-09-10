@@ -109,7 +109,9 @@ El proceso de testeo sería el siguiente:
 
 ### Traducir
 
-Explicar cómo funciona el proceso de traducción.
+Dado que esta versión de cadáveres inmobiliarios es multilingüe será multilingüe, aquí hay mucho trabajo por realizar. Solo es necesario conocer el idioma.
+
+En [esta guía de traducción](https://github.com/cadaveresinmob/c_inmobiliarios/wiki/Manuales:-C%C3%B3mo-traducir) de la wiki se detalla el proceso de traducción.
 
 ### Documentar
 
