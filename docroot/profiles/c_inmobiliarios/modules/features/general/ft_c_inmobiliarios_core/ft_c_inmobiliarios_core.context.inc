@@ -26,23 +26,11 @@ function ft_c_inmobiliarios_core_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'system-main-menu' => array(
-          'module' => 'system',
-          'delta' => 'main-menu',
-          'region' => 'sidebar',
-          'weight' => '-10',
-        ),
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
-          'region' => 'sidebar',
-          'weight' => '-9',
-        ),
         'user-login' => array(
           'module' => 'user',
           'delta' => 'login',
-          'region' => 'sidebar',
-          'weight' => '-8',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
         ),
         'system-powered-by' => array(
           'module' => 'system',
