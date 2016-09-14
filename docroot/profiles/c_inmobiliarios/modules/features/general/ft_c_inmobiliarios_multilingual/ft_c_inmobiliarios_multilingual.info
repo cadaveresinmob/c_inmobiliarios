@@ -1,0 +1,14 @@
+name = Cadáveres inmobiliarios Multilingual
+description = Multilingual configuration
+core = 7.x
+package = Cadáveres Inmobiliarios
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = ft_c_inmobiliarios_core
+dependencies[] = l10n_client
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[user_permission][] = use on-page translation
+features[variable][] = jquery_update_jquery_version
+project path = profiles/c_inmobiliarios/modules/features/general
