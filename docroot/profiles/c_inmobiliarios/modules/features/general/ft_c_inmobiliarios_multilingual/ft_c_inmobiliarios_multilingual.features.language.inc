@@ -21,7 +21,7 @@ function ft_c_inmobiliarios_multilingual_locale_default_languages() {
     'formula' => '($n>1)',
     'domain' => '',
     'prefix' => 'ca',
-    'weight' => 0,
+    'weight' => -9,
   );
   // Exported language: eu.
   $languages['eu'] = array(
@@ -34,7 +34,7 @@ function ft_c_inmobiliarios_multilingual_locale_default_languages() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'eu',
-    'weight' => 0,
+    'weight' => -8,
   );
   // Exported language: gl.
   $languages['gl'] = array(
@@ -47,7 +47,7 @@ function ft_c_inmobiliarios_multilingual_locale_default_languages() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'gl',
-    'weight' => 0,
+    'weight' => -6,
   );
   return $languages;
 }
