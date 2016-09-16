@@ -27,7 +27,8 @@ function ft_c_inmobiliarios_services_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Title */
@@ -61,6 +62,15 @@ function ft_c_inmobiliarios_services_views_default_views() {
   $handler->display->display_options['fields']['city']['id'] = 'city';
   $handler->display->display_options['fields']['city']['table'] = 'getlocations_fields';
   $handler->display->display_options['fields']['city']['field'] = 'city';
+  /* Field: Getlocations Fields: Postal Code */
+  $handler->display->display_options['fields']['postal_code']['id'] = 'postal_code';
+  $handler->display->display_options['fields']['postal_code']['table'] = 'getlocations_fields';
+  $handler->display->display_options['fields']['postal_code']['field'] = 'postal_code';
+  $handler->display->display_options['fields']['postal_code']['label'] = 'Postal code';
+  /* Field: Getlocations Fields: Province */
+  $handler->display->display_options['fields']['province']['id'] = 'province';
+  $handler->display->display_options['fields']['province']['table'] = 'getlocations_fields';
+  $handler->display->display_options['fields']['province']['field'] = 'province';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -92,17 +102,12 @@ function ft_c_inmobiliarios_services_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
     t('promoter'),
     t('lat'),
     t('lon'),
     t('City'),
+    t('Postal code'),
+    t('Province'),
     t('Services'),
   );
   $export['c_inmobiliarios_services'] = $view;

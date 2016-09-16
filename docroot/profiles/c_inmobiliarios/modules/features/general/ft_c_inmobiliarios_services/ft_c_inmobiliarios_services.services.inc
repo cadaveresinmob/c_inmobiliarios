@@ -19,7 +19,16 @@ function ft_c_inmobiliarios_services_default_services_endpoint() {
   $endpoint->authentication = array();
   $endpoint->server_settings = array();
   $endpoint->resources = array(
+    'cadaveres-lista' => array(
+      'alias' => 'cadaveres-lista',
+      'operations' => array(
+        'index' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'lista-general' => array(
+      'alias' => 'corpses',
       'operations' => array(
         'index' => array(
           'enabled' => '1',
