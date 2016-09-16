@@ -21,7 +21,7 @@ function ft_c_inmobiliarios_core_locale_default_languages() {
     'formula' => '',
     'domain' => '',
     'prefix' => 'en',
-    'weight' => 0,
+    'weight' => -7,
   );
   // Exported language: es.
   $languages['es'] = array(
@@ -34,7 +34,7 @@ function ft_c_inmobiliarios_core_locale_default_languages() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'es',
-    'weight' => 0,
+    'weight' => -10,
   );
   return $languages;
 }
