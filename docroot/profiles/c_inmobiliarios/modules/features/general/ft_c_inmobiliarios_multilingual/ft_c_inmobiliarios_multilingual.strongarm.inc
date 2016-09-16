@@ -38,8 +38,8 @@ function ft_c_inmobiliarios_multilingual_strongarm() {
     'formula' => '($n!=1)',
     'domain' => '',
     'prefix' => 'es',
-    'weight' => '0',
-    'javascript' => 'QsS8AcSAlLRvo08X6VjWgMNyrgALACy5IW--hNId8No',
+    'weight' => '-10',
+    'javascript' => '',
   );
   $export['language_default'] = $strongarm;
 
