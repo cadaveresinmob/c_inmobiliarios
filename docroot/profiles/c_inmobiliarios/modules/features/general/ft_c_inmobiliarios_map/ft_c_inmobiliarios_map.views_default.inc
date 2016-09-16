@@ -86,6 +86,13 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['header']['result']['table'] = 'views';
   $handler->display->display_options['header']['result']['field'] = 'result';
   $handler->display->display_options['header']['result']['content'] = 'We have @total urban corpses in our database';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'This search did not provide any result. Please broaden your filters or try to make a different search.';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -189,6 +196,16 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler->display->display_options['filters']['field_corpse_status_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_corpse_status_tid']['vocabulary'] = 'corpse_status';
   $handler->display->display_options['filters']['field_corpse_status_tid']['hierarchy'] = 1;
+  /* Filter criterion: Getlocations Fields: Latitude */
+  $handler->display->display_options['filters']['latitude']['id'] = 'latitude';
+  $handler->display->display_options['filters']['latitude']['table'] = 'getlocations_fields';
+  $handler->display->display_options['filters']['latitude']['field'] = 'latitude';
+  $handler->display->display_options['filters']['latitude']['operator'] = '!=';
+  /* Filter criterion: Getlocations Fields: Longitude */
+  $handler->display->display_options['filters']['longitude']['id'] = 'longitude';
+  $handler->display->display_options['filters']['longitude']['table'] = 'getlocations_fields';
+  $handler->display->display_options['filters']['longitude']['field'] = 'longitude';
+  $handler->display->display_options['filters']['longitude']['operator'] = '!=';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -211,6 +228,7 @@ function ft_c_inmobiliarios_map_views_default_views() {
   $handler = $view->new_display('attachment', 'Map Attachment', 'attachment_1');
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['displays'] = array(
     'page' => 'page',
     'default' => 0,
@@ -321,6 +339,16 @@ function ft_c_inmobiliarios_map_views_default_views() {
     'corpse' => 'corpse',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Getlocations Fields: Latitude */
+  $handler->display->display_options['filters']['latitude']['id'] = 'latitude';
+  $handler->display->display_options['filters']['latitude']['table'] = 'getlocations_fields';
+  $handler->display->display_options['filters']['latitude']['field'] = 'latitude';
+  $handler->display->display_options['filters']['latitude']['operator'] = '!=';
+  /* Filter criterion: Getlocations Fields: Longitude */
+  $handler->display->display_options['filters']['longitude']['id'] = 'longitude';
+  $handler->display->display_options['filters']['longitude']['table'] = 'getlocations_fields';
+  $handler->display->display_options['filters']['longitude']['field'] = 'longitude';
+  $handler->display->display_options['filters']['longitude']['operator'] = '!=';
   $handler->display->display_options['block_description'] = 'All corpses\' map';
   $handler->display->display_options['block_caching'] = '8';
   $translatables['urban_corpses_map'] = array(
@@ -340,6 +368,7 @@ function ft_c_inmobiliarios_map_views_default_views() {
     t('next ›'),
     t('last »'),
     t('We have @total urban corpses in our database'),
+    t('This search did not provide any result. Please broaden your filters or try to make a different search.'),
     t('Coordinates'),
     t('Latitude'),
     t('Longitude'),
