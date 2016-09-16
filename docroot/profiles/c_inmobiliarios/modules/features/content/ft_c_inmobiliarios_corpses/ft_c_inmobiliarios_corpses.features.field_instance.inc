@@ -676,7 +676,10 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => '<ul>
+    <li><b>Desenterrado</b> para los cadáveres que solo contuvieran una localización y/o nombre y no hayan sido confirmados por un editor.</li>
+    <li><b>Adoptado</b> para aquellos donde los usuarios hubieran aportado más información.</li>
+</ul>',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -931,7 +934,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Campo usado inicialmente para clasificar quién aportaba la información, esto es, quién "adoptaba" ese cadáver. <br>
+Desde que estamos en este nuevo sistema wiki, se podrá seguir quien aportada información. Un mismo cadáver tendrá múltiples adoptadores.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2278,7 +2282,19 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
     'bundle' => 'corpse',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Esta clasificación corresponde con la tipología del cadáver en relacion a la posición con el entorno.
+<ul>
+    <li>DEN - Desarrollo ligado a espacios naturales. Los atractores y prestigiadores son oportunidades de ocio existentes en espacios naturales como playas, montañas o vistas singulares.</li>
+    <li>DEO - Desarrollo ligado a instalaciones de ocio. Polaridades en las que los atractores y prestigiadores son equipamientos de ocio a construir, como golf, parques temáticos o neo-balnearios.</li>
+    <li>NEU - Nueva entidad urbana. Operaciones urbanas de nueva implantación, alejadas de equipamientos básicos existentes.</li>
+    <li>NOE - Nuevo desarrollo urbano. Grandes urbanos mayoritariamente residenciales, planeados en contigüidad con áreas urbanas existentes y equipadas.</li>
+    <li>TEA - Terciario aislado. Nuevas zonas de terciario vinculadas únicamente a infraestructuras de transporte.</li>
+    <li>TIA - Infraestructuras de impacto territorial. De transporte, cultura, sanitarias, etc. de transporte.</li>
+    <li>ZIA - Zona industrial aislada. Nuevas zonas industriales vinculadas únicamente a infraestrucutras de transporte.</li>
+    <li>TEP - Terciario vinculado a población. Nuevas zonas de terciario ligadas a núcleos de población existentes.</li>
+    <li>ZIP - Zona industrial vinculada a población. Nuevas zonas industriales ligadas a núcleos de población existentes.</li>
+</ul>
+',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -4571,6 +4587,10 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('<ul>
+    <li><b>Desenterrado</b> para los cadáveres que solo contuvieran una localización y/o nombre y no hayan sido confirmados por un editor.</li>
+    <li><b>Adoptado</b> para aquellos donde los usuarios hubieran aportado más información.</li>
+</ul>');
   t('Address');
   t('Agreement date');
   t('Approved equipments');
@@ -4582,6 +4602,8 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Building permit technician');
   t('Building typology');
   t('Built area');
+  t('Campo usado inicialmente para clasificar quién aportaba la información, esto es, quién "adoptaba" ese cadáver. <br>
+Desde que estamos en este nuevo sistema wiki, se podrá seguir quien aportada información. Un mismo cadáver tendrá múltiples adoptadores.');
   t('City\'s INE Code');
   t('Commercial plots');
   t('Contractor');
@@ -4599,6 +4621,19 @@ function ft_c_inmobiliarios_corpses_field_default_field_instances() {
   t('Environment\'s protection entity');
   t('Equipment plots');
   t('Es es nombre que recibe el cadáver en el planeamiento urbanístico. La información de puede obtener del planeamiento municipal vigente o de los archivos urbanísticos municipales.');
+  t('Esta clasificación corresponde con la tipología del cadáver en relacion a la posición con el entorno.
+<ul>
+    <li>DEN - Desarrollo ligado a espacios naturales. Los atractores y prestigiadores son oportunidades de ocio existentes en espacios naturales como playas, montañas o vistas singulares.</li>
+    <li>DEO - Desarrollo ligado a instalaciones de ocio. Polaridades en las que los atractores y prestigiadores son equipamientos de ocio a construir, como golf, parques temáticos o neo-balnearios.</li>
+    <li>NEU - Nueva entidad urbana. Operaciones urbanas de nueva implantación, alejadas de equipamientos básicos existentes.</li>
+    <li>NOE - Nuevo desarrollo urbano. Grandes urbanos mayoritariamente residenciales, planeados en contigüidad con áreas urbanas existentes y equipadas.</li>
+    <li>TEA - Terciario aislado. Nuevas zonas de terciario vinculadas únicamente a infraestructuras de transporte.</li>
+    <li>TIA - Infraestructuras de impacto territorial. De transporte, cultura, sanitarias, etc. de transporte.</li>
+    <li>ZIA - Zona industrial aislada. Nuevas zonas industriales vinculadas únicamente a infraestrucutras de transporte.</li>
+    <li>TEP - Terciario vinculado a población. Nuevas zonas de terciario ligadas a núcleos de población existentes.</li>
+    <li>ZIP - Zona industrial vinculada a población. Nuevas zonas industriales ligadas a núcleos de población existentes.</li>
+</ul>
+');
   t('Filed appeals');
   t('Financial entities');
   t('Floor Area Ratio');
