@@ -38,6 +38,7 @@ features[field_base][] = comment_body
 features[language][] = en
 features[language][] = es
 features[menu_custom][] = main-menu
+features[menu_links][] = main-menu_aadir-cadver-inmobiliario:node/add/corpse
 features[menu_links][] = main-menu_add-urban-corpse:node/add/corpse
 features[menu_links][] = main-menu_contact:contact
 features[user_permission][] = access administration pages
