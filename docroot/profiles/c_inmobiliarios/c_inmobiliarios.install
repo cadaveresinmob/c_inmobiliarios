@@ -132,7 +132,6 @@ function c_inmobiliarios_enable_default_modules() {
     'ft_c_inmobiliarios_feeds_csv',
     'ft_c_inmobiliarios_home',
     'ft_c_inmobiliarios_map',
-    'ft_c_inmobiliarios_multilingual',
     'ft_c_inmobiliarios_services',
     'ft_wysiwyg',
   );

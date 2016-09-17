@@ -14,7 +14,7 @@ function ft_c_inmobiliarios_core_menu_default_menu_links() {
   $menu_links['main-menu_aadir-cadver-inmobiliario:node/add/corpse'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/add/corpse',
-    'router_path' => 'node/add/corpse',
+    'router_path' => 'node/add',
     'link_title' => 'Añadir cadáver inmobiliario',
     'options' => array(
       'attributes' => array(
@@ -37,7 +37,7 @@ function ft_c_inmobiliarios_core_menu_default_menu_links() {
   $menu_links['main-menu_add-urban-corpse:node/add/corpse'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'node/add/corpse',
-    'router_path' => 'node/add/corpse',
+    'router_path' => 'node/add',
     'link_title' => 'Add urban corpse',
     'options' => array(
       'attributes' => array(

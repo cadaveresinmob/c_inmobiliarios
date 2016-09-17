@@ -101,6 +101,15 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'administer content translations'.
+  $permissions['administer content translations'] = array(
+    'name' => 'administer content translations',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'i18n_node',
+  );
+
   // Exported permission: 'administer content types'.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
@@ -108,6 +117,15 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'administer languages'.
+  $permissions['administer languages'] = array(
+    'name' => 'administer languages',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'locale',
   );
 
   // Exported permission: 'administer nodes'.
@@ -283,6 +301,54 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'submit translations to localization server'.
+  $permissions['submit translations to localization server'] = array(
+    'name' => 'submit translations to localization server',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'l10n_client',
+  );
+
+  // Exported permission: 'translate admin strings'.
+  $permissions['translate admin strings'] = array(
+    'name' => 'translate admin strings',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'i18n_string',
+  );
+
+  // Exported permission: 'translate content'.
+  $permissions['translate content'] = array(
+    'name' => 'translate content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'translator' => 'translator',
+    ),
+    'module' => 'translation',
+  );
+
+  // Exported permission: 'translate interface'.
+  $permissions['translate interface'] = array(
+    'name' => 'translate interface',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'translator' => 'translator',
+    ),
+    'module' => 'locale',
+  );
+
+  // Exported permission: 'translate user-defined strings'.
+  $permissions['translate user-defined strings'] = array(
+    'name' => 'translate user-defined strings',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'translator' => 'translator',
+    ),
+    'module' => 'i18n_string',
+  );
+
   // Exported permission: 'use advanced search'.
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
@@ -291,6 +357,16 @@ function ft_c_inmobiliarios_core_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'search',
+  );
+
+  // Exported permission: 'use on-page translation'.
+  $permissions['use on-page translation'] = array(
+    'name' => 'use on-page translation',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'translator' => 'translator',
+    ),
+    'module' => 'l10n_client',
   );
 
   // Exported permission: 'view own unpublished content'.

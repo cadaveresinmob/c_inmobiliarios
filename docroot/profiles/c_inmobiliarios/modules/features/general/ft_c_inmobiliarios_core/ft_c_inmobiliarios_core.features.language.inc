@@ -36,5 +36,31 @@ function ft_c_inmobiliarios_core_locale_default_languages() {
     'prefix' => 'es',
     'weight' => -10,
   );
+  // Exported language: eu.
+  $languages['eu'] = array(
+    'language' => 'eu',
+    'name' => 'Basque',
+    'native' => 'Euskera',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 2,
+    'formula' => '($n!=1)',
+    'domain' => '',
+    'prefix' => 'eu',
+    'weight' => 0,
+  );
+  // Exported language: gl.
+  $languages['gl'] = array(
+    'language' => 'gl',
+    'name' => 'Galician',
+    'native' => 'Galego',
+    'direction' => 0,
+    'enabled' => 1,
+    'plurals' => 2,
+    'formula' => '($n!=1)',
+    'domain' => '',
+    'prefix' => 'gl',
+    'weight' => 0,
+  );
   return $languages;
 }
