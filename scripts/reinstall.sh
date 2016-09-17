@@ -13,13 +13,13 @@ if ! [ -z "$1" ] ; then
 fi
 
 drush si c_inmobiliarios -y --account-name=admin --account-pass=admin --site-name="Cadáveres Inmobiliarios" --site-mail=admin@example.com
-drush devify --yes
+# drush devify --yes
 
-drush rap 'anonymous user' 'access devel information'
-drush rap 'authenticated user' 'access devel information'
+#drush rap 'anonymous user' 'access devel information'
+#drush rap 'authenticated user' 'access devel information'
 
 #drush mi --group=migrate_default_content
-drush views-dev
+#drush views-dev
 
 #drush l10n-update-refresh
 #drush l10n-update
