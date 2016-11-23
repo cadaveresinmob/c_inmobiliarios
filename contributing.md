@@ -1,4 +1,4 @@
-# Contribuyendo a Cadáveres inmobiliarios
+# Formas de colaborar con Cadáveres inmobiliarios
 
 Si estás leyendo este documento es que te estás planteando colaborar de forma activa con Cadáveres inmobiliarios, así que antes que nada ¡Muchas gracias por echarnos una mano! :tada:
 
