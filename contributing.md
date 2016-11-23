@@ -29,6 +29,8 @@ Tienes más información en la página oficial:
 
 ## Información técnica
 
+Esta información es útil para quienes quieran participar tocando el código. Si no quieres o sabes programar, puedes ignorar esta sección y pasar directamente a conocer las distintas [formas de participar](#formas-de-participar)
+
 ### Sobre la web
 
 A nivel técnico, la web es una [distribución de drupal](https://www.drupal.org/documentation/build/distributions) en su [versión 7](http://drupal.org) que incluye todo lo necesario para ser instalada y funcionar. Actualmente cumple con los siguientes requisitos:
