@@ -99,7 +99,7 @@ Si deseas estar al corriente de las últimas conversaciones y participar en la t
 
 El proceso de testeo sería el siguiente:
 
-1. Accede a la web de pruebas: http://new.cadaveresinmobiliarios.org
+1. Accede a la web de pruebas: http://dev.cadaveresinmobiliarios.org
 1. Utiliza la web normalmente o como crees que la podría utilizar otra persona. Si detectas algún problema o aspecto mejorable pasa al punto siguiente.
 1. Abrir una issue en github (leer las [directrices](#crear-issues)) teniendo en cuenta que:
   * si es un problema:
